@@ -1,0 +1,26 @@
+.unused-images-logs {
+    margin-bottom: 13px;
+    margin-top: 5px;
+    max-height: 60vh;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.unused-images-center-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unused-images-excluded {
+    margin-bottom: 13px;
+}
+
+.unused-images-excluded > summary {
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.unused-images-excluded .unused-images-logs {
+    max-height: 30vh;
+}

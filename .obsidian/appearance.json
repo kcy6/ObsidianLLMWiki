@@ -1,0 +1,13 @@
+{
+  "theme": "system",
+  "cssTheme": "Blue Topaz",
+  "showViewHeader": true,
+  "showRibbon": true,
+  "nativeMenus": true,
+  "accentColor": "",
+  "baseFontSizeAction": true,
+  "baseFontSize": 17,
+  "interfaceFontFamily": "Segoe UI Variable Text",
+  "textFontFamily": "Noto Sans SC",
+  "monospaceFontFamily": "Consolas"
+}

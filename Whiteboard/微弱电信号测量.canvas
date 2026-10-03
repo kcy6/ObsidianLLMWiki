@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"a9ce03a71d661328","type":"text","text":"激励/调制模块(光源调制/信号载波)","x":-340,"y":-420,"width":250,"height":60},
+		{"id":"ca2149a61a4f50ce","type":"text","text":"锁相参考输入模块，同步参考信号","x":80,"y":-420,"width":250,"height":60},
+		{"id":"83dd9138db264094","type":"text","text":"被测对象(光电管/霍尔片等)","x":-340,"y":-260,"width":250,"height":60},
+		{"id":"bf572fcb0f4fc03e","type":"text","text":"微弱电压前端(仪表放大器)","x":-500,"y":-120,"width":250,"height":60},
+		{"id":"ef6306bc87f11621","type":"text","text":"微弱电流前端(跨阻放大器)","x":-215,"y":-120,"width":250,"height":60},
+		{"id":"28846d0a0534fc6e","type":"text","text":"模拟滤波模块","x":-340,"y":60,"width":250,"height":60},
+		{"id":"846bc0cfb53cd322","type":"text","text":"ADC采样模块","x":-340,"y":195,"width":250,"height":60},
+		{"id":"8d3eec3fb41c8399","type":"text","text":"数字锁相/平均处理\nMCU/上位机实现","x":-340,"y":340,"width":250,"height":88},
+		{"id":"16649779bfc5d699","type":"text","text":"显示/记录/分析模块","x":-340,"y":500,"width":250,"height":60},
+		{"id":"b7151516621d1d85","type":"text","text":"参考信号发生器(方波/正弦，f0)","x":-120,"y":-580,"width":250,"height":50}
+	],
+	"edges":[
+		{"id":"f0e9e6cfa64bfb34","fromNode":"b7151516621d1d85","fromSide":"bottom","toNode":"a9ce03a71d661328","toSide":"top"},
+		{"id":"df3348da1ff15391","fromNode":"b7151516621d1d85","fromSide":"bottom","toNode":"ca2149a61a4f50ce","toSide":"top"},
+		{"id":"f5d92201cc363eb6","fromNode":"a9ce03a71d661328","fromSide":"bottom","toNode":"83dd9138db264094","toSide":"top"},
+		{"id":"e3387556937374b5","fromNode":"83dd9138db264094","fromSide":"bottom","toNode":"bf572fcb0f4fc03e","toSide":"top"},
+		{"id":"6177f941d6cd8905","fromNode":"83dd9138db264094","fromSide":"bottom","toNode":"ef6306bc87f11621","toSide":"top"},
+		{"id":"329901a1fadb38ef","fromNode":"ef6306bc87f11621","fromSide":"bottom","toNode":"28846d0a0534fc6e","toSide":"top"},
+		{"id":"abf73d8afef4bf63","fromNode":"bf572fcb0f4fc03e","fromSide":"bottom","toNode":"28846d0a0534fc6e","toSide":"top"},
+		{"id":"010ec21f343b4f39","fromNode":"28846d0a0534fc6e","fromSide":"bottom","toNode":"846bc0cfb53cd322","toSide":"top"},
+		{"id":"d2cb858c2e002e13","fromNode":"846bc0cfb53cd322","fromSide":"bottom","toNode":"8d3eec3fb41c8399","toSide":"top"},
+		{"id":"8420db75df8e59e9","fromNode":"8d3eec3fb41c8399","fromSide":"bottom","toNode":"16649779bfc5d699","toSide":"top"},
+		{"id":"079fb676c7d74cec","fromNode":"ca2149a61a4f50ce","fromSide":"bottom","toNode":"846bc0cfb53cd322","toSide":"right"}
+	]
+}

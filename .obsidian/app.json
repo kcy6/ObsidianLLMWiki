@@ -1,0 +1,26 @@
+{
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "附件",
+  "showUnsupportedFiles": true,
+  "newFileLocation": "current",
+  "newFileFolderPath": "notes",
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "vimMode": true,
+  "showLineNumber": false,
+  "settingsPopoutWindow": true,
+  "showInlineTitle": true,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "foldHeading": true,
+  "useMarkdownLinks": false,
+  "rightToLeft": false,
+  "spellcheck": false,
+  "useTab": false
+}

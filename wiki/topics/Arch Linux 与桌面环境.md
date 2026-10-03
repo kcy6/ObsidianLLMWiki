@@ -1,0 +1,34 @@
+---
+type: topic
+status: draft
+updated: 2026-10-03
+sources:
+  - sources/Shorin-ArchLinux-Guide/README.md
+  - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
+  - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装Niri.md
+  - sources/Shorin-ArchLinux-Guide/wiki/archlinux/快照和系统维护.md
+  - notes/ArchLinux.md
+  - Fedora桌面配置相关/Fedora Minimal+Niri+DMS.md
+---
+
+# Arch Linux 与桌面环境
+
+## 当前资料怎样分工
+
+- [[sources/Shorin-ArchLinux-Guide/README|Shorin 教程总入口]] 是外部教程地图。其 Arch 部分按安装、桌面前准备、显卡、维护、桌面环境、输入法等主题分章。它作为子模块保留了上游目录和修订历史。
+- [[notes/ArchLinux|自己的 Arch Linux 笔记]] 把安装、软件源、快照、Niri 与 DMS 等经验写在同一篇里，适合核对自己曾采用的方案和遇到的问题。
+- [[Fedora桌面配置相关/Fedora Minimal+Niri+DMS|Fedora Minimal + Niri + DMS]] 记录另一套系统上的桌面实际配置。关于 Niri 的知识可以关联阅读；发行版的软件安装命令、源与系统服务须分别判断。
+
+## 学习路线
+
+1. 从 [[wiki/guides/Arch Linux 安装资料阅读路线|安装资料阅读路线]] 了解安装方案及风险点，再进入 Shorin 的[[sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux#重要概念讲解|概念章节]]与[[sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux#手动安装|操作章节]]。
+2. 基础系统可启动后，阅读[[sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装桌面环境前的准备|桌面前准备]]。个人笔记相同主题可能反映自己的选择，不自动视为上游教程的最新版本。
+3. 若选 Btrfs 和 GRUB，再研究[[sources/Shorin-ArchLinux-Guide/wiki/archlinux/快照和系统维护|快照与维护]]。教程中的回档步骤依赖具体分区与启动布局，须先确认本机布局。
+4. 桌面阶段从[[sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装Niri|Shorin 的 Niri 教程]]和[[Fedora桌面配置相关/Fedora Minimal+Niri+DMS|Fedora 实践记录]]对照；跨发行版复用要看[[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|配置复用问题]]。
+
+## 目前的知识缺口
+
+- 自己的 Arch 安装笔记与子模块教程有较多同类步骤；尚未逐项比对分区、ESP、引导、包来源与快照策略。
+- 子模块更新后需要重新核对命令和章节位置。执行系统命令前，应以当前官方文档和本机状态为准。
+
+相关：[[wiki/index|知识库首页]] · [[wiki/sources|来源台账]]

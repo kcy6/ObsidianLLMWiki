@@ -1,0 +1,3 @@
+[submodule "sources/Shorin-ArchLinux-Guide"]
+	path = sources/Shorin-ArchLinux-Guide
+	url = https://github.com/SHORiN-KiWATA/Shorin-ArchLinux-Guide.git

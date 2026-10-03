@@ -1,0 +1,15 @@
+{
+  "deleteOption": "trash",
+  "logsModal": true,
+  "excludedFolders": "",
+  "excludedExtensions": "",
+  "ribbonIcon": true,
+  "excludeSubfolders": false,
+  "autoCleanOnVaultLoad": false,
+  "autoCleanEveryXMinutes": false,
+  "autoCleanIntervalMinutes": 15,
+  "clearEmptyFoldersAfterImageCleanup": false,
+  "reviewImageFolderCleanup": true,
+  "imageFolderRules": "",
+  "attachmentFolderSuffixes": ""
+}
