@@ -263,15 +263,15 @@
     "expandedKeys": [],
     "cursor": {
       "from": {
-        "line": 51,
-        "ch": 17
+        "line": 55,
+        "ch": 0
       },
       "to": {
-        "line": 51,
-        "ch": 17
+        "line": 55,
+        "ch": 0
       }
     },
-    "scroll": 12.938799563977618
+    "scroll": 31.161614961917852
   },
   "notes/Google搜索.md": {
     "expandedKeys": [],
@@ -757,7 +757,17 @@
     "expandedKeys": [
       "item-1-0"
     ],
-    "scroll": 12.311688509854404
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 14,
+        "ch": 257
+      },
+      "to": {
+        "line": 14,
+        "ch": 257
+      }
+    }
   },
   "wiki/topics/Arch Linux 与桌面环境.md": {
     "expandedKeys": [

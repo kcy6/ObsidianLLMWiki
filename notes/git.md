@@ -1,41 +1,40 @@
-
-
-
-
-## 修改提交的描述信息
-
+## 快速上手
 ```bash
-#修改最近一次的提交信息(可通过git log查看)
-git commit --amend -m "新的提交备注"
-git log --oneline查看当前分支有多少次提交
-git rebase -i HEAD~3数字从上往下数要改第几个填几
-#随后将打开的编辑器pick修改为reword保存后可以修改描述信息
-git push origin master --force #强制推送到远程
-```
+#本地生成ssh密钥-C 设置注释文字，比如邮箱
+ssh-keygen -t rsa -C "234939468+kcy6@users.noreply.github.com"
 
-
-
-
-## 简单初始仓库流程
-```bash
 git init -b main #-b初始化时直接指定初始分支的名称
 git config --local user.name "kcy6"
 git config --local user.email "234939468+kcy6@users.noreply.github.com"
+git config --global user.name "kcy6"
+git config --global user.email "234939468+kcy6@users.noreply.github.com"
 
+git remote add origin git@github.com:beiszhihao/test.git
+git push -u origin main
 ```
 
 
-## 子模块
+## 修改最近一次提交的描述信息
+```bash
+#修改最近一次的提交信息(可通过git log先查看已由提交信息)
+git commit --amend -m "新的提交备注"
+本质是通过一个新的提交覆盖原提交可通过git reflog查看
+```
+
+
+
+## 子模块相关
 [git文档](https://git-scm.com/book/zh/v2/Git-%e5%b7%a5%e5%85%b7-%e5%ad%90%e6%a8%a1%e5%9d%97)
 ```bash
 git submodule update --remote -- sources/Shorin-ArchLinux-Guide #更新到子模块原仓库的的最新版本
 git submodule update --init --recursive #将当前子仓库恢复到主仓库记录的版本
 
-git clone --recurse-submodules https://github.com/kcy6/ObsidianWiki.git #
+git clone --recurse-submodules git@github.com:kcy6/ObsidianLLMWiki.git
 ```
 
 
-## branch(分支)
+## 分支(branch)
+`查看相关`
 ```bash
 git branch #查看当前属于哪个分支,只列本地分支
 git status #输出首行会显示分支情况,
@@ -43,8 +42,17 @@ git branch -a       # 本地 + 远程分支
 git branch -r       # 只列远程分支
 git branch -v #查看所有分支 + 每个分支最新提交 + 当前所在
 git branch -vv #查看所有分支 + 每个分支最新提交 + 当前所在(带上游跟踪信息)  
-
 ```
+`切换相关`
+```bash
+git checkout master #切换到分支master
+git checkout -b dev #创建分支并切换过去
+```
+`更改分支名`
+```bash
+git branch -m 分支名 新的分支名
+```
+
 
 ## 查看当前配置config
 ```bash
@@ -58,15 +66,10 @@ git config --system --list #查看系统配置（对电脑所有用户生效）
 git config --list --show-origin
 ```
 
-```bash
-全局中配置~/.gitconfig
-git config --global user.name "xxx"
-git config --global user.email "xxx"
-```
 
 
-## 回滚代码仓库:git reset --hard
-只恢复 Git 已经跟踪的文件不会删除未跟踪文件。
+## 回滚代码仓库
+git reset --hard只恢复 Git 已经跟踪的文件不会删除未跟踪文件。
 如果想把未跟踪文件也删除，可以使用：`git clean -n`查看将要删除的未跟踪的文件`git clean -f`确认删除
 git reset --hard    → 处理已跟踪文件
 git clean -f        → 删除未跟踪文件
@@ -82,6 +85,7 @@ git clean -fd #-d 表示连未跟踪目录也删除
 ```bash
 git log #先使用git log查看历史版本
 git reset --hard 要回滚id #在使用git reset --hard命令回滚
+#git reset默认参数是--mixed
 ```
 
 
@@ -93,3 +97,5 @@ git reset --hard 要回滚id #在使用git reset --hard命令回滚
 #Git 默认core.quotepath=true对于中文、日文等非 ASCII 文件名，会进行转义,将其修改为false即可,就是告诉git非 ASCII 文件名直接原样显示，不要转义
 git config --global core.quotepath false
 ```
+
+

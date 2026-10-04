@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-03
+updated: 2026-10-04
 sources: []
 ---
 
@@ -26,7 +26,10 @@ sources: []
 - [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|Arch 与 Fedora 的 Niri 配置如何复用]]
 - [[wiki/questions/姿态解算待验证问题|姿态解算待验证问题]]
 
+- [[wiki/questions/LLM Wiki 仓库结构评估|LLM Wiki 仓库结构评估]]：结构检查结果与分阶段优化建议。
+
 ## 维护入口
 
 - [[wiki/sources|来源台账]]：区分已处理与待处理资料。
 - [[wiki/log|维护日志]]：按时间记录变化。
+
