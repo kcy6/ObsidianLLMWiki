@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-03
+updated: 2026-10-04
 sources: []
 ---
 
@@ -23,10 +23,14 @@ sources: []
 
 ## 比较与待查问题
 
-- [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|Arch 与 Fedora 的 Niri 配置如何复用]]
+- [[wiki/questions/Fedora 日用系统检查与跨系统交接]]：现有系统只读审计目标、本机信息及 Fedora 续接提示词。
+
+- [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|Arch 与 Fedora 的 Niri 配置如何复用]]：配置分层对照、DMS 组件边界与目标机验证步骤。
 - [[wiki/questions/姿态解算待验证问题|姿态解算待验证问题]]
+- [[wiki/questions/仓库结构评估与优化方向|仓库结构评估与优化方向]]：对照 LLM Wiki 模式的结构检查与优化优先级。
 
 ## 维护入口
 
 - [[wiki/sources|来源台账]]：区分已处理与待处理资料。
 - [[wiki/log|维护日志]]：按时间记录变化。
+- [[wiki/AGENTS|维护规则]]：收录流程、审核标准与检查要求；结构检查运行 `pwsh -NoProfile -File scripts/Test-Wiki.ps1`。
