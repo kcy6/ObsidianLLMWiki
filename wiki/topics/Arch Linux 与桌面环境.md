@@ -1,7 +1,7 @@
 ---
 type: topic
 status: draft
-updated: 2026-10-03
+updated: 2026-10-04
 sources:
   - sources/Shorin-ArchLinux-Guide/README.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
@@ -32,3 +32,7 @@ sources:
 - 子模块更新后需要重新核对命令和章节位置。执行系统命令前，应以当前官方文档和本机状态为准。
 
 相关：[[wiki/index|知识库首页]] · [[wiki/sources|来源台账]]
+
+## Niri 对照进展
+
+已按本地笔记与官方文档补充 [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|Arch/Fedora 配置对照]]，区分发行版包来源、Niri 原生配置、DMS 与外部组件；目标版本和桌面实测尚待补充。Shorin 子模块正文仍未重新核验。
