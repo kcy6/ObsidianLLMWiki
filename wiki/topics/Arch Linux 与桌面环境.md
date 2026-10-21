@@ -1,7 +1,7 @@
 ---
 type: topic
 status: draft
-updated: 2026-10-04
+updated: 2026-10-21
 sources:
   - sources/Shorin-ArchLinux-Guide/README.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
@@ -36,3 +36,11 @@ sources:
 ## Niri 对照进展
 
 已按本地笔记与官方文档补充 [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|Arch/Fedora 配置对照]]，区分发行版包来源、Niri 原生配置、DMS 与外部组件；目标版本和桌面实测尚待补充。Shorin 子模块正文仍未重新核验。
+
+## 常用应用安装
+
+[[wiki/guides/Arch Linux 常用软件安装与维护]] 提炼软件安装会话，覆盖开发编辑器、笔记与 Markdown 阅读、QQ/微信；附手动操作、默认预览的安装脚本及维护验收要求。安装与桌面功能尚待实践验证。
+
+- [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]：会话提炼、手动配置、默认预览脚本及后续维护，真实环境仍待验证。
+
+- [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：会话提炼、手动配置、默认预览脚本及后续维护，真实环境仍待验证。

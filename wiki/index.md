@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-04
+updated: 2026-10-21
 sources: []
 ---
 
@@ -37,3 +37,11 @@ sources: []
 - [[wiki/log|维护日志]]：按时间记录变化。
 
 - [[wiki/AGENTS|维护规则]]：收录流程、审核标准与检查要求；结构检查运行 `pwsh -NoProfile -File scripts/Test-Wiki.ps1`。
+
+- [[wiki/questions/Codex 会话如何持续补充 Arch Linux Wiki]]：会话收录、手动与脚本流程、增量维护的讨论草案。
+
+- [[wiki/guides/Arch Linux 常用软件安装与维护]]：VS Code、Obsidian、Markdown 阅读器、QQ/微信的手动流程、安装脚本、验收与维护。
+
+- [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]
+
+- [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]
