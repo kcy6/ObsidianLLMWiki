@@ -1,6 +1,6 @@
 ---
 type: topic
-status: draft
+status: needs-verification
 updated: 2026-10-21
 sources:
   - sources/Shorin-ArchLinux-Guide/README.md
@@ -44,3 +44,14 @@ sources:
 - [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]：会话提炼、手动配置、默认预览脚本及后续维护，真实环境仍待验证。
 
 - [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：会话提炼、手动配置、默认预览脚本及后续维护，真实环境仍待验证。
+
+## 来源更新复核（2026-10-21）
+
+Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d949e03e46fce39296ade9e1eaf1d`（上游 main）。已核对相关章节差异及本页链接目标，未逐条复核技术结论或执行命令。
+
+| 状态 | 证据缺口与下一步 | 结论落点 |
+| --- | --- | --- |
+| 待验证 | 桌面前准备新增 rtkit 依赖；系统维护修改更新习惯与长期未更新处理说明。对照官方文档及目标系统核对适用条件 | 本页阅读路线与适用条件 |
+| 待验证 | Niri 依赖列表移除 hyprpicker；结合目标配置核对取色入口及依赖，不直接迁移配置 | [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用]] |
+
+上述为上游差异记录，不是安装建议或实践验收；来源台账保留原处理范围。

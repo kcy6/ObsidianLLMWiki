@@ -11,37 +11,33 @@ sources: []
 
 ## 主题
 
-| 主题 | 当前内容 | 下一步 |
-| --- | --- | --- |
-| [[wiki/topics/Arch Linux 与桌面环境|Arch Linux 与桌面环境]] | Shorin 教程与个人笔记的学习路线、Niri 配置来源 | 核对安装方案与快照恢复，逐节收录教程 |
-| [[wiki/topics/姿态解算与 MPU6050|姿态解算与 MPU6050]] | DMP、软件解算和移植资料入口 | 核对坐标约定与 DMP 输出；整理实际移植步骤 |
+- [[wiki/topics/Arch Linux 与桌面环境]]：安装、Niri、软件与环境维护路线。
+- [[wiki/topics/姿态解算与 MPU6050]]：DMP、软件解算与移植资料。
 
-## 概念与流程
+## 概念
 
-- [[wiki/concepts/MPU6050 的姿态数据从哪里来|MPU6050 的姿态数据从哪里来]]：传感器、DMP 与姿态表示的关系。
-- [[wiki/guides/Arch Linux 安装资料阅读路线|Arch Linux 安装资料阅读路线]]：如何使用子模块教程与自己的笔记。
+- [[wiki/concepts/MPU6050 的姿态数据从哪里来]]：传感器、DMP 与姿态表示。
 
-## 比较与待查问题
+## 操作与阅读指南
 
-- [[wiki/questions/Fedora 日用系统检查与跨系统交接]]：现有系统只读审计目标、本机信息及 Fedora 续接提示词。
+- [[wiki/guides/Arch Linux 安装资料阅读路线]]：教程与个人笔记的阅读顺序。
+- [[wiki/guides/Arch Linux 常用软件安装与维护]]：软件选择、安装脚本与验收。
+- [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]：Rust 工具链。
+- [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：Git 身份与认证。
 
-- [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|Arch 与 Fedora 的 Niri 配置如何复用]]：配置分层对照、DMS 组件边界与目标机验证步骤。
-- [[wiki/questions/姿态解算待验证问题|姿态解算待验证问题]]
-- [[wiki/questions/仓库结构评估与优化方向|仓库结构评估与优化方向]]：对照 LLM Wiki 模式的结构检查与优化优先级。
+## 比较、排查与待验证问题
 
-- [[wiki/questions/LLM Wiki 仓库结构评估|LLM Wiki 仓库结构评估]]：结构检查结果与分阶段优化建议。
+- [[wiki/questions/Fedora 日用系统检查与跨系统交接]]：本机审计与交接范围。
+- [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用]]：配置分层和验证步骤。
+- [[wiki/questions/姿态解算待验证问题]]：证据缺口与验证计划。
 
-## 维护入口
+## 仓库维护
 
-- [[wiki/sources|来源台账]]：区分已处理与待处理资料。
-- [[wiki/log|维护日志]]：按时间记录变化。
-
-- [[wiki/AGENTS|维护规则]]：收录流程、审核标准与检查要求；结构检查运行 `pwsh -NoProfile -File scripts/Test-Wiki.ps1`。
-
-- [[wiki/questions/Codex 会话如何持续补充 Arch Linux Wiki]]：会话收录、手动与脚本流程、增量维护的讨论草案。
-
-- [[wiki/guides/Arch Linux 常用软件安装与维护]]：VS Code、Obsidian、Markdown 阅读器、QQ/微信的手动流程、安装脚本、验收与维护。
-
-- [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]
-
-- [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]
+- [[wiki/guides/LLM Wiki 收录与维护流程]]：目录职责、收录、问答、检查与完成标准。
+- [[sources/Karpathy-LLM-Wiki]]：设计参考文章的原文链接与中文阅读卡。
+- [[wiki/AGENTS]]：AI 执行规则。
+- [[wiki/sources]]：来源范围、状态、版本与下一步。
+- [[wiki/log]]：维护历史。
+- [[wiki/questions/仓库结构评估与优化方向]]：持续优化记录。
+- [[wiki/questions/LLM Wiki 仓库结构评估]]：2026-10-04 历史评估快照。
+- [[wiki/questions/Codex 会话如何持续补充 Arch Linux Wiki]]：经用户确认的会话收录约定及样本分析。

@@ -1,7 +1,7 @@
 ---
 type: guide
-status: draft
-updated: 2026-10-03
+status: needs-verification
+updated: 2026-10-21
 sources:
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装桌面环境前的准备.md
@@ -30,3 +30,14 @@ sources:
 [[sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux#ESP 挂载点|ESP 章节]]特别讨论了 Btrfs 快照与内核文件放置位置的关系。这一判断依赖引导与挂载布局；采用别的文件系统、加密或多系统方案时应重新核对。涉及磁盘改动的具体命令以教程当前版本、Arch 官方安装指南和本机设备信息为准。
 
 相关：[[wiki/topics/Arch Linux 与桌面环境|Arch Linux 主题]] · [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用|桌面配置复用]]
+
+## 来源更新复核（2026-10-21）
+
+Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d949e03e46fce39296ade9e1eaf1d`（上游 main）。已核对相关章节差异及本页链接目标，未逐条复核技术结论或执行命令。
+
+| 状态 | 证据缺口与下一步 | 结论落点 |
+| --- | --- | --- |
+| 待验证 | 桌面前准备新增 rtkit 依赖；系统维护修改更新习惯与长期未更新处理说明。对照官方文档及目标系统核对适用条件 | 本页阅读路线与适用条件 |
+| 待验证 | Niri 依赖列表移除 hyprpicker；结合目标配置核对取色入口及依赖，不直接迁移配置 | [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用]] |
+
+上述为上游差异记录，不是安装建议或实践验收；来源台账保留原处理范围。
