@@ -1,7 +1,7 @@
 ---
 type: sources
 status: draft
-updated: 2026-10-21
+updated: 2026-10-22
 sources: []
 ---
 
@@ -94,8 +94,8 @@ sources: []
 | `01a159f9-4695-7d93-882f-732719197200` | 分析本机与 GitHub 账户配置 | 已归档 | 已处理本次快照 3 轮，真实账户操作待验证 |
 | `01a159d0-78c4-79b0-8b8e-6fda1df0d3a0` | 制定软件安装方案 | 未归档 | 已处理本次快照的 6 轮消息与命令；安装与 GUI 待实践 |
 | `01a1598a-f5c7-7531-abc0-5e6ec73e749d` | 查找 Rust 环境配置教程 | 已归档 | 已处理本次快照 3 轮，配置实践待验证 |
-| `01a15993-3da8-7c62-9919-826beb922a33` | 推荐本机亮度调节组件 | 未归档 | 待处理，正文未读 |
-| `01a1596c-2611-7f63-bbf9-3cef95d90191` | 搭建个性化 Waybar | 未归档 | 部分处理，已读接口返回轮次，仅整合收录方法评估 |
+| `01a15993-3da8-7c62-9919-826beb922a33` | 推荐本机亮度调节组件 | 已归档 | 已处理当前 3 轮，作为 Waybar 子问题并入指南；硬件待验收 |
+| `01a1596c-2611-7f63-bbf9-3cef95d90191` | 搭建个性化 Waybar | 未归档，用户要求保留 | 当前 1 轮已收录，会话持续中，后续内容待增量处理 |
 | `01a1597d-e6fd-7882-8a1e-a70bedde4edf` | 创建醍醐骑车动画 HTML | 已归档，项目 ID 为空，工作区路径匹配 | 待处理，正文未读，主题归属待判断 |
 
 清单不固定未来收录数量。后续应重新枚举更新状态；不能将本清单视为已经存在自动监听。
@@ -107,7 +107,7 @@ sources: []
 ## 软件安装会话收录（2026-10-21）
 
 - 来源：[[sources/codex-sessions/制定软件安装方案]]，会话 ID `01a159d0-78c4-79b0-8b8e-6fda1df0d3a0`，工作区 `/home/y/Documents/ChatGPT/archlinux环境搭建`。读取接口返回 6 个完成轮次，hasMore=false；已读全部用户/助手消息和命令输出（未标记截断），不保存内部推理及搜索事件。此处理范围已完成，不代表未来追加内容自动收录。
-- 来源快照 SHA-256：`221e2512f90eec970b89313e6e61b0f34de79494fb13ca36a9e89813009cca7c`。核对日期 2026-10-21；原会话更新时间字段为 `1792573172`，用于后续比较，不作为文件内容指纹。
+- 来源快照 SHA-256：`f11bb054cb4cb4e6b0c646e71aff54a1b159f4b62478f707f59247d23cf402f6`。核对日期 2026-10-21；原会话更新时间字段为 `1792573172`，用于后续比较，不作为文件内容指纹。
 - 关联：[[wiki/guides/Arch Linux 常用软件安装与维护]]，新增 `scripts/archlinux/install-desktop-apps.sh`。原会话仅给出安装方案；未据此声明安装完成。
 - 外部核对：Arch Obsidian/ghostwriter 软件包页、微软 Linux 安装文档、Typora 商店授权说明及 AUR RPC 四包元数据；具体链接见指南。AUR/ArchWiki HTML 受防护拦截，未读 PKGBUILD；外部资料未固定版本。
 - 下一步：会话追加时复查；安装前审核配方及目标环境，补软件功能与脚本实际部署结果。
@@ -115,14 +115,14 @@ sources: []
 ## 查找 Rust 环境配置教程收录（2026-10-21）
 
 - 来源：[[sources/codex-sessions/查找 Rust 环境配置教程]]，会话 ID `01a1598a-f5c7-7531-abc0-5e6ec73e749d`。已读接口返回全部 3 轮用户/助手消息及未标记截断的命令输出，hasMore=false；不包含 Side Chat。已处理本次快照，未来追加需复查。
-- 来源 SHA-256：`0cfd735c74b4905ec02a7e002846bedb3017a0dfd112012c72a1ad29dd00b48e`。
+- 来源 SHA-256：`08718238b5c3d8289eb260eb751f8f94e9312986d2adf3a40c6bad72dbf10029`。
 - 结论落点：[[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]。整理阶段新增脚本，核对的外部官方资料及具体链接见指南；未固定外部资料版本。未执行真实安装、认证、克隆或推送。
 - 下一步：按指南在实际环境验收，补齐实践证据；归档仅表示会话整理完成，不表示技术流程已实测。
 
 ## 分析本机与 GitHub 账户配置收录（2026-10-21）
 
 - 来源：[[sources/codex-sessions/分析本机与 GitHub 账户配置]]，会话 ID `01a159f9-4695-7d93-882f-732719197200`。已读接口返回全部 3 轮用户/助手消息及未标记截断的命令输出，hasMore=false；不包含 Side Chat。已处理本次快照，未来追加需复查。
-- 来源 SHA-256：`32841cacecabe5daec0915eec92b08c36f29392c920dfd58608e4abd6cb0ca01`。
+- 来源 SHA-256：`dfcbc22143c0bda2b7dbc231ed82c94ecd709cac2e1895b5043df5d68b08b544`。
 - 结论落点：[[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]。整理阶段新增脚本，核对的外部官方资料及具体链接见指南；未固定外部资料版本。未执行真实安装、认证、克隆或推送。
 - 下一步：按指南在实际环境验收，补齐实践证据；归档仅表示会话整理完成，不表示技术流程已实测。
 
@@ -145,3 +145,33 @@ sources: []
 - 处理状态：安装 Niri、桌面前准备、快照和系统维护标为“需复查”，覆盖上方历史状态；其余条目保留原范围与内容核对日期。今天仅记录版本和差异检查，不覆盖历史正文核对日期。
 - 关联页面：[[wiki/topics/Arch Linux 与桌面环境]] 与 [[wiki/guides/Arch Linux 安装资料阅读路线]] 已标 needs-verification；[[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用]] 原有待验证状态不变，其 Shorin 来源对照仍待补充。
 - 下一步：按关联页面复核表补文献及目标机证据，特别核对音频依赖、Niri 取色依赖、系统更新与 keyring 流程；未执行这些命令。
+
+## Waybar 与背光联合收录（2026-10-21）
+
+本节更新早期样本评估的最新状态，不改写历史记录。主指南：[[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]]；亮度属于 Waybar 的子问题，来源保持分开。Waybar 按用户明确要求不归档。
+
+- [[sources/codex-sessions/搭建个性化 Waybar]]：ID `01a1596c-2611-7f63-bbf9-3cef95d90191`，读取当前 1 个完成轮次，hasMore=false；已读所有用户/助手消息及命令输出（未标记截断），不含 Side Chat。SHA-256：`25ac7210cb96b390468e8d4315737d49a263af545ffd44ee1588edf7bbefa394`。处理日期 2026-10-21；后续追加需重新核对。
+
+- [[sources/codex-sessions/推荐本机亮度调节组件]]：ID `01a15993-3da8-7c62-9919-826beb922a33`，读取当前 3 个完成轮次，hasMore=false；已读所有用户/助手消息及命令输出（未标记截断），不含 Side Chat。SHA-256：`7e9ef8db3b62fe00a9ef2db48ef405beb45d1ea035690ab136a7192a5e40dc91`。处理日期 2026-10-21；后续追加需重新核对。
+
+### 本次资产与外部文件指纹
+
+提取原工作区初始配置为严格 JSON，本库样式补 backlight 规则；并未将当前用户样式当作原始模板。下列指纹只代表本次读取/生成，不替代历史版本。
+
+| 文件 | SHA-256 |
+| --- | --- |
+| `wiki/assets/waybar/config.jsonc` | `a2e316235975cdd007420a80f1051cac5b79d26ed212a7ed22ab62cc26161886` |
+| `wiki/assets/waybar/style.css` | `1a3419a8c0b1be89864ef16e7484c6b4f89c397f3a69a1a599535b04a139bca6` |
+| `/home/y/Documents/ChatGPT/archlinux环境搭建/Waybar搭建指南.md` | `70a05375bccfe2bd9f6a4119f36d8b05fcf0ca3d021442548677de14f52a2f62` |
+| `/home/y/Documents/ChatGPT/archlinux环境搭建/waybar/config.jsonc` | `f43b73661fc403c50475b808085bc1b97b54d2931a2c6790c8b19ddd1eedaa7a` |
+| `/home/y/Documents/ChatGPT/archlinux环境搭建/waybar/style.css` | `1503ddda10193c73805e30bfc8a58f93855a6d69abe5546c1a8fb4b9dfc20aba` |
+| `/home/y/.config/waybar/config.jsonc` | `747e05e2aca1d3f452b41784ad2916cf39c9621d2aa8305795e2674dbcd6b72b` |
+| `/home/y/.config/waybar/style.css` | `19226765b34cc5595b7aa942480216505fef7c69ad3b3d956ba110a6529d57fe` |
+
+外部文献范围：Waybar Configuration 的模块/信号/样式重载、Styling、backlight 手册、brightnessctl README 权限及命令手册；链接见指南。未审查第三方主题脚本。下一步补硬件及交互验收，按持续会话增量更新。
+
+联合收录后状态：归档工具确认亮度子会话 archived=true。尝试明确设置 Waybar 未归档时，工具提示会话有 active writer，未执行该操作；随后只读查询本机会话库确认 Waybar archived=0，仍保持未归档。仅亮度当前快照整理完毕，Waybar 持续对话的后续内容仍待同步。
+
+## 发布编辑版本（2026-10-22）
+
+五份 codex-sessions 快照增加历史资料说明，本地文件超链接改为历史路径文本；原命令输出及对话内容保留原意。上列 SHA-256 更新为发布编辑后的文件指纹，不作为首次未编辑导出的指纹。四篇配置指南仅调整公开阅读表述与导航，技术核对日期仍为 2026-10-21。

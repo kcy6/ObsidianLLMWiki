@@ -1,13 +1,19 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-21
+updated: 2026-10-22
 sources:
   - sources/codex-sessions/分析本机与 GitHub 账户配置.md
   - scripts/archlinux/configure-github-repo.sh
 ---
 
 # GitHub 账户对应与 SSH 私有仓库使用
+
+说明 Git 提交署名、SSH 认证账户与远程仓库地址的区别，提供单账户配置、私有仓库克隆及已有项目关联流程。示例中的 `OWNER`、`REPOSITORY`、邮箱和项目路径均须替换；配套脚本只配置指定本地仓库。
+
+本文使用 `$HOME` 或 `~` 表示执行者的主目录；设备名、项目名及占位符须按目标环境调整。脚本命令均从本仓库根目录执行。
+
+来源与验证基线为 **2026-10-21**，本文于 **2026-10-22** 调整公开阅读表述，未重新验收软件、硬件或远端权限。[来源记录](../../sources/codex-sessions/%E5%88%86%E6%9E%90%E6%9C%AC%E6%9C%BA%E4%B8%8E%20GitHub%20%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE.md) · [知识库导航](../index.md)
 
 ## 先区分三种对应关系
 
@@ -19,7 +25,7 @@ sources:
 
 Linux 用户名不自动等于 GitHub 账户。以上是原会话的核心区分，来源：[[sources/codex-sessions/分析本机与 GitHub 账户配置]]；设置与认证入口可对照 [GitHub Git 设置说明](https://docs.github.com/en/get-started/git-basics/set-up-git)。
 
-初次历史检查：工作区 `/home/y/Documents/ChatGPT/archlinux环境搭建` 未设置可见的 Git 作者信息、无 remote、未发现 `.ssh` 和常见凭据配置，仓库 master 分支无提交。该结论仅限检查时点及常规路径，不是当前状态，也不能排除其他认证方法。后续用户明确表示 `ssh -T git@github.com` 已实现，但会话没有附用户名输出，因此不能推断具体登录账户。本次未重新审计用户认证状态。
+2026-10-20 的来源检查：工作区 `~/Documents/ChatGPT/archlinux环境搭建` 未设置可见的 Git 作者信息、无 remote、未发现 `.ssh` 和常见凭据配置，仓库 master 分支无提交。该结论仅限检查时点及常规路径，不是当前状态，也不能排除其他认证方法。后续用户明确表示 `ssh -T git@github.com` 已实现，但会话没有附用户名输出，因此不能推断具体登录账户。2026-10-21 收录时未重新审计认证状态。
 
 ## 手动配置流程
 
@@ -36,7 +42,7 @@ git remote -v
 
 ```bash
 # 仅本仓库，多账户时优先明确此范围。
-git config --local user.name "你的提交名称"
+git config --local user.name "提交名称"
 git config --local user.email "已验证邮箱或 GitHub 提供的 noreply 邮箱"
 # 单一身份且希望所有仓库沿用时，才把 --local 改成 --global。
 ```
@@ -48,7 +54,7 @@ git config --local user.email "已验证邮箱或 GitHub 提供的 noreply 邮�
 已能成功认证时跳过生成，先确认账号。尚未配置时先检查已有公钥文件，避免覆盖，选择一个尚不存在的密钥路径：
 
 ```bash
-ssh-keygen -t ed25519 -C "你的 GitHub 邮箱" -f ~/.ssh/id_ed25519_github
+ssh-keygen -t ed25519 -C "GitHub 邮箱" -f ~/.ssh/id_ed25519_github
 # 按提示设置口令，不在命令或 Wiki 中保存口令。
 ```
 
@@ -107,7 +113,7 @@ git remote add origin git@github.com:OWNER/REPOSITORY.git
 
 ```bash
 git status --short
-# 明确列出本次文件，不把私钥、令牌、聊天数据等加入提交。
+# 明确列出待提交的文件，不把私钥、令牌、聊天数据等加入提交。
 git add -- 需要提交的文件
 git diff --cached --stat
 git diff --cached
@@ -118,14 +124,14 @@ git branch --show-current
 git push -u origin CURRENT_BRANCH
 ```
 
-原会话的新仓库示例使用 `git branch -M main`；那是特定初始化选择，不是每个已有项目都应强制改名的步骤。本页保留实际分支再明确推送，也不假定原会话建议中的文件仍是当前应上传内容。无提交、detached HEAD 或无权限时先解决对应问题。以上只是可复现流程，本次未创建远程、暂存、提交或推送。
+原会话的新仓库示例使用 `git branch -M main`；那是特定初始化选择，不是每个已有项目都应强制改名的步骤。本页保留实际分支再明确推送，也不假定原会话建议中的文件仍是当前应上传内容。无提交、detached HEAD 或无权限时先解决对应问题。以上只是可复现流程，2026-10-21 的收录工作未执行该流程中的远端创建或提交推送。
 
 ## 脚本流程
 
 [仓库身份配置脚本](../../scripts/archlinux/configure-github-repo.sh)为整理阶段新增：
 
 ```bash
-# 仓库根目录运行脚本，--repo 指向你实际要配置的已有仓库。
+# 仓库根目录运行脚本，--repo 指向待配置的已有仓库。
 bash scripts/archlinux/configure-github-repo.sh \
   --repo /实际项目目录 --name "提交名称" --email "已验证邮箱" \
   --remote git@github.com:OWNER/REPOSITORY.git
@@ -136,7 +142,7 @@ bash scripts/archlinux/configure-github-repo.sh \
 
 应用前将 Git config 备份到 `${XDG_STATE_HOME:-$HOME/.local/state}/wiki-github-repo/run-XXXXXXXX/`，包含 `config.before` 和原路径 `config-path.txt`，目录权限受限。备份可能包含仓库地址或其他敏感设置，不提交它。失败可能留下部分已写入配置；核对差异后手动恢复所需键，或在确定期间没有其他配置变化时恢复整个备份。不要直接复制旧 config 覆盖后来新增的设置。
 
-脚本不覆盖系统/全局身份，也不证明身份在环境变量、include 配置等影响下的最终结果；用 `git var GIT_AUTHOR_IDENT`、`git remote -v` 及 SSH 欢迎信息分别确认三层关系。真实账户认证和私有仓库访问未由本次测试覆盖。
+脚本不覆盖系统/全局身份，也不证明身份在环境变量、include 配置等影响下的最终结果；用 `git var GIT_AUTHOR_IDENT`、`git remote -v` 及 SSH 欢迎信息分别确认三层关系。真实账户认证和私有仓库访问未由 2026-10-21 的隔离测试覆盖。
 
 ## 后续维护与排错
 
@@ -145,9 +151,9 @@ bash scripts/archlinux/configure-github-repo.sh \
 - 仓库转移、重命名或切换协议后核对 remote；保留 fetch/push 地址差异，不能只看浏览器登录状态。
 - 轮换密钥时先验证新密钥及所需仓库访问，再撤销不再使用的旧公钥；丢失、泄露时及时撤销。没有需要时不删除本地密钥或 known_hosts。
 - SSH 认证失败检查选用的密钥和 agent；认证成功但仓库不可见检查路径、账户权限及必要组织授权。日志中的私钥、令牌等不进入 Wiki。
-- 撤销本次仓库配置前查备份或原值，按键恢复；remote、署名、GitHub 公钥授权分别维护。删除 remote 不删除远端仓库，也不撤销密钥权限。
+- 撤销脚本写入的仓库配置前查备份或原值，按键恢复；remote、署名、GitHub 公钥授权分别维护。删除 remote 不删除远端仓库，也不撤销密钥权限。
 
-以上维护方案综合自 [[sources/codex-sessions/分析本机与 GitHub 账户配置]] 及本次脚本作用边界。
+以上维护方案综合自 [[sources/codex-sessions/分析本机与 GitHub 账户配置]] 及配套脚本的作用边界。
 
 ## 核对与待验证
 
@@ -160,3 +166,5 @@ bash scripts/archlinux/configure-github-repo.sh \
 | 多账户与会话 agent 持久集成 | 待实践 | 按实际桌面与密钥方案另作配置，不能由单账户示例外推 |
 
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/index]] · [[wiki/sources]]
+
+公开阅读入口：[仓库说明](../../README.md) · [Arch Linux 主题](../topics/Arch%20Linux%20与桌面环境.md) · [来源台账](../sources.md)

@@ -1,13 +1,19 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-21
+updated: 2026-10-22
 sources:
   - sources/codex-sessions/制定软件安装方案.md
   - scripts/archlinux/install-desktop-apps.sh
 ---
 
 # Arch Linux 常用软件安装与维护
+
+适用于 Arch Linux x86_64，覆盖编辑器、笔记与 Markdown 阅读器、QQ/微信的安装选择、验收和维护。软件按需安装；AUR 辅助工具需预先准备。配套脚本默认只预览命令，实际安装须显式指定 `--apply`。
+
+本文使用 `$HOME` 或 `~` 表示执行者的主目录；设备名、项目名及占位符须按目标环境调整。脚本命令均从本仓库根目录执行。
+
+来源与验证基线为 **2026-10-21**，本文于 **2026-10-22** 调整公开阅读表述，未重新验收软件、硬件或远端权限。[来源记录](../../sources/codex-sessions/%E5%88%B6%E5%AE%9A%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E6%A1%88.md) · [知识库导航](../index.md)
 
 ## 范围、环境与证据
 
@@ -26,9 +32,9 @@ sources:
 | Typora | 官方试用、购买授权后长期使用 | 未识别具体 `typora-free` 包，不收录其安装命令 |
 | QQ / 微信 | AUR `linuxqq` / `wechat-bin` | 先测试原生客户端；额外修复/沙箱方案另作选择 |
 
-2026-10-21 核对：[Obsidian 包页面](https://archlinux.org/packages/extra/x86_64/obsidian/)与 [ghostwriter 包页面](https://archlinux.org/packages/extra/x86_64/ghostwriter/)仍列在 Extra，后者列出 `cmark-gfm` 为可选依赖。[微软安装说明](https://code.visualstudio.com/docs/setup/linux)将 Arch 包列为社区维护。AUR 网页被访问防护拦截，但本次通过 [AUR RPC](https://aur.archlinux.org/rpc/v5/info?arg%5B%5D=visual-studio-code-bin&arg%5B%5D=linuxqq&arg%5B%5D=wechat-bin&arg%5B%5D=wechat)核对四个包元数据：`visual-studio-code-bin` 与 `code` 冲突；`wechat` 依赖 `wechat-bin` 和 `portable`，描述为修复和可选沙箱。RPC 不等于 PKGBUILD 或上游下载链审核，安装前仍需审阅配方。
+2026-10-21 核对：[Obsidian 包页面](https://archlinux.org/packages/extra/x86_64/obsidian/)与 [ghostwriter 包页面](https://archlinux.org/packages/extra/x86_64/ghostwriter/)仍列在 Extra，后者列出 `cmark-gfm` 为可选依赖。[微软安装说明](https://code.visualstudio.com/docs/setup/linux)将 Arch 包列为社区维护。AUR 网页被访问防护拦截，但 2026-10-21 通过 [AUR RPC](https://aur.archlinux.org/rpc/v5/info?arg%5B%5D=visual-studio-code-bin&arg%5B%5D=linuxqq&arg%5B%5D=wechat-bin&arg%5B%5D=wechat)核对四个包元数据：`visual-studio-code-bin` 与 `code` 冲突；`wechat` 依赖 `wechat-bin` 和 `portable`，描述为修复和可选沙箱。RPC 不等于 PKGBUILD 或上游下载链审核，安装前仍需审阅配方。
 
-Typora 官方商店当前说明提供 15 天试用，长期使用需授权；“旧测试版免费”与“当前正式版永久免费”不能混同。不推断未提供链接的第三方包是否适用。[Typora 授权说明](https://store.typora.io/)
+2026-10-21 核对的 Typora 官方商店说明提供 15 天试用，长期使用需授权；“旧测试版免费”与“当前正式版永久免费”不能混同。不推断未提供链接的第三方包是否适用。[Typora 授权说明](https://store.typora.io/)
 
 ## 手动安装流程
 
@@ -41,7 +47,7 @@ pacman -Q obsidian ghostwriter cmark-gfm code visual-studio-code-bin linuxqq wec
 command -v yay paru
 ```
 
-未安装的包会使 `pacman -Q` 报错；这用于观察状态，不表示要一次安装全部。备份已存在的编辑器配置和笔记数据，查看 Arch 更新公告及本机空间，选择本次需要的软件。以下安装命令都会进行相应事务，按提示确认；不能只同步仓库数据库后进行局部升级。原会话采用完整升级再安装的流程，见 [[sources/codex-sessions/制定软件安装方案]]。
+未安装的包会使 `pacman -Q` 报错；这用于观察状态，不表示要一次安装全部。备份已存在的编辑器配置和笔记数据，查看 Arch 更新公告及目标系统的可用空间，选择需要安装的软件。以下安装命令都会进行相应事务，按提示确认；不能只同步仓库数据库后进行局部升级。原会话采用完整升级再安装的流程，见 [[sources/codex-sessions/制定软件安装方案]]。
 
 ### Obsidian 与 Markdown 阅读器
 
@@ -65,7 +71,7 @@ code --version
 code .
 ```
 
-以普通用户运行 AUR 辅助工具和编辑器。阅读 PKGBUILD、下载地址及变更；需要管理员权限时由工具提示。若选择官方仓库开源构建，则改用 `sudo pacman -Syu --needed code`，不同时安装两个发行版。已有另一个发行版时先备份配置、核对包冲突，再决定切换。来源：[[sources/codex-sessions/制定软件安装方案]] 的 VS Code 轮次；当前冲突关系见上方 RPC 核对。
+以普通用户运行 AUR 辅助工具和编辑器。阅读 PKGBUILD、下载地址及变更；需要管理员权限时由工具提示。若选择官方仓库开源构建，则改用 `sudo pacman -Syu --needed code`，不同时安装两个发行版。已有另一个发行版时先备份配置、核对包冲突，再决定切换。来源：[[sources/codex-sessions/制定软件安装方案]] 的 VS Code 轮次；包冲突关系以所用版本为准；2026-10-21 的 RPC 核对见上文。
 
 微软版可按需安装中文扩展：
 
@@ -73,7 +79,7 @@ code .
 code --install-extension MS-CEINTL.vscode-language-pack-zh-hans
 ```
 
-之后使用命令面板 `Configure Display Language` 选择中文并重启。仅在出现问题时，退出已有实例后分别用 `code --disable-gpu`、`code --ozone-platform=x11` 排查 GPU 或后端；X11 测试要求桌面具备相应支持，不默认持久化参数。此处沿用会话方案，本次未做 GUI 或扩展安装测试。来源：[[sources/codex-sessions/制定软件安装方案]]。
+之后使用命令面板 `Configure Display Language` 选择中文并重启。仅在出现问题时，退出已有实例后分别用 `code --disable-gpu`、`code --ozone-platform=x11` 排查 GPU 或后端；X11 测试要求桌面具备相应支持，不默认持久化参数。此处沿用会话方案，截至 2026-10-21 未做 GUI 或扩展安装测试。来源：[[sources/codex-sessions/制定软件安装方案]]。
 
 ### QQ 与微信
 
@@ -87,7 +93,7 @@ pacman -Q linuxqq wechat-bin
 
 ## 脚本配置流程
 
-[安装脚本](../../scripts/archlinux/install-desktop-apps.sh)是本次整理新增，原会话中没有独立脚本。脚本封装上述包安装流程，不自动登录账号、设置默认程序、安装语言扩展、写入自启动或更改渲染后端。
+[安装脚本](../../scripts/archlinux/install-desktop-apps.sh)是2026-10-21 收录时新增，原会话中没有独立脚本。脚本封装上述包安装流程，不自动登录账号、设置默认程序、安装语言扩展、写入自启动或更改渲染后端。
 
 在仓库根目录，以普通用户运行：
 
@@ -108,9 +114,9 @@ bash scripts/archlinux/install-desktop-apps.sh --apply --helper paru vscode chat
 
 ## 验收与故障检查
 
-| 软件/范围 | 安装后检查 | 本次证据 |
+| 软件/范围 | 安装后检查 | 截至 2026-10-21 的证据 |
 | --- | --- | --- |
-| 包安装 | `pacman -Q` 查询实际所选包 | 原会话只有环境查询；本次未安装 |
+| 包安装 | `pacman -Q` 查询实际所选包 | 来源仅有环境查询，没有安装事务记录 |
 | VS Code | 版本、窗口、目录打开、中文扩展、需要的扩展市场/同步功能 | 未实测 |
 | Obsidian | 现有 Vault 可打开、中文输入、附件及插件需求 | 仅历史包查询证据，未验收 |
 | ghostwriter | 中文文档、HTML 预览、链接和所需 Markdown 语法 | 未实测 |
@@ -136,8 +142,10 @@ bash scripts/archlinux/install-desktop-apps.sh --apply --helper paru vscode chat
 | AUR 配方及下载链 | 待验证 | 安装前审阅所选版本 PKGBUILD，记录版本和来源；更新渠道表 |
 | 软件安装及图形功能 | 待实践 | 按验收表逐项测试并记录环境；更新证据列 |
 | 真实安装脚本与失败恢复 | 待实践 | 在可恢复的目标环境执行；确认包状态及失败处理，不以预览测试替代 |
-| Typora 第三方免费包 | 待验证 | 用户提供具体来源后再判断；当前不生成安装步骤 |
+| Typora 第三方免费包 | 待验证 | 明确具体包来源并审核后再决定安装步骤 |
 
-2026-10-21：读取会话接口返回全部 6 轮用户/助手消息和命令输出，未发现输出截断；保存限定范围的来源快照。核对官方软件包页、微软 Linux 安装说明、Typora 授权页及 AUR RPC；AUR/ArchWiki HTML 页面受访问防护限制，未核对 PKGBUILD。本页保持 needs-verification。本次只测试脚本语法、预览及模拟命令执行，不执行真实安装或 GUI 操作。
+2026-10-21：读取会话接口返回全部 6 轮用户/助手消息和命令输出，未发现输出截断；保存限定范围的来源快照。核对官方软件包页、微软 Linux 安装说明、Typora 授权页及 AUR RPC；AUR/ArchWiki HTML 页面受访问防护限制，未核对 PKGBUILD。本页保持 needs-verification。2026-10-21 仅验证脚本语法、预览及模拟命令执行；真实安装及 GUI 功能尚未验收。
 
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/sources]] · [[wiki/index]]
+
+公开阅读入口：[仓库说明](../../README.md) · [Arch Linux 主题](../topics/Arch%20Linux%20与桌面环境.md) · [来源台账](../sources.md)

@@ -1,7 +1,7 @@
 ---
 type: question
 status: draft
-updated: 2026-10-21
+updated: 2026-10-22
 sources:
   - wiki/AGENTS.md
 ---
@@ -77,7 +77,7 @@ sources:
 
 读取会话“搭建个性化 Waybar”（ID `01a1596c-2611-7f63-bbf9-3cef95d90191`）工具返回的唯一完成轮次，分页显示无更多轮次；命令输出未标记截断。此结论限该接口返回的会话记录，不证明已经获取底层全部原始事件。会话正文尚未导出到库内。
 
-同时全文读取外部工作区的 [搭建指南](/home/y/Documents/ChatGPT/archlinux环境搭建/Waybar搭建指南.md)、[JSONC 配置](/home/y/Documents/ChatGPT/archlinux环境搭建/waybar/config.jsonc)、[CSS 样式](/home/y/Documents/ChatGPT/archlinux环境搭建/waybar/style.css) 和备份路径记录。外部绝对路径仅适用于当前机器；下列指纹记录本次所读文件，不代表会话当时版本。
+同时全文读取外部工作区的 搭建指南（历史外部路径：`~/Documents/ChatGPT/archlinux环境搭建/Waybar搭建指南.md`）、JSONC 配置（历史外部路径：`~/Documents/ChatGPT/archlinux环境搭建/waybar/config.jsonc`）、CSS 样式（历史外部路径：`~/Documents/ChatGPT/archlinux环境搭建/waybar/style.css`） 和备份路径记录。外部绝对路径仅适用于当前机器；下列指纹记录本次所读文件，不代表会话当时版本。
 
 | 文件 | SHA-256 |
 | --- | --- |

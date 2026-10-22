@@ -1,0 +1,58 @@
+/* GTK CSS：不是浏览器 CSS，不使用 flex、gap、backdrop-filter。 */
+@define-color bg #1e1e2e;
+@define-color fg #cdd6f4;
+@define-color muted #a6adc8;
+@define-color accent #89b4fa;
+@define-color surface #313244;
+@define-color warning #f9e2af;
+@define-color critical #f38ba8;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK SC", sans-serif;
+  font-size: 12px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: alpha(@bg, 0.96);
+  color: @fg;
+  border: 1px solid alpha(@accent, 0.22);
+  border-radius: 14px;
+}
+
+#workspaces { margin: 4px 0 4px 6px; }
+#workspaces button {
+  padding: 0 10px;
+  margin: 0 2px;
+  color: @muted;
+  background: transparent;
+  border-radius: 9px;
+  box-shadow: none;
+  text-shadow: none;
+}
+#workspaces button.active { color: @accent; }
+#workspaces button.focused { background: @accent; color: @bg; }
+#workspaces button:hover { background: @surface; color: @fg; }
+#workspaces button.urgent { background: @critical; color: @bg; }
+
+#window { color: @muted; margin-left: 8px; }
+#clock { font-weight: bold; color: @accent; padding: 0 12px; }
+#cpu, #memory, #network, #wireplumber, #battery, #tray {
+  padding: 0 8px;
+  margin: 4px 0;
+  border-radius: 9px;
+}
+#tray { margin-right: 8px; }
+#network { color: #94e2d5; }
+#wireplumber { color: #cba6f7; }
+#battery { color: #a6e3a1; }
+#network.disconnected, #wireplumber.muted { color: @muted; }
+#battery.warning:not(.charging):not(.plugged) { color: @warning; }
+#battery.critical:not(.charging):not(.plugged) { color: @critical; background: @surface; }
+tooltip { background: @bg; border: 1px solid @surface; border-radius: 10px; }
+tooltip label { color: @fg; padding: 6px; }
+
+/* 收录阶段补充：背光模块与其他状态模块保持间距一致。 */
+#backlight { color: @warning; padding: 0 8px; margin: 4px 0; border-radius: 9px; }

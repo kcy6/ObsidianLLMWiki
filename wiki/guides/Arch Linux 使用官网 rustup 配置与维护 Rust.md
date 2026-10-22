@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-21
+updated: 2026-10-22
 sources:
   - sources/codex-sessions/查找 Rust 环境配置教程.md
   - scripts/archlinux/setup-rust-official.sh
@@ -9,11 +9,17 @@ sources:
 
 # Arch Linux 使用官网 rustup 配置与维护 Rust
 
+适用于 Linux 用户级 Rust 开发环境，示例以 Arch Linux 为依赖管理环境。采用官网 rustup 安装 stable 工具链，说明 Shell 环境、项目版本固定、依赖更新和卸载；系统包版 rustup 应按其打包方式维护。
+
+本文使用 `$HOME` 或 `~` 表示执行者的主目录；设备名、项目名及占位符须按目标环境调整。脚本命令均从本仓库根目录执行。
+
+来源与验证基线为 **2026-10-21**，本文于 **2026-10-22** 调整公开阅读表述，未重新验收软件、硬件或远端权限。[来源记录](../../sources/codex-sessions/%E6%9F%A5%E6%89%BE%20Rust%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.md) · [知识库导航](../index.md)
+
 ## 最终选择与适用范围
 
-原会话最后由用户明确选择 **Rust 官网安装器**。初次答复推荐 pacman 安装 rustup，后续比较后修正了推荐强度；本指南以最终选择为主，保留两种方案的维护边界。来源：[[sources/codex-sessions/查找 Rust 环境配置教程]] 全部 3 轮。
+本指南采用 **Rust 官网安装器**，与来源记录中的最终选择一致。pacman 安装 rustup 作为可选方案对比，不与官网版叠加安装。来源：[[sources/codex-sessions/查找 Rust 环境配置教程]] 全部 3 轮。
 
-历史检查为 Arch Linux x86_64，已有 base-devel、GCC、pkgconf、OpenSSL、Git、GDB 和 Vim，未发现 Rust 命令。初次环境输出 `$SHELL=/usr/bin/bash`；后续助手按 Zsh 给出维护方法，但未附新的 Shell 查询。执行前确认实际 Shell，不能把两次说明合并成同时验证过的状态。会话未执行安装、修改启动文件或编译验收，本次整理也不操作本机工具链。
+2026-10-20 的来源检查环境为 Arch Linux x86_64，已有 base-devel、GCC、pkgconf、OpenSSL、Git、GDB 和 Vim，未发现 Rust 命令。初次环境输出 `$SHELL=/usr/bin/bash`；后续维护答复改用 Zsh 示例，但未附新的 Shell 查询。执行前确认实际 Shell，不能把两次说明合并成同时验证过的状态。会话未执行安装、修改启动文件或编译验收，该日期的知识整理未操作实际工具链。
 
 ## 三种入口不要混淆
 
@@ -23,7 +29,7 @@ sources:
 | pacman 的 rustup 包 | 系统包管理器维护 | 仍由 rustup 管理 | 保留对比，不与官网版叠装 |
 | pacman 的 rust 包 | 直接使用发行版编译器包 | 按发行版包维护 | 另一种方案，不等于 rustup |
 
-用户级路径及可用 `CARGO_HOME`、`RUSTUP_HOME` 改变位置的行为见 [rustup 安装说明](https://rust-lang.github.io/rustup/installation/index.html)。pacman 方案的路径与打包差异来自 [[sources/codex-sessions/查找 Rust 环境配置教程]]，本次未重新核验其软件包文件列表。官网方案不需要源会话早期针对 Arch 包写出的 `/usr/lib/rustup/bin`。
+用户级路径及可用 `CARGO_HOME`、`RUSTUP_HOME` 改变位置的行为见 [rustup 安装说明](https://rust-lang.github.io/rustup/installation/index.html)。pacman 方案的路径与打包差异来自 [[sources/codex-sessions/查找 Rust 环境配置教程]]，2026-10-21 收录时未重新核验其软件包文件列表。官网方案不需要源会话早期针对 Arch 包写出的 `/usr/lib/rustup/bin`。
 
 ## 手动配置流程
 
@@ -67,7 +73,7 @@ cargo clippy --version
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 ```
 
-当前终端执行 `source ~/.zshrc`；Bash 用户检查自己的 `~/.bashrc`/登录配置，不照抄 Zsh 文件名。此 Shell 排查方法综合自 [[sources/codex-sessions/查找 Rust 环境配置教程]]；本次未修改启动文件。
+当前终端执行 `source ~/.zshrc`；Bash 用户检查自己的 `~/.bashrc`/登录配置，不照抄 Zsh 文件名。此 Shell 排查方法综合自 [[sources/codex-sessions/查找 Rust 环境配置教程]]；2026-10-21 收录时未修改启动文件。
 
 ### 4. 编译验收
 
@@ -93,7 +99,7 @@ cargo test
 ```bash
 # 仓库根目录：只预览，无下载和配置写入。
 bash scripts/archlinux/setup-rust-official.sh
-# 明确选择后执行；本次整理未运行此真实安装流程。
+# 明确选择后执行；此命令会实际安装；尚无目标环境执行记录。
 bash scripts/archlinux/setup-rust-official.sh --apply
 ```
 
@@ -143,3 +149,5 @@ components = ["rust-src", "rust-analyzer"]
 | 编辑器 rust-analyzer 集成 | 待实践 | 按实际编辑器单独配置与验收；可关联软件指南 |
 
 相关：[[wiki/guides/Arch Linux 常用软件安装与维护]] · [[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/index]]
+
+公开阅读入口：[仓库说明](../../README.md) · [Arch Linux 主题](../topics/Arch%20Linux%20与桌面环境.md) · [来源台账](../sources.md)

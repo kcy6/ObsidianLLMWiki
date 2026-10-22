@@ -10,7 +10,7 @@
 | `sources/` | 外部来源；Shorin 教程是独立 Git 子模块 |
 | `wiki/` | 主题、概念、流程、问题及综合结论 |
 | `附件/`、`Whiteboard/`、`.obsidian/` | 正在使用的附件、画板和 Obsidian 配置 |
-| `scripts/` | 只读维护工具 |
+| `scripts/` | 只读检查器及需显式应用的配置辅助脚本 |
 
 ## 设计依据与目录约定
 
@@ -49,3 +49,14 @@ pwsh -NoProfile -File scripts/Test-Wiki.ps1 -Strict
 ## 来源不可用时
 
 `git submodule status` 行首的 `-` 表示子模块未初始化。此时检查器报告 `SOURCE_UNAVAILABLE`，跳过该来源的文件与章节核验；不要因此删除引用或把历史内容标为已复查。需要完整核验时，先在具备来源的工作区核对版本与改动，遵循子模块保护约定，不为 Wiki 维护重置或更新来源。
+
+## Arch Linux 配置指南
+
+以下为可独立阅读的综合指南。设备与软件状态均有核对日期；`needs-verification` 表示仍存在实践或证据缺口。来源快照保留历史上下文，不直接作为安装成功证明。
+
+- [Arch Linux 常用软件安装与维护](wiki/guides/Arch%20Linux%20%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BB%B4%E6%8A%A4.md)
+- [Arch Linux 使用官网 rustup 配置与维护 Rust](wiki/guides/Arch%20Linux%20%E4%BD%BF%E7%94%A8%E5%AE%98%E7%BD%91%20rustup%20%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BB%B4%E6%8A%A4%20Rust.md)
+- [GitHub 账户对应与 SSH 私有仓库使用](wiki/guides/GitHub%20%E8%B4%A6%E6%88%B7%E5%AF%B9%E5%BA%94%E4%B8%8E%20SSH%20%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8.md)
+- [Niri 个性化 Waybar 搭建与亮度调节](wiki/guides/Niri%20%E4%B8%AA%E6%80%A7%E5%8C%96%20Waybar%20%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BA%AE%E5%BA%A6%E8%B0%83%E8%8A%82.md)
+
+仓库 Wiki 使用 Obsidian 双向链接；GitHub 不原生解析该语法。以上入口及指南中的“来源记录”“公开阅读入口”使用标准相对链接，可直接在 GitHub 浏览。

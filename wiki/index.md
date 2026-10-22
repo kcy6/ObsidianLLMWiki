@@ -1,13 +1,15 @@
 ---
 type: index
 status: draft
-updated: 2026-10-21
+updated: 2026-10-22
 sources: []
 ---
 
 # 知识库
 
 这里是原始笔记、剪藏与教程之上的主题导航。页面由 AI 按 [[wiki/AGENTS|维护规则]] 更新；继续钻研时，请从结论旁的来源链接进入原文。
+
+GitHub 阅读入口：[配置指南列表](../README.md#arch-linux-配置指南)。以下双向链接供 Obsidian 使用。
 
 ## 主题
 
@@ -24,6 +26,8 @@ sources: []
 - [[wiki/guides/Arch Linux 常用软件安装与维护]]：软件选择、安装脚本与验收。
 - [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]：Rust 工具链。
 - [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：Git 身份与认证。
+
+- [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]]：持续完善顶栏，整合背光模块、部署脚本与维护。
 
 ## 比较、排查与待验证问题
 
