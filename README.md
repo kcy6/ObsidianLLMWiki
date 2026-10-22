@@ -60,3 +60,8 @@ pwsh -NoProfile -File scripts/Test-Wiki.ps1 -Strict
 - [Niri 个性化 Waybar 搭建与亮度调节](wiki/guides/Niri%20%E4%B8%AA%E6%80%A7%E5%8C%96%20Waybar%20%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BA%AE%E5%BA%A6%E8%B0%83%E8%8A%82.md)
 
 仓库 Wiki 使用 Obsidian 双向链接；GitHub 不原生解析该语法。以上入口及指南中的“来源记录”“公开阅读入口”使用标准相对链接，可直接在 GitHub 浏览。
+
+## 应用盘点与新主机配置复用
+
+- [已安装应用盘点与维护](wiki/guides/Arch%20Linux%20已安装应用盘点与维护.md)：软件基线与分类维护。
+- [个性化配置复用计划](wiki/questions/Arch%20Linux%20个性化配置复用计划.md)：将本机配置复用到新装 Arch 的目标与待办；完整部署工具尚未实现。

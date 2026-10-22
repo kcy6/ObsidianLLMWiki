@@ -149,3 +149,7 @@ bash scripts/archlinux/install-desktop-apps.sh --apply --helper paru vscode chat
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/sources]] · [[wiki/index]]
 
 公开阅读入口：[仓库说明](../../README.md) · [Arch Linux 主题](../topics/Arch%20Linux%20与桌面环境.md) · [来源台账](../sources.md)
+
+## 应用盘点与复用规划
+
+安装或移除软件后的基线维护见 [[wiki/guides/Arch Linux 已安装应用盘点与维护]]；新主机的软件选择与配置部署统一跟踪于 [[wiki/questions/Arch Linux 个性化配置复用计划]]。

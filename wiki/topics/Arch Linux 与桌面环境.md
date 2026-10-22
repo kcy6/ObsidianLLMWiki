@@ -1,7 +1,7 @@
 ---
 type: topic
 status: needs-verification
-updated: 2026-10-21
+updated: 2026-10-22
 sources:
   - sources/Shorin-ArchLinux-Guide/README.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
@@ -59,3 +59,7 @@ Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d
 ## Waybar 与亮度组件
 
 [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]] 将顶栏布局、美化和背光组件统一整理。Waybar 会话尚未结束，暂不归档；模块与硬件验收缺口在指南中持续追踪。
+
+## 应用基线与新机复用
+
+[[wiki/guides/Arch Linux 已安装应用盘点与维护]] 维护带日期的软件与应用基线；[[wiki/questions/Arch Linux 个性化配置复用计划]] 跟踪将本机个性化配置复用到新 Arch 主机的后续目标，尚未实现完整部署工具。

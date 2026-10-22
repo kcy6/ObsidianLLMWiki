@@ -29,7 +29,12 @@ GitHub 阅读入口：[配置指南列表](../README.md#arch-linux-配置指南)
 
 - [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]]：持续完善顶栏，整合背光模块、部署脚本与维护。
 
+
+- [[wiki/guides/Arch Linux 已安装应用盘点与维护]]：软件基线、分类与持续盘点流程。
+
 ## 比较、排查与待验证问题
+
+- [[wiki/questions/Arch Linux 个性化配置复用计划]]：新 Arch 主机的配置复用目标、材料缺口与实施路线。
 
 - [[wiki/questions/Fedora 日用系统检查与跨系统交接]]：本机审计与交接范围。
 - [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用]]：配置分层和验证步骤。
