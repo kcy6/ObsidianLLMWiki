@@ -65,3 +65,14 @@ pwsh -NoProfile -File scripts/Test-Wiki.ps1 -Strict
 
 - [已安装应用盘点与维护](wiki/guides/Arch%20Linux%20已安装应用盘点与维护.md)：软件基线与分类维护。
 - [个性化配置复用计划](wiki/questions/Arch%20Linux%20个性化配置复用计划.md)：将本机配置复用到新装 Arch 的目标与待办；完整部署工具尚未实现。
+
+## 工作区会话专题
+
+- [Kitty 与 Zsh 终端配置和复制操作](wiki/guides/Kitty%20%E4%B8%8E%20Zsh%20%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE%E5%92%8C%E5%A4%8D%E5%88%B6%E6%93%8D%E4%BD%9C.md)：终端最终方案、插件、fzf/zoxide 与 Vim 复制。
+- [Arch Linux KVM 虚拟机与 Fedora 文件传输](wiki/guides/Arch%20Linux%20KVM%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%20Fedora%20%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93.md)：宿主机、客体安装和 SFTP，明确未实测环节。
+- [Niri 桌面的暗色外观与 GTK Qt 配置](wiki/guides/Niri%20%E6%A1%8C%E9%9D%A2%E7%9A%84%E6%9A%97%E8%89%B2%E5%A4%96%E8%A7%82%E4%B8%8E%20GTK%20Qt%20%E9%85%8D%E7%BD%AE.md)：系统偏好、GTK、Qt 与应用主题分层。
+- [Niri 文件选择器与桌面应用入口排错](wiki/guides/Niri%20%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%8E%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%85%A5%E5%8F%A3%E6%8E%92%E9%94%99.md)：Portal、补丁、Fuzzel 和 Quiet Outline 的证据边界。
+- [Nautilus 书签与文件缓存维护](wiki/guides/Nautilus%20%E4%B9%A6%E7%AD%BE%E4%B8%8E%E6%96%87%E4%BB%B6%E7%BC%93%E5%AD%98%E7%BB%B4%E6%8A%A4.md)：书签、预览、构建缓存和清理维护。
+- [v2rayA 主代理与 v2rayN 备用配置](wiki/guides/v2rayA%20%E4%B8%BB%E4%BB%A3%E7%90%86%E4%B8%8E%20v2rayN%20%E5%A4%87%E7%94%A8%E9%85%8D%E7%BD%AE.md)：主备用切换、分流验证与凭据边界。
+- [shorin-niri 源码学习与配置迁移路线](wiki/guides/shorin-niri%20%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%85%8D%E7%BD%AE%E8%BF%81%E7%A7%BB%E8%B7%AF%E7%BA%BF.md)：固定提交、分课学习和迁移条件。
+- [离线 SVG 骑车动画示例与维护](wiki/guides/%E7%A6%BB%E7%BA%BF%20SVG%20%E9%AA%91%E8%BD%A6%E5%8A%A8%E7%94%BB%E7%A4%BA%E4%BE%8B%E4%B8%8E%E7%BB%B4%E6%8A%A4.md)：两段同名任务的离线前端示例，非系统依赖。

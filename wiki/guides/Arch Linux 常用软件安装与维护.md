@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-22
 sources:
+  - sources/codex-sessions/制定软件安装方案-2026-10-22串口增量.md
   - sources/codex-sessions/制定软件安装方案.md
   - scripts/archlinux/install-desktop-apps.sh
   - sources/codex-sessions/制定软件安装方案-2026-10-22增量.md
@@ -248,3 +249,21 @@ Flatpak 阶段记录安装前后应用列表；任一渠道失败即停止并保
 ## 应用盘点与复用规划
 
 安装或移除软件后的基线维护见 [[wiki/guides/Arch Linux 已安装应用盘点与维护]]；新主机的软件选择与配置部署统一跟踪于 [[wiki/questions/Arch Linux 个性化配置复用计划]]。
+
+## 串口与连接工具增量（2026-10-22）
+
+来源：[[sources/codex-sessions/制定软件安装方案-2026-10-22串口增量]]。在已收录17轮之后新增1轮，方案为 Tabby（AUR tabby-bin，终端/SSH/串口）、CuteCom（AUR cutecom，图形串口）与 Minicom（官方仓库 minicom）。来源描述 CuteCom 为候选版，不作为所有未来版本的固定性质；本轮包页抓取超时，渠道来自会话方案，安装前复查配方。
+
+```bash
+sudo pacman -Syu --needed base-devel git minicom
+yay -S tabby-bin cutecom
+# 需要 X/Y/ZMODEM 文件传输时再按需安装 lrzsz。
+```
+
+配套安装脚本新增 `serial` 组：`bash scripts/archlinux/install-desktop-apps.sh serial` 默认预览，`--apply` 才安装三者；不自动修改用户组或串口设置。可替换 paru，保持安装前配方审阅。
+
+权限以实际设备归属为准。Arch 常见设备组为 uucp，需要时 `sudo usermod -aG uucp "$(id -un)"`，完整注销登录后再验证桌面启动的程序；不自动执行该授权，不把设备权限设为777，也不让应用全程root运行。
+
+连接 USB 设备后优先使用 `/dev/serial/by-id/` 的稳定路径。来源未检测到 USB 串口，不保证当前实际设备存在。按硬件要求选择波特率、数据位、停止位、校验、流控及换行；常见115200/8N1/无流控只是示例。同一端口一次只由一个工具占用。
+
+Minicom 示例：`minicom -o -D /实际设备路径 -b 115200`；Ctrl+A后按Z帮助、O配置、X退出。Tabby创建连接配置，CuteCom在界面选择设备。安装/用户组修改均未在来源执行；回环测试、设备交互和流控均待实践，不能用菜单启动代替串口验收。更新/卸载仍走对应包管理器，保留连接配置和日志前先脱敏。

@@ -1,0 +1,11 @@
+add_newline = false
+format = '$directory$git_branch$git_status$character'
+right_format = '$status$cmd_duration'
+[git_branch]
+format = '[$branch]($style) '
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+[cmd_duration]
+min_time = 3000
+[status]
+disabled = false

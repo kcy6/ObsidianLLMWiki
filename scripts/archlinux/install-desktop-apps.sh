@@ -7,7 +7,7 @@ repo=()
 aur=()
 flatpak_apps=()
 usage() {
-  echo '用法: bash install-desktop-apps.sh [--apply] [--helper yay|paru] obsidian|markdown|vscode|code-oss|chat|telegram|telegram-webview|papers|apostrophe|obs|fractal|gradia|workbench|wps|pacseek ...'
+  echo '用法: bash install-desktop-apps.sh [--apply] [--helper yay|paru] obsidian|markdown|vscode|code-oss|chat|telegram|telegram-webview|papers|apostrophe|obs|fractal|gradia|workbench|wps|pacseek|serial ...'
   echo '默认只打印计划；--apply 执行所选渠道安装（pacman 阶段完整升级），保留交互确认。'
   echo 'workbench 指 GNOME Workbench，使用已有 flathub remote；不自动添加远端。'
 }
@@ -33,6 +33,7 @@ while (($#)); do
     workbench) flatpak_apps+=(re.sonny.Workbench) ;;
     wps) aur+=(wps-office-cn wps-office-mui-zh-cn) ;;
     pacseek) aur+=(pacseek) ;;
+    serial) repo+=(minicom); aur+=(tabby-bin cutecom) ;;
     -h|--help) usage; exit 0 ;;
     *) echo "未知选项：$1" >&2; usage >&2; exit 2 ;;
   esac

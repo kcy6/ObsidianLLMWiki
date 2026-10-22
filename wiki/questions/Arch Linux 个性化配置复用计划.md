@@ -56,3 +56,9 @@ sources:
 ## 软件选择增量（2026-10-22）
 
 [[wiki/guides/Arch Linux 常用软件安装与维护]] 收录的软件方案新增 Papers/Apostrophe 选择和录屏、通信、截图编辑等候选；这不修改原日期应用清单，也不将新方案自动列为必装。GNOME Workbench 的具体需求尚待确认。后续软件基线采集应核对是否实际完成替换，再更新迁移清单。
+
+## 会话整理后的模块约束（2026-10-22）
+
+终端会话最后撤销独立 dotfiles 仓库，恢复原位置的普通配置文件；该决定优先于早期对链接式仓库的建议。复用工程仍未选型，本次生成的待审阅模板不是新的 dotfiles 项目，也不自动替换现有配置。
+
+新增 [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作]]、[[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置]]、[[wiki/guides/Niri 文件选择器与桌面应用入口排错]]、[[wiki/guides/Arch Linux KVM 虚拟机与 Fedora 文件传输]] 与 [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]]，提供模块化手动流程及验证边界。shorin-niri 是对照学习来源，不能自动代替当前个性化配置，见 [[wiki/guides/shorin-niri 源码学习与配置迁移路线]]。

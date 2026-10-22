@@ -67,3 +67,15 @@ Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d
 ### 软件方案增量（2026-10-22）
 
 [[wiki/guides/Arch Linux 常用软件安装与维护]] 已扩充 Telegram 依赖排错、Papers/Apostrophe 替换意向、微信包辨析，以及 OBS、Fractal、Workbench、Gradia；安装方案与实际功能验收分开维护。
+
+## 桌面与维护会话专题（2026-10-22）
+
+- [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作]]：终端最终方案、插件、fzf/zoxide 与 Vim 复制。
+- [[wiki/guides/Arch Linux KVM 虚拟机与 Fedora 文件传输]]：宿主机、客体安装和 SFTP，明确未实测环节。
+- [[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置]]：系统偏好、GTK、Qt 与应用主题分层。
+- [[wiki/guides/Niri 文件选择器与桌面应用入口排错]]：Portal、补丁、Fuzzel 和 Quiet Outline 的证据边界。
+- [[wiki/guides/Nautilus 书签与文件缓存维护]]：书签、预览、构建缓存和清理维护。
+- [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]]：主备用切换、分流验证与凭据边界。
+- [[wiki/guides/shorin-niri 源码学习与配置迁移路线]]：固定提交、分课学习和迁移条件。
+
+[[wiki/guides/Arch Linux 已安装应用盘点与维护]] 追加桌面入口故障；[[wiki/guides/Arch Linux 常用软件安装与维护]] 追加串口工具。本轮不执行系统更改或会话归档。

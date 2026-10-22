@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鹈鹕的海边骑行</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5eddc;color:#294c51;font-family:ui-rounded,"PingFang SC","Microsoft YaHei",sans-serif}.scene{width:min(1100px,100%);padding:32px 20px}header{display:flex;justify-content:space-between;align-items:center;margin:0 24px 20px}h1{font-size:clamp(24px,4vw,40px);font-weight:600;letter-spacing:.08em;margin:0}p{font-size:13px;letter-spacing:.16em;margin:10px 0 0;opacity:.65}button{border:1px solid #294c5140;border-radius:30px;background:transparent;color:inherit;padding:11px 20px;cursor:pointer;font:inherit;font-size:13px}button:hover{background:#fff6}svg{display:block;width:100%;height:auto;border-radius:26px;background:#cce6df;box-shadow:0 20px 60px #294c5110}.spin{animation:spin 1.1s linear infinite;transform-box:fill-box;transform-origin:center}.bob{animation:bob 1.1s ease-in-out infinite}.scarf{animation:scarf .55s ease-in-out infinite alternate;transform-origin:490px 250px}.cloud{animation:drift 30s linear infinite}.road{animation:road 1.1s linear infinite}.leg{animation:pedal 1.1s linear infinite;transform-origin:508px 392px}.leg.back{animation-delay:-.55s}.wing{animation:wing 1.1s ease-in-out infinite;transform-origin:486px 302px}.blink{animation:blink 5s infinite;transform-origin:487px 174px}.paused *{animation-play-state:paused!important}@keyframes spin{to{transform:rotate(360deg)}}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}@keyframes pedal{0%{transform:translate(19px,0)}25%{transform:translate(0,19px)}50%{transform:translate(-19px,0)}75%{transform:translate(0,-19px)}100%{transform:translate(19px,0)}}@keyframes road{to{transform:translateX(-160px)}}@keyframes drift{to{transform:translateX(-1100px)}}@keyframes scarf{to{transform:rotate(-6deg)}}@keyframes wing{50%{transform:rotate(-2deg)}}@keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.08)}}@media(prefers-reduced-motion:reduce){.scene:not(.playing) *{animation-play-state:paused!important}}footer{text-align:center;font-size:12px;letter-spacing:.12em;opacity:.55;margin-top:20px}
+</style>
+</head>
+<body>
+<main class="scene" id="scene">
+<header><div><h1>海风，慢慢骑。</h1><p>A PELICAN'S LITTLE RIDE</p></div><button id="toggle" type="button" aria-pressed="false">暂停动画</button></header>
+<svg viewBox="0 0 1000 620" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
+<title id="title">鹈鹕骑自行车</title><desc id="desc">一只戴着绿色头盔、系着珊瑚色围巾的白色鹈鹕，骑着橘红色自行车沿海岸前进。车轮、脚踏、双脚和背景持续运动。</desc>
+<defs>
+ <pattern id="spokes" width="160" height="160" patternUnits="userSpaceOnUse"><path d="M0 80H160M80 0V160M23 23L137 137M23 137L137 23" stroke="#768b87" stroke-width="2"/></pattern>
+ <g id="wheel"><circle r="83" fill="#f7f2df" stroke="#294c51" stroke-width="9"/><circle r="72" fill="none" stroke="#9fb7ac" stroke-width="2"/><g class="spin" stroke="#91a89e" stroke-width="2"><path d="M-74 0H74M0-74V74M-52-52L52 52M-52 52L52-52M-28-68L28 68M-68-28L68 28M-68 28L68-28M-28 68L28-68"/><circle r="6" fill="#294c51" stroke="#294c51"/></g></g>
+ <g id="cloud" fill="#f7f7e9"><path d="M0 25C-5 4 24-6 37 10C43-17 84-18 93 9C114-1 133 12 131 25Z"/></g>
+</defs>
+<!-- 海岸与缓慢移动的云 -->
+<circle cx="794" cy="112" r="48" fill="#ffe8a6"/>
+<g opacity=".85" class="cloud"><use href="#cloud" x="180" y="105"/><use href="#cloud" x="700" y="175"/><use href="#cloud" x="1280" y="105"/><use href="#cloud" x="1800" y="175"/></g>
+<path d="M0 322Q160 291 307 324T650 322T1000 315V464H0Z" fill="#96c9c0"/>
+<path d="M0 361Q155 338 290 364T610 359T1000 356" fill="none" stroke="#d9eee0" stroke-width="3"/>
+<path d="M0 407Q260 354 500 404T1000 389V620H0Z" fill="#e8d8af"/>
+<path d="M0 471Q300 449 1000 465V620H0Z" fill="#f6edda"/>
+<path d="M0 555H1000" stroke="#dacbb0" stroke-width="2"/>
+<g class="road" stroke="#d2c3a4" stroke-width="4" stroke-linecap="round"><path d="M0 518H40M160 518H200M320 518H360M480 518H520M640 518H680M800 518H840M960 518H1000M1120 518H1160"/></g>
+<g fill="none" stroke="#849a78" stroke-width="3" stroke-linecap="round"><path d="M68 451q-8-22-17-25m17 25q0-31 12-38m-12 38q10-20 24-20M913 448q-8-22-17-25m17 25q0-31 12-38m-12 38q10-20 24-20"/></g>
+<ellipse cx="511" cy="493" rx="231" ry="12" fill="#405c4c" opacity=".1"/>
+<!-- 自行车后侧的脚 -->
+<g stroke="#c98a31" stroke-width="12" stroke-linecap="round" fill="none"><path d="M463 331L468 373"/><g class="leg back"><path d="M468 373L508 392"/><path d="M497 397h30" stroke="#e5a740" stroke-width="13"/></g></g>
+<!-- 自行车 -->
+<use href="#wheel" x="350" y="409"/><use href="#wheel" x="664" y="409"/>
+<g fill="none" stroke="#d7684d" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"><path d="M350 409L424 307L508 409H350L404 332H612L508 409M664 409L607 294"/><path d="M424 307L415 286" stroke="#294c51" stroke-width="7"/><path d="M607 294L598 266Q595 257 609 257H635" stroke="#294c51" stroke-width="7"/></g>
+<path d="M389 285Q414 276 440 284" stroke="#294c51" stroke-width="13" stroke-linecap="round"/>
+<path d="M620 269Q648 277 645 341" fill="none" stroke="#294c51" stroke-width="2"/>
+<circle cx="508" cy="409" r="22" fill="#f4d8ae" stroke="#294c51" stroke-width="4"/>
+<g class="spin" style="transform-box:view-box;transform-origin:508px 409px"><path d="M489 409H527" stroke="#294c51" stroke-width="5"/><path d="M480 409h17M519 409h17" stroke="#294c51" stroke-width="7" stroke-linecap="round"/></g>
+<!-- 骑手 -->
+<g class="bob">
+ <path d="M412 278Q376 267 365 242Q395 243 425 259" fill="#e3e7d9" stroke="#294c51" stroke-width="3" stroke-linejoin="round"/>
+ <path d="M418 263Q454 241 487 265Q508 284 491 316Q475 345 434 326Q407 314 412 263Z" fill="#fff9e8" stroke="#294c51" stroke-width="3"/>
+ <path d="M469 277Q485 244 466 217Q444 178 468 157Q489 139 506 161Q518 181 502 208Q489 232 510 259Q527 282 492 306" fill="#fff9e8" stroke="#294c51" stroke-width="3" stroke-linejoin="round"/>
+ <!-- 大喙与喉囊 -->
+ <path d="M501 183L641 194Q610 237 553 229Q521 224 501 197Z" fill="#efbd64" stroke="#294c51" stroke-width="3"/>
+ <path d="M502 180Q569 178 645 191Q651 195 642 199L503 195Z" fill="#f7cf73" stroke="#294c51" stroke-width="3"/>
+ <path d="M521 204Q565 225 608 209" fill="none" stroke="#d69b47" stroke-width="2"/>
+ <circle class="blink" cx="487" cy="174" r="4.5" fill="#294c51"/>
+ <circle cx="479" cy="188" r="7" fill="#edb5a0" opacity=".7"/>
+ <!-- 头盔 -->
+ <path d="M454 158Q453 124 483 124Q516 125 518 157Z" fill="#568f79" stroke="#294c51" stroke-width="3"/>
+ <path d="M451 159H525" stroke="#294c51" stroke-width="5" stroke-linecap="round"/>
+ <path d="M475 132l-3 17m16-18 2 17" stroke="#c2d8b6" stroke-width="4" stroke-linecap="round"/>
+ <path d="M460 160L472 203L488 209" fill="none" stroke="#294c51" stroke-width="2.5"/>
+ <!-- 飘动的围巾 -->
+ <path class="scarf" d="M486 245Q449 238 417 222L403 231L413 243Q445 257 484 258Z" fill="#df785b" stroke="#294c51" stroke-width="2.5"/>
+ <path d="M479 241L502 244L499 258L479 255Z" fill="#e98566" stroke="#294c51" stroke-width="2.5"/>
+ <!-- 扶车把的翅膀 -->
+ <g class="wing"><path d="M454 275Q482 262 519 281Q559 297 607 262Q616 258 618 267Q572 321 515 311Q476 308 454 290" fill="#e8eadd" stroke="#294c51" stroke-width="3" stroke-linecap="round"/><path d="M474 288Q506 309 544 301M481 280Q514 299 552 294" stroke="#bccbc0" stroke-width="2" fill="none"/></g>
+</g>
+<!-- 前侧腿跟随脚踏绕圈 -->
+<path d="M461 325L476 364" stroke="#e8ac4a" stroke-width="13" stroke-linecap="round"/>
+<g class="leg"><path d="M476 364L508 392" fill="none" stroke="#e8ac4a" stroke-width="12" stroke-linecap="round"/><path d="M499 395Q513 391 531 399L533 404H500Z" fill="#f2bb54" stroke="#294c51" stroke-width="2.5" stroke-linejoin="round"/></g>
+<g fill="none" stroke="#f9f4df" stroke-width="3" stroke-linecap="round" opacity=".9"><path d="M273 213h47m-67 15h32M731 281h49m-25 14h45"/></g>
+<text x="42" y="585" fill="#8a957c" font-size="12" font-family="sans-serif" letter-spacing="3">COASTAL CYCLING CLUB</text>
+<text x="958" y="585" text-anchor="end" fill="#8a957c" font-size="12" font-family="sans-serif" letter-spacing="2">一路有风 · 自在前行</text>
+</svg>
+<footer>一只鹈鹕，一辆单车，一段不着急的旅程。</footer>
+</main>
+<script>
+const scene=document.getElementById('scene'),button=document.getElementById('toggle');
+let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function update(){scene.classList.toggle('paused',paused);scene.classList.toggle('playing',!paused);button.textContent=paused?'播放动画':'暂停动画';button.setAttribute('aria-pressed',String(paused));}
+button.addEventListener('click',()=>{paused=!paused;update()});update();
+</script>
+</body>
+</html>

@@ -50,3 +50,14 @@ GitHub 阅读入口：[配置指南列表](../README.md#arch-linux-配置指南)
 - [[wiki/questions/仓库结构评估与优化方向]]：持续优化记录。
 - [[wiki/questions/LLM Wiki 仓库结构评估]]：2026-10-04 历史评估快照。
 - [[wiki/questions/Codex 会话如何持续补充 Arch Linux Wiki]]：经用户确认的会话收录约定及样本分析。
+
+## 工作区会话专题（2026-10-22）
+
+- [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作]]：终端最终方案、插件、fzf/zoxide 与 Vim 复制。
+- [[wiki/guides/Arch Linux KVM 虚拟机与 Fedora 文件传输]]：宿主机、客体安装和 SFTP，明确未实测环节。
+- [[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置]]：系统偏好、GTK、Qt 与应用主题分层。
+- [[wiki/guides/Niri 文件选择器与桌面应用入口排错]]：Portal、补丁、Fuzzel 和 Quiet Outline 的证据边界。
+- [[wiki/guides/Nautilus 书签与文件缓存维护]]：书签、预览、构建缓存和清理维护。
+- [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]]：主备用切换、分流验证与凭据边界。
+- [[wiki/guides/shorin-niri 源码学习与配置迁移路线]]：固定提交、分课学习和迁移条件。
+- [[wiki/guides/离线 SVG 骑车动画示例与维护]]：两段同名任务的离线前端示例，非系统依赖。

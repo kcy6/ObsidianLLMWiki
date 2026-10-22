@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-22
 sources:
+  - sources/codex-sessions/列出并分类已安装应用-2026-10-22会话摘录.md
   - sources/host-inventory/2026-10-22-本机应用分类清单.md
 ---
 
@@ -54,3 +55,21 @@ Rust 工具通过用户目录的 rustup 入口单列，不计入 pacman 总数�
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/guides/Arch Linux 常用软件安装与维护]]
 
 公开阅读入口：[复用计划](../questions/Arch%20Linux%20个性化配置复用计划.md) · [仓库说明](../../README.md)
+
+## 应用入口诊断增量（2026-10-22）
+
+来源为 [[sources/codex-sessions/列出并分类已安装应用-2026-10-22会话摘录]] 的 8 轮文本；底层部分输出标记截断，历史截图未查看。本节不改变原分类清单统计，也不把安装建议写成当前包状态。
+
+| 现象 | 来源结论与执行范围 | 后续处理 |
+| --- | --- | --- |
+| Yazi 从 Fuzzel 无法打开 | 报告已设置 `terminal=kitty -e` 并修正 xdg-terminals.list | 重开启动器验收，终端 desktop ID 与 shell 命令分开 |
+| GParted 无窗口 | 报告已提权但缺 xorg-xhost，尚未安装修复 | 先核对启动脚本/日志，再按需完整升级安装该依赖；不全局执行 xhost + |
+| 天气约 66° 与实际十几度不符 | 来源解释为华氏单位并报告已改摄氏 | 66°F 约18.9°C，不是传感器高温；截图本轮未独立复核 |
+| xgps / xgpsspeed 无数据 | gpsd 未运行，连接2947被拒绝，无常见接收器证据 | 无实际 GPS 需求时不为“可打开”强行启动服务 |
+| qv4l2 / qvidcap 无窗口 | 前者缺 Qt6兼容库；后者设备被已有实例占用 | 核对 `qt6-5compat` 及占用进程；关闭正确实例后再试，不自动杀进程 |
+
+`pacman -Qi 包名`、`pacman -Qo /usr/bin/程序` 与 `/var/log/pacman.log` 分别提供当前包属性、文件归属与历史事务。日志是 pacman 收到的调用，不等于用户原始 shell 命令，也不能直接引用历史行号在新日志中定位。
+
+Fuzzel 菜单隐藏与卸载包是不同决策。gpsd、v4l-utils 可能是其他应用依赖，不应为了移除几个入口使用强制卸载。确需隐藏时先核对系统 desktop 文件名，在用户 applications 目录创建同名覆盖并加 `Hidden=true`，保留原入口记录；恢复时仅撤销自己的覆盖。来源尚未实施隐藏，无需添加通用批量隐藏脚本。
+
+以上新增诊断尚缺目标环境的完整 GUI 验收。详情关联 [[wiki/guides/Niri 文件选择器与桌面应用入口排错]]、[[wiki/guides/Nautilus 书签与文件缓存维护]]。默认 read-only 盘点不试开摄像头、提权程序或改变单位设置。
