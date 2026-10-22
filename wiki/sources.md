@@ -188,7 +188,7 @@ sources: []
 
 - 来源：[[sources/codex-sessions/制定软件安装方案-2026-10-22增量]]，会话 ID `01a159d0-78c4-79b0-8b8e-6fda1df0d3a0`；接口两页共 17 个 completed 轮次，最后 hasMore=false；新增 11 轮，旧 6 轮快照原样保留。会话更新时间 `1792660597`。
 - 处理状态：已处理本次 11 轮文本及命令输出；命令输出未标记截断。一处历史截图未查看，Side Chat 未包含；不保存内部推理与搜索事件。完整保存不等于逐条独立验证所有助手说法。
-- 新来源 SHA-256：`2971b8b45e22990e16a8747d2f94fc9c1e8b88ecccfd33ed91c9654d5574de35`；核对日期 2026-10-22。本条与原快照历史指纹分开，不覆盖历史记录。
+- 新来源 SHA-256：`7b56330e372f0a51ef554eec62899a54f13d81918abba8d16ec8a22d1f252956`；核对日期 2026-10-22。本条与原快照历史指纹分开，不覆盖历史记录。
 - 结论：[[wiki/guides/Arch Linux 常用软件安装与维护]]，同步 Arch 主题、首页及复用计划。扩充默认预览的安装脚本，不执行真实安装/卸载/MIME 修改。
 - 外部核对：GNOME Apostrophe/Papers/Gradia/Workbench 官方功能页、Workbench Flathub、Arch Apostrophe/OBS/Gradia/Fractal/Telegram 包页及 OBS 官方 Linux 安装页；仅核对对应用途、渠道和部分依赖。Fractal 网页抓取版本与会话本地版本不同，保留各自日期与证据层次。AUR 页面被防护拦截，GNOME Fractal 页无法访问，未当作核验成功；AUR 版本/配方辨析依赖会话已保存输出，不等于当前下载链审查。
 - 下一步：补原功能与 GUI 验收、Workbench 含义确认、实际安装后的应用清单变化；本次保持会话可继续使用，未执行归档。
