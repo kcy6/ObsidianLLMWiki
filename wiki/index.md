@@ -23,7 +23,7 @@ GitHub 阅读入口：[配置指南列表](../README.md#arch-linux-配置指南)
 ## 操作与阅读指南
 
 - [[wiki/guides/Arch Linux 安装资料阅读路线]]：教程与个人笔记的阅读顺序。
-- [[wiki/guides/Arch Linux 常用软件安装与维护]]：软件选择、安装脚本与验收。
+- [[wiki/guides/Arch Linux 常用软件安装与维护]]：编辑/阅读/通信/录屏等软件选择、安装脚本与验收。
 - [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]：Rust 工具链。
 - [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：Git 身份与认证。
 

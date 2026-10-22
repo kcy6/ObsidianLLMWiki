@@ -63,3 +63,7 @@ Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d
 ## 应用基线与新机复用
 
 [[wiki/guides/Arch Linux 已安装应用盘点与维护]] 维护带日期的软件与应用基线；[[wiki/questions/Arch Linux 个性化配置复用计划]] 跟踪将本机个性化配置复用到新 Arch 主机的后续目标，尚未实现完整部署工具。
+
+### 软件方案增量（2026-10-22）
+
+[[wiki/guides/Arch Linux 常用软件安装与维护]] 已扩充 Telegram 依赖排错、Papers/Apostrophe 替换意向、微信包辨析，以及 OBS、Fractal、Workbench、Gradia；安装方案与实际功能验收分开维护。
