@@ -1,7 +1,7 @@
 ---
 type: topic
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-23
 sources:
   - sources/Shorin-ArchLinux-Guide/README.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
@@ -79,3 +79,9 @@ Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d
 - [[wiki/guides/shorin-niri 源码学习与配置迁移路线]]：固定提交、分课学习和迁移条件。
 
 [[wiki/guides/Arch Linux 已安装应用盘点与维护]] 追加桌面入口故障；[[wiki/guides/Arch Linux 常用软件安装与维护]] 追加串口工具。本轮不执行系统更改或会话归档。
+
+- [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]：Bash 基础速查、学习进度及持续更新的原笔记入口。
+
+- [[wiki/guides/Fcitx5 浅色主题定制与更新维护]]：2026-10-23 工作区会话整理。
+
+- [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]：2026-10-23 工作区会话整理。

@@ -76,3 +76,9 @@ pwsh -NoProfile -File scripts/Test-Wiki.ps1 -Strict
 - [v2rayA 主代理与 v2rayN 备用配置](wiki/guides/v2rayA%20%E4%B8%BB%E4%BB%A3%E7%90%86%E4%B8%8E%20v2rayN%20%E5%A4%87%E7%94%A8%E9%85%8D%E7%BD%AE.md)：主备用切换、分流验证与凭据边界。
 - [shorin-niri 源码学习与配置迁移路线](wiki/guides/shorin-niri%20%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%85%8D%E7%BD%AE%E8%BF%81%E7%A7%BB%E8%B7%AF%E7%BA%BF.md)：固定提交、分课学习和迁移条件。
 - [离线 SVG 骑车动画示例与维护](wiki/guides/%E7%A6%BB%E7%BA%BF%20SVG%20%E9%AA%91%E8%BD%A6%E5%8A%A8%E7%94%BB%E7%A4%BA%E4%BE%8B%E4%B8%8E%E7%BB%B4%E6%8A%A4.md)：两段同名任务的离线前端示例，非系统依赖。
+
+- [Bash 脚本语法速通与 shorinniri 阅读练习](wiki/guides/Bash%20脚本语法速通与%20shorinniri%20阅读练习.md)：基础速查、未完成练习和原笔记增量同步。
+
+- [Fcitx5 浅色主题定制与更新维护](wiki/guides/Fcitx5%20浅色主题定制与更新维护.md)。
+
+- [JSON TOML KDL 配置文件的学习与排错](wiki/guides/JSON%20TOML%20KDL%20配置文件的学习与排错.md)。

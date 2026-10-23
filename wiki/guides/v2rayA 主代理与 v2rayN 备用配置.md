@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-23
 sources:
+  - sources/codex-sessions/代理开机 DNS 排错增量-2026-10-23摘录.md
   - sources/codex-sessions/查找 v2rayN 本机支持版本-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
 ---
@@ -77,3 +78,13 @@ ss -lntp 'sport = :2017'
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/index]] · [[wiki/sources]]
 
 公开阅读入口：[知识库导航](../index.md) · [仓库说明](../../README.md)
+
+## 开机 DNS 故障与恢复（2026-10-23）
+
+新增三轮记录：v2rayA 早于 Wi-Fi 就绪启动，Codex 先报 ECONNRESET，之后 EAI_AGAIN；用户明确 v2rayN TUN 是故障后的补救，不能作为最初故障原因。重启 v2rayA 后连接恢复。DNS/透明代理初始化异常是推断，未保存当时完整 DNS、防火墙状态，不能认定唯一根因。
+
+待实施建议是在已有 drop-in 中合并 Wants=network-online.target 和 After=network-online.target，并确认实际使用 NetworkManager 及其 wait-online 服务。仓库 proxy/override.conf 已补为待审阅模板，不代表系统已应用。Restart=on-failure 仅处理进程失败，不检测进程存活但网络不可达。
+
+[systemd 文档](https://www.freedesktop.org/software/systemd/man/252/systemd.special.html)说明网络消费者应主动拉入并排序在 network-online.target 之后；[NetworkManager 文档](https://networkmanager.pages.freedesktop.org/NetworkManager/NetworkManager/NetworkManager-wait-online.service.html)说明 wait-online 等待启动阶段完成。该条件不保证公网、代理节点或应用 DNS 可达，不能声称加依赖就彻底修复。
+
+再次发生时，先保存 `journalctl -u v2raya -b`、resolv.conf、`getent ahostsv4` 结果，再恢复；日志仅留本地，分享前隐去节点和出口。切备用前先停止 v2rayA 并核对接管已释放；停止服务本身不保证所有 DNS 残留已清理。回退只恢复本次修改的 drop-in 和 wait-online 原启用状态，不整套 systemctl revert。待验收多次重启、联网延迟与主备用切换，当前未执行系统修改。

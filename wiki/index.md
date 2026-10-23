@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-22
+updated: 2026-10-23
 sources: []
 ---
 
@@ -61,3 +61,9 @@ GitHub 阅读入口：[配置指南列表](../README.md#arch-linux-配置指南)
 - [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]]：主备用切换、分流验证与凭据边界。
 - [[wiki/guides/shorin-niri 源码学习与配置迁移路线]]：固定提交、分课学习和迁移条件。
 - [[wiki/guides/离线 SVG 骑车动画示例与维护]]：两段同名任务的离线前端示例，非系统依赖。
+
+- [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]：Bash 基础速查、学习进度及持续更新的原笔记入口。
+
+- [[wiki/guides/Fcitx5 浅色主题定制与更新维护]]：2026-10-23 工作区会话整理。
+
+- [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]：2026-10-23 工作区会话整理。

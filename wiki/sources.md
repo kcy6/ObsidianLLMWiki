@@ -1,7 +1,7 @@
 ---
 type: sources
 status: draft
-updated: 2026-10-22
+updated: 2026-10-23
 sources: []
 ---
 
@@ -246,3 +246,28 @@ sources: []
 外部核对日期2026-10-22：Kitty配置、Starship、fzf/zoxide、libvirt守护进程、GNOME书签/预览、v2rayA项目、v2rayN发布包、Niri固定修复、Quiet Outline项目、Fuzzel手册、Portal Settings、qt6ct、paccache。对应段落链接见指南；未固定的文档可能变化。Fedora文档被防护拦截、Codeberg不可访问、Minicom包页抓取超时，不记为核对成功。shorin-niri 仅核对本地固定HEAD、入口和布局片段并读取学习笔记，未重新审计全部源码。
 
 本轮19个会话覆盖表是截至2026-10-22的最新收录进度，覆盖先前清单中的“待处理”描述；历史条目及其当时的核对范围仍保留。最后检查确认所有19个会话的归档字段与任务开始基线一致。
+
+## Bash 学习整理稿（2026-10-23）
+
+- 原文件历史位置：`/home/y/Documents/ChatGPT/archlinux环境搭建/shell脚本语法速通.md`，由用户持续维护；后续“同步 Wiki”时重新读取，不自动监控，不改写原文件。
+- 来源：[[sources/project-notes/shell脚本语法速通-2026-10-23整理稿]]（[快照](../sources/project-notes/shell脚本语法速通-2026-10-23整理稿.md)）。已读全文第一至十一节；这是侧聊整理稿，非逐字记录，未读取完整侧聊。基础与未完成部分均已归纳，学习进度仍未完成。
+- 原文件 SHA-256：`2ee322dcd0a2ae299bf13534993492ef29cfa0ea5de0ef0d662ee6c971e3826e`；公开快照 SHA-256：`4b1f9040cfbcf0b02aae62beae17fd3a7abcd95e1c7a27f7d8bda515ac44f4c7`。快照替换本机源码路径为工作区占位符、示例用户名为 example，其他正文保留；指纹差异来自这些发布编辑及收录说明。
+- 结论落点：[[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]，关联 shorin-niri 路线。核对日期 2026-10-23，文献整理，未运行示例、未逐项复核源码。
+- 下一步：比较原文件指纹后增量收录；保留旧快照，更新已学/待学边界，从第九节第3题继续；不因收录归档会话。
+
+## 工作区同步（2026-10-23 晚间）
+
+本机数据库按精确 cwd 发现21个持久会话，包括2个新会话。以各持久日志中的用户消息与最终答复检查新增：Fcitx5 4轮、配置格式1轮、Vim5轮、代理3轮、shorin-niri8轮，共21轮。旧会话仅保留的分段 rollout 不代表完整历史，沿用既有历史快照，不用本地条数覆盖先前接口分页数量。未包含不可访问临时侧聊、图片和全部工具输出；消息标题不作为执行授权。
+
+Shell 原文件全文十三节已读，新指纹 `3eaa1e992256b7f49b45669a30b65a5bd9c04633e2a0de0cc3859c0f1a7879b0`；旧快照保留。shorin-niri 学习指南全文及 Waybar 指南全文复读，内容仍为旧路线/旧配置说明，未据其文件日期声称新增实践。
+
+| 新来源 | SHA-256 | 读取范围 |
+| --- | --- | --- |
+| [[sources/codex-sessions/Fcitx5 浅色主题维护-2026-10-23摘录]] | `e362577b328e3f448f764d4e728057f67f0b8298311322df3f19ddb1bdc7897a` | 8条用户/最终答复消息 |
+| [[sources/codex-sessions/配置文件语法学习-2026-10-23摘录]] | `8f8ae1a88fb7d83e2099df0975998bd4deafe9c554241625d3f71d57344bbdbf` | 2条用户/最终答复消息 |
+| [[sources/codex-sessions/Vim 搜索与高亮增量-2026-10-23摘录]] | `774df1b4830924d05e2d9e4e51e9f3c902d09fd446abeb3cd4d3ecce53d13059` | 10条用户/最终答复消息 |
+| [[sources/codex-sessions/代理开机 DNS 排错增量-2026-10-23摘录]] | `4710a04b752b8d77f648499a2fa84ead1aad8d5a27ade41a34c8c8b3d2b9581a` | 6条用户/最终答复消息 |
+| [[sources/codex-sessions/shorin-niri 学习增量-2026-10-23摘录]] | `a66968d8c1f88ad5ebba140b4eb69eba85511feee0360fbdab46040bd1ed679e` | 16条用户/最终答复消息 |
+| [[sources/project-notes/shell脚本语法速通-2026-10-23晚间增量整理稿]] | `df744af3479b9b2b680a1f9fb37af028c46b1b5d276896a3e56d66184ca72e41` | 全文十三节 |
+
+核对日期2026-10-23：Fcitx5主题说明、systemd252文档与NetworkManager wait-online说明，仅核对指南对应机制。当前状态为阶段性收录；下一步正则独立练习、主题GUI验收、代理重启及DNS故障留证。所有会话归档字段保持原状。

@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-23
 sources:
+  - sources/codex-sessions/Vim 搜索与高亮增量-2026-10-23摘录.md
   - sources/codex-sessions/分析终端与 Shell 配置-2026-10-22会话摘录.md
   - sources/codex-sessions/查找 Kitty 中复制 Vim 内容的方法-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
@@ -76,3 +77,9 @@ Yazi 退出后让 Shell 跟随目录的包装函数仅在会话中提出、未�
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/index]] · [[wiki/sources]]
 
 公开阅读入口：[知识库导航](../index.md) · [仓库说明](../../README.md)
+
+## Vim 搜索定位与空 vimrc（2026-10-23 增量）
+
+会话新增五轮：用户最终希望采用简洁定位方式，没有确认应用复杂闪光函数。搜索后按 `zz` 居中；可选 `nnoremap n nzz` 与 `nnoremap N Nzz`，初次 `/` 回车后仍需手动 zz。`hlsearch` 是搜索匹配，`syntax on` 是语法颜色，二者分开排查。
+
+历史检查发现 ~/.vimrc 为0字节；助手判断它使默认 defaults.vim 不再自动加载。用户尚未确认具体创建操作，也没有配置修改验收。建议先用 `:scriptnames`、`:set compatible?` 核对实际加载链，再决定是否在 vimrc 开头加入 `source $VIMRUNTIME/defaults.vim`；该文件可能设置多项默认值，应放个人覆盖项之前。仅临时开启颜色可用 `:syntax on`；KDL 是否识别与高亮支持另查 `:set filetype?`。完整建议及证据边界见新增来源。

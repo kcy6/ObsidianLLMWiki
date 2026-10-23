@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-23
 sources:
   - sources/codex-sessions/为什么当前桌面主题默认是亮色，怎么配置为暗色-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
@@ -63,3 +63,5 @@ gdbus call --session --dest org.freedesktop.portal.Desktop \
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/index]] · [[wiki/sources]]
 
 公开阅读入口：[知识库导航](../index.md) · [仓库说明](../../README.md)
+
+相关输入法方案：[[wiki/guides/Fcitx5 浅色主题定制与更新维护]]；用户选择 Fcitx5 浅色主题，各组件外观分别维护。
