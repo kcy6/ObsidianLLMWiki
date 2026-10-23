@@ -266,7 +266,7 @@ Shell 原文件全文十三节已读，新指纹 `3eaa1e992256b7f49b45669a30b65a
 | [[sources/codex-sessions/Fcitx5 浅色主题维护-2026-10-23摘录]] | `e362577b328e3f448f764d4e728057f67f0b8298311322df3f19ddb1bdc7897a` | 8条用户/最终答复消息 |
 | [[sources/codex-sessions/配置文件语法学习-2026-10-23摘录]] | `8f8ae1a88fb7d83e2099df0975998bd4deafe9c554241625d3f71d57344bbdbf` | 2条用户/最终答复消息 |
 | [[sources/codex-sessions/Vim 搜索与高亮增量-2026-10-23摘录]] | `774df1b4830924d05e2d9e4e51e9f3c902d09fd446abeb3cd4d3ecce53d13059` | 10条用户/最终答复消息 |
-| [[sources/codex-sessions/代理开机 DNS 排错增量-2026-10-23摘录]] | `4710a04b752b8d77f648499a2fa84ead1aad8d5a27ade41a34c8c8b3d2b9581a` | 6条用户/最终答复消息 |
+| [[sources/codex-sessions/代理开机 DNS 排错增量-2026-10-23摘录]] | `519796916c04fc18ae51c2c75bad4992c63c9a8498721dd4e2ff26d1f989477f` | 6条用户/最终答复消息 |
 | [[sources/codex-sessions/shorin-niri 学习增量-2026-10-23摘录]] | `a66968d8c1f88ad5ebba140b4eb69eba85511feee0360fbdab46040bd1ed679e` | 16条用户/最终答复消息 |
 | [[sources/project-notes/shell脚本语法速通-2026-10-23晚间增量整理稿]] | `df744af3479b9b2b680a1f9fb37af028c46b1b5d276896a3e56d66184ca72e41` | 全文十三节 |
 
