@@ -27,7 +27,7 @@ sources: []
 - [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：分别检查提交署名、仓库地址和 SSH 认证。
 - [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作]]：终端外观、交互 Shell、提示符与 Vim 分开查。
 - [[wiki/guides/shorin-niri 源码学习与配置迁移路线]]：按调用链阅读，区分源码、系统模板与 HOME 生效配置。
-- [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]：按语法查速查表，按学习记录继续练习。
+- [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]：按知识点查 Bash、失败处理和复制模板；基础速通已结束。
 - [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]：先辨格式，再查应用支持的键和版本。
 
 ## 软件、网络与虚拟机

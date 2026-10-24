@@ -57,13 +57,13 @@ sources:
 
 ## Bash 语法学习入口
 
-新增 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]（[阅读指南](Bash%20脚本语法速通与%20shorinniri%20阅读练习.md)），依据侧聊导出的阶段性整理稿，补变量、函数、条件、数组、重定向与读取文件；后续进阶部分仍待学习。这不表示原七课路线或源码迁移已完成。
+新增 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]（[阅读指南](Bash%20脚本语法速通与%20shorinniri%20阅读练习.md)），依据2026-10-24完成稿，覆盖基础语法、进程、锁、错误传播及复制模板；本轮基础学习已结束，不再自动安排练习。这不表示原七课路线或源码迁移已完成。
 
 ## 源码学习进度
 
 新增八轮已覆盖 layout 参数练习、普通 Kitty 与 quickterminal 的 app-id 区别、`niri msg pick-window` 查询与 --class 指定标识的不同用途，以及源码目录→系统模板→HOME 配置的路径关系。保护匹配判断已练习：相同路径或“规则加斜杠”的子路径匹配；仅 update 调用保护判断，init 不受此保护。
 
-当前停在 backup_and_copy 的路径构造练习，需推导 src_file、dest_file、dest_dir 后继续备份流程，不能把讲过调用链当作已执行部署。脚本语法学习另有持续更新笔记，见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]；新增配置语言路线见 [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]。
+2026-10-23的主会话曾停在 backup_and_copy 路径推导；2026-10-24的Shell完成稿已补复制、同步与失败传播读码，旧待答位置不再作为当前任务。其他项目课程与实际部署仍未完成。脚本语法学习另有持续更新笔记，见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]；新增配置语言路线见 [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]。
 
 ## 收录与验证范围
 
