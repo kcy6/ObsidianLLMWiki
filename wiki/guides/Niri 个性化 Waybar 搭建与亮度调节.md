@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/搭建个性化 Waybar.md
   - sources/codex-sessions/推荐本机亮度调节组件.md
@@ -12,6 +12,22 @@ sources:
 ---
 
 # Niri 个性化 Waybar 搭建与亮度调节
+
+## 快速使用
+
+修改模块看 JSONC，修改样式看 CSS，亮度先确认设备。
+
+```bash
+python3 scripts/archlinux/deploy-waybar.py --target /tmp/waybar-review
+```
+
+执行范围：仓库根目录；仅预览，无亮度设备参数。
+
+复用要点：复用模块、样式与辅助脚本；背光设备和输出配置按新机器确认，不照抄历史设备名。
+
+操作细节：[[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#文件职责与基础布局]]。
+
+按需跳转：[范围与持续状态](#%E8%8C%83%E5%9B%B4%E4%B8%8E%E6%8C%81%E7%BB%AD%E7%8A%B6%E6%80%81) · [已有方案与证据边界](#%E5%B7%B2%E6%9C%89%E6%96%B9%E6%A1%88%E4%B8%8E%E8%AF%81%E6%8D%AE%E8%BE%B9%E7%95%8C) · [文件职责与基础布局](#%E6%96%87%E4%BB%B6%E8%81%8C%E8%B4%A3%E4%B8%8E%E5%9F%BA%E7%A1%80%E5%B8%83%E5%B1%80) · [手动搭建流程](#%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B) · [脚本生成与部署流程](#%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E4%B8%8E%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B) · [日后维护、恢复与继续搭建](#%E6%97%A5%E5%90%8E%E7%BB%B4%E6%8A%A4%E3%80%81%E6%81%A2%E5%A4%8D%E4%B8%8E%E7%BB%A7%E7%BB%AD%E6%90%AD%E5%BB%BA) · [验证与待办](#%E9%AA%8C%E8%AF%81%E4%B8%8E%E5%BE%85%E5%8A%9E)。
 
 适用于 Niri/Wayland 下的 Waybar 基础布局、美化与内置屏背光接入。`nvidia_0` 是来源设备的接口名，使用前须替换为实际验证可用的设备。基础模板与正在使用的个性化配置应分开维护。
 

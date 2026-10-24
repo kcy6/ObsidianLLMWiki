@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - wiki/assets/demos/pelican-bicycle.html
   - sources/codex-sessions/创建醍醐骑车动画 HTML-2026-10-22会话摘录.md
@@ -10,7 +10,17 @@ sources:
 
 # 离线 SVG 骑车动画示例与维护
 
-适用条件与来源日期在正文中分别列明；占位路径、设备名与版本须按目标环境调整。以下是知识收录，不代表已在新机器完成部署。
+## 快速使用
+
+下载仓库后打开 HTML，按 SVG/CSS/按钮脚本分层修改。
+
+执行范围：无需安装或构建；GitHub 源码页不是运行页面。
+
+复用要点：复用内联 SVG 和动画控制结构；修改后验收播放、暂停、窄屏与减少动态偏好。
+
+操作细节：[[wiki/guides/离线 SVG 骑车动画示例与维护#手动运行与代码结构]]。
+
+按需跳转：[收录边界](#%E6%94%B6%E5%BD%95%E8%BE%B9%E7%95%8C) · [手动运行与代码结构](#%E6%89%8B%E5%8A%A8%E8%BF%90%E8%A1%8C%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84) · [脚本与维护](#%E8%84%9A%E6%9C%AC%E4%B8%8E%E7%BB%B4%E6%8A%A4) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[创建醍醐骑车动画 HTML](../../sources/codex-sessions/%E5%88%9B%E5%BB%BA%E9%86%8D%E9%86%90%E9%AA%91%E8%BD%A6%E5%8A%A8%E7%94%BB%20HTML-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md) · [创建醍醐骑车动画 HTML（早期）](../../sources/codex-sessions/%E5%88%9B%E5%BB%BA%E9%86%8D%E9%86%90%E9%AA%91%E8%BD%A6%E5%8A%A8%E7%94%BB%20HTML%EF%BC%88%E6%97%A9%E6%9C%9F%EF%BC%89-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 

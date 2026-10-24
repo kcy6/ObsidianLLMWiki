@@ -1,13 +1,29 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-23
+updated: 2026-10-24
 sources:
   - sources/project-notes/shell脚本语法速通-2026-10-23晚间增量整理稿.md
   - sources/project-notes/shell脚本语法速通-2026-10-23整理稿.md
 ---
 
 # Bash 脚本语法速通与 shorinniri 阅读练习
+
+## 快速使用
+
+按语法查速查表，按学习记录继续练习。
+
+```bash
+bash -n /实际路径/练习.sh
+```
+
+执行范围：仅语法检查，不执行脚本；不会验证外部命令或行为。
+
+复用要点：复用语法与纯练习片段；系统修改命令保留为阅读材料，学习进度与知识正文分开。
+
+操作细节：[[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习#基础速查]]。
+
+按需跳转：[基础速查](#%E5%9F%BA%E7%A1%80%E9%80%9F%E6%9F%A5) · [重定向与文件读取](#%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%8E%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96) · [学习进度与继续入口](#%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6%E4%B8%8E%E7%BB%A7%E7%BB%AD%E5%85%A5%E5%8F%A3) · [练习与持续维护](#%E7%BB%83%E4%B9%A0%E4%B8%8E%E6%8C%81%E7%BB%AD%E7%BB%B4%E6%8A%A4)。
 
 用于在阅读 shorin-niri 的 `shorinniri` 时复习 Bash 基础，并定位下一次学习起点。适用 Bash；不能直接套用于 POSIX sh、Fish 或 Niri 的 KDL 配置。
 

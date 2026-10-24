@@ -1,13 +1,30 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/分析本机与 GitHub 账户配置.md
   - scripts/archlinux/configure-github-repo.sh
 ---
 
 # GitHub 账户对应与 SSH 私有仓库使用
+
+## 快速使用
+
+分别检查提交署名、仓库地址和 SSH 认证。
+
+```bash
+git var GIT_AUTHOR_IDENT
+git remote -v
+```
+
+执行范围：在目标 Git 仓库执行，只读；输出可能含私人地址。
+
+复用要点：每个仓库明确身份与 remote；私钥、公钥授权和 agent 单独准备。
+
+操作细节：[[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用#先区分三种对应关系]]。
+
+按需跳转：[先区分三种对应关系](#%E5%85%88%E5%8C%BA%E5%88%86%E4%B8%89%E7%A7%8D%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB) · [手动配置流程](#%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B) · [脚本流程](#%E8%84%9A%E6%9C%AC%E6%B5%81%E7%A8%8B) · [后续维护与排错](#%E5%90%8E%E7%BB%AD%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%8E%92%E9%94%99) · [核对与待验证](#%E6%A0%B8%E5%AF%B9%E4%B8%8E%E5%BE%85%E9%AA%8C%E8%AF%81)。
 
 说明 Git 提交署名、SSH 认证账户与远程仓库地址的区别，提供单账户配置、私有仓库克隆及已有项目关联流程。示例中的 `OWNER`、`REPOSITORY`、邮箱和项目路径均须替换；配套脚本只配置指定本地仓库。
 

@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-21
+updated: 2026-10-24
 sources:
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装桌面环境前的准备.md
@@ -10,6 +10,18 @@ sources:
 ---
 
 # Arch Linux 安装资料阅读路线
+
+## 快速使用
+
+按安装阶段定位资料，先确定硬件、分区和引导方案。
+
+执行范围：阅读路线不提供通用一键安装命令。
+
+复用要点：复用决策顺序；分区、ESP、设备名及引导必须按目标机器重新确认。
+
+操作细节：[[wiki/guides/Arch Linux 安装资料阅读路线#按阶段查资料]]。
+
+按需跳转：[先定方案](#%E5%85%88%E5%AE%9A%E6%96%B9%E6%A1%88) · [按阶段查资料](#%E6%8C%89%E9%98%B6%E6%AE%B5%E6%9F%A5%E8%B5%84%E6%96%99) · [来源更新复核（2026-10-21）](#%E6%9D%A5%E6%BA%90%E6%9B%B4%E6%96%B0%E5%A4%8D%E6%A0%B8%EF%BC%882026-10-21%EF%BC%89)。
 
 这页是阅读与核对清单，**不是可直接复制执行的安装脚本**。安装涉及磁盘分区与引导，需先确认机器状态和你选择的方案。
 

@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-23
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/为什么当前桌面主题默认是亮色，怎么配置为暗色-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
@@ -9,7 +9,21 @@ sources:
 
 # Niri 桌面的暗色外观与 GTK Qt 配置
 
-适用条件与来源日期在正文中分别列明；占位路径、设备名与版本须按目标环境调整。以下是知识收录，不代表已在新机器完成部署。
+## 快速使用
+
+按 GTK、Qt、终端、状态栏和应用分别设置主题。
+
+```bash
+gsettings get org.gnome.desktop.interface color-scheme
+```
+
+执行范围：在桌面用户会话执行，只读；需要对应 schema。
+
+复用要点：先记录旧值；只迁移所需组件，Qt/Niri 环境变量与输入法设置一起核对。
+
+操作细节：[[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置#分层理解]]。
+
+按需跳转：[分层理解](#%E5%88%86%E5%B1%82%E7%90%86%E8%A7%A3) · [手动设置](#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE) · [脚本流程](#%E8%84%9A%E6%9C%AC%E6%B5%81%E7%A8%8B) · [验收、维护及回退](#%E9%AA%8C%E6%94%B6%E3%80%81%E7%BB%B4%E6%8A%A4%E5%8F%8A%E5%9B%9E%E9%80%80) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[为什么当前桌面主题默认是亮色，怎么配置为暗色](../../sources/codex-sessions/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BD%93%E5%89%8D%E6%A1%8C%E9%9D%A2%E4%B8%BB%E9%A2%98%E9%BB%98%E8%AE%A4%E6%98%AF%E4%BA%AE%E8%89%B2%EF%BC%8C%E6%80%8E%E4%B9%88%E9%85%8D%E7%BD%AE%E4%B8%BA%E6%9A%97%E8%89%B2-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 

@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/排查 Codex Add 无响应-2026-10-22会话摘录.md
   - sources/codex-sessions/排查 fuzzel 滚轮翻页问题-2026-10-22会话摘录.md
@@ -11,7 +11,21 @@ sources:
 
 # Niri 文件选择器与桌面应用入口排错
 
-适用条件与来源日期在正文中分别列明；占位路径、设备名与版本须按目标环境调整。以下是知识收录，不代表已在新机器完成部署。
+## 快速使用
+
+按启动器、应用、Portal、面板顺序缩小问题范围。
+
+```bash
+journalctl --user -b -u xdg-desktop-portal --no-pager -n 80
+```
+
+执行范围：只读查看当前用户日志；分享前审阅敏感信息。
+
+复用要点：后端片段按接口合并；历史补丁先确认目标软件包是否仍需要。
+
+操作细节：[[wiki/guides/Niri 文件选择器与桌面应用入口排错#文件选择器没有弹出]]。
+
+按需跳转：[诊断顺序](#%E8%AF%8A%E6%96%AD%E9%A1%BA%E5%BA%8F) · [文件选择器没有弹出](#%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E5%99%A8%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA) · [回补补丁与恢复 Nautilus](#%E5%9B%9E%E8%A1%A5%E8%A1%A5%E4%B8%81%E4%B8%8E%E6%81%A2%E5%A4%8D-nautilus) · [Fuzzel 滚轮与终端应用](#fuzzel-%E6%BB%9A%E8%BD%AE%E4%B8%8E%E7%BB%88%E7%AB%AF%E5%BA%94%E7%94%A8) · [Quiet Outline 面板](#quiet-outline-%E9%9D%A2%E6%9D%BF) · [维护与验收](#%E7%BB%B4%E6%8A%A4%E4%B8%8E%E9%AA%8C%E6%94%B6) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[排查 Codex Add 无响应](../../sources/codex-sessions/%E6%8E%92%E6%9F%A5%20Codex%20Add%20%E6%97%A0%E5%93%8D%E5%BA%94-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md) · [排查 fuzzel 滚轮翻页问题](../../sources/codex-sessions/%E6%8E%92%E6%9F%A5%20fuzzel%20%E6%BB%9A%E8%BD%AE%E7%BF%BB%E9%A1%B5%E9%97%AE%E9%A2%98-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md) · [排查 Obsidian 大纲插件不显示](../../sources/codex-sessions/%E6%8E%92%E6%9F%A5%20Obsidian%20%E5%A4%A7%E7%BA%B2%E6%8F%92%E4%BB%B6%E4%B8%8D%E6%98%BE%E7%A4%BA-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 

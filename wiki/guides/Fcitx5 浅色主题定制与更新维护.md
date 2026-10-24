@@ -1,12 +1,24 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-23
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/Fcitx5 浅色主题维护-2026-10-23摘录.md
 ---
 
 # Fcitx5 浅色主题定制与更新维护
+
+## 快速使用
+
+复制出独立主题再定制，避免上游同名更新覆盖。
+
+执行范围：副本脚本默认预览，手动选择主题后才影响输入框。
+
+复用要点：保留个人主题目录和经典界面配置；字体、缩放及 SVG 引用按目标机验收。
+
+操作细节：[[wiki/guides/Fcitx5 浅色主题定制与更新维护#手动配置]]。
+
+按需跳转：[手动配置](#%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE) · [脚本与回退](#%E8%84%9A%E6%9C%AC%E4%B8%8E%E5%9B%9E%E9%80%80)。
 
 适用 Fcitx5 经典用户界面；会话检查记录为 Niri/Wayland、Rime、macOS-light 和 Noto Sans CJK SC 13，属于历史设备观察，未重新盘点。用户最终偏好为**浅色主题**，不因 Waybar 深色而改成深色。
 

@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/Nautilus相关配置-2026-10-22会话摘录.md
   - sources/codex-sessions/扫描本机文件并给出管理建议-2026-10-22会话摘录.md
@@ -10,7 +10,21 @@ sources:
 
 # Nautilus 书签与文件缓存维护
 
-适用条件与来源日期在正文中分别列明；占位路径、设备名与版本须按目标环境调整。以下是知识收录，不代表已在新机器完成部署。
+## 快速使用
+
+书签用 UI 管理；缓存先看候选再决定是否清理。
+
+```bash
+paccache -d -k 3
+```
+
+执行范围：仅列候选，需已安装 paccache；不删除缓存。
+
+复用要点：保留目录用途、书签与便携应用入口；清理策略不复制历史待删路径。
+
+操作细节：[[wiki/guides/Nautilus 书签与文件缓存维护#手动维护与脚本]]。
+
+按需跳转：[Nautilus 的可配置范围](#nautilus-%E7%9A%84%E5%8F%AF%E9%85%8D%E7%BD%AE%E8%8C%83%E5%9B%B4) · [文件职责与盘点结果](#%E6%96%87%E4%BB%B6%E8%81%8C%E8%B4%A3%E4%B8%8E%E7%9B%98%E7%82%B9%E7%BB%93%E6%9E%9C) · [手动维护与脚本](#%E6%89%8B%E5%8A%A8%E7%BB%B4%E6%8A%A4%E4%B8%8E%E8%84%9A%E6%9C%AC) · [维护与验收](#%E7%BB%B4%E6%8A%A4%E4%B8%8E%E9%AA%8C%E6%94%B6) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[Nautilus相关配置](../../sources/codex-sessions/Nautilus%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md) · [扫描本机文件并给出管理建议](../../sources/codex-sessions/%E6%89%AB%E6%8F%8F%E6%9C%AC%E6%9C%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E7%BB%99%E5%87%BA%E7%AE%A1%E7%90%86%E5%BB%BA%E8%AE%AE-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 

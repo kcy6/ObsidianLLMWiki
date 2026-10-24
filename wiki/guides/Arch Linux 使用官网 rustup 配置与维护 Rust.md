@@ -1,13 +1,30 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/查找 Rust 环境配置教程.md
   - scripts/archlinux/setup-rust-official.sh
 ---
 
 # Arch Linux 使用官网 rustup 配置与维护 Rust
+
+## 快速使用
+
+区分工具链、项目依赖与 Shell PATH。
+
+```bash
+rustup show
+cargo --version
+```
+
+执行范围：只读检查；需要工具已安装。
+
+复用要点：保留 rust-toolchain.toml、Cargo.lock 与必要 Cargo 配置；官网版与系统包版分别处理。
+
+操作细节：[[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust#后续维护]]。
+
+按需跳转：[最终选择与适用范围](#%E6%9C%80%E7%BB%88%E9%80%89%E6%8B%A9%E4%B8%8E%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4) · [三种入口不要混淆](#%E4%B8%89%E7%A7%8D%E5%85%A5%E5%8F%A3%E4%B8%8D%E8%A6%81%E6%B7%B7%E6%B7%86) · [手动配置流程](#%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B) · [脚本流程](#%E8%84%9A%E6%9C%AC%E6%B5%81%E7%A8%8B) · [后续维护](#%E5%90%8E%E7%BB%AD%E7%BB%B4%E6%8A%A4) · [核对与待验证](#%E6%A0%B8%E5%AF%B9%E4%B8%8E%E5%BE%85%E9%AA%8C%E8%AF%81)。
 
 适用于 Linux 用户级 Rust 开发环境，示例以 Arch Linux 为依赖管理环境。采用官网 rustup 安装 stable 工具链，说明 Shell 环境、项目版本固定、依赖更新和卸载；系统包版 rustup 应按其打包方式维护。
 

@@ -1,7 +1,7 @@
 ---
 type: topic
 status: needs-verification
-updated: 2026-10-23
+updated: 2026-10-24
 sources:
   - sources/Shorin-ArchLinux-Guide/README.md
   - sources/Shorin-ArchLinux-Guide/wiki/archlinux/安装ArchLinux.md
@@ -85,3 +85,7 @@ Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d
 - [[wiki/guides/Fcitx5 浅色主题定制与更新维护]]：2026-10-23 工作区会话整理。
 
 - [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]：2026-10-23 工作区会话整理。
+
+## 日常查询入口
+
+[[wiki/guides/Arch Linux 命令与快捷键速查]]：快捷键、只读诊断、重载/传输/更新及模板预览；各操作附执行范围并返回详细指南。需要迁移时先从 [[wiki/questions/Arch Linux 个性化配置复用计划]] 确定模块与主机参数。

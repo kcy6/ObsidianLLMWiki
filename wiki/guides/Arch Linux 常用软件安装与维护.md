@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/制定软件安装方案-2026-10-22串口增量.md
   - sources/codex-sessions/制定软件安装方案.md
@@ -10,6 +10,22 @@ sources:
 ---
 
 # Arch Linux 常用软件安装与维护
+
+## 快速使用
+
+按用途选安装渠道，再安装或排查应用。
+
+```bash
+bash scripts/archlinux/install-desktop-apps.sh papers apostrophe
+```
+
+执行范围：仓库根目录；仅预览。--apply 会安装并可能升级系统。
+
+复用要点：保留所选软件组、渠道和应用配置；账号登录与默认程序另设。
+
+操作细节：[[wiki/guides/Arch Linux 常用软件安装与维护#软件选择与安装渠道]]。
+
+按需跳转：[范围、环境与证据](#%E8%8C%83%E5%9B%B4%E3%80%81%E7%8E%AF%E5%A2%83%E4%B8%8E%E8%AF%81%E6%8D%AE) · [软件选择与安装渠道](#%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9%E4%B8%8E%E5%AE%89%E8%A3%85%E6%B8%A0%E9%81%93) · [手动安装流程](#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B) · [阅读办公与通信工具选择](#%E9%98%85%E8%AF%BB%E5%8A%9E%E5%85%AC%E4%B8%8E%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9) · [脚本配置流程](#%E8%84%9A%E6%9C%AC%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B) · [验收与故障检查](#%E9%AA%8C%E6%94%B6%E4%B8%8E%E6%95%85%E9%9A%9C%E6%A3%80%E6%9F%A5) · [后续更新、迁移与卸载](#%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0%E3%80%81%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%8D%B8%E8%BD%BD) · [待验证与核对记录](#%E5%BE%85%E9%AA%8C%E8%AF%81%E4%B8%8E%E6%A0%B8%E5%AF%B9%E8%AE%B0%E5%BD%95) · [应用盘点与复用规划](#%E5%BA%94%E7%94%A8%E7%9B%98%E7%82%B9%E4%B8%8E%E5%A4%8D%E7%94%A8%E8%A7%84%E5%88%92) · [串口与连接工具](#%E4%B8%B2%E5%8F%A3%E4%B8%8E%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7)。
 
 适用于 Arch Linux x86_64，覆盖编辑器、Markdown/PDF 阅读、通信、录屏、界面原型与截图编辑的安装选择、验收和维护。软件按需安装；AUR 辅助工具需预先准备。配套脚本默认只预览命令，实际安装须显式指定 `--apply`。
 
@@ -95,7 +111,7 @@ pacman -Q linuxqq wechat-bin
 
 也可选择 `paru`。首次从应用菜单启动并扫码登录；先测试原生客户端，再决定是否增加 `wechat` 所提供的修复及可选沙箱。Niri 下若 X11 应用不能显示窗口，应检查当前 Niri 与 xwayland-satellite 集成，而不是仅以 `Xwayland` 可执行文件存在断言兼容性已就绪。Waybar 用户检查托盘入口；不全局强制 Qt/Electron 后端。来源：[[sources/codex-sessions/制定软件安装方案]] 的 QQ/微信轮次；这些兼容性项目仍需目标机测试。
 
-## 增量软件方案与选择变更（2026-10-22）
+## 阅读办公与通信工具选择
 
 本节各项来源为 [[sources/codex-sessions/制定软件安装方案-2026-10-22增量]]；历史包版本仅供追溯，执行前重新查询。以下命令为可复用方案，本次没有执行安装、卸载或 MIME 修改。
 
@@ -250,7 +266,7 @@ Flatpak 阶段记录安装前后应用列表；任一渠道失败即停止并保
 
 安装或移除软件后的基线维护见 [[wiki/guides/Arch Linux 已安装应用盘点与维护]]；新主机的软件选择与配置部署统一跟踪于 [[wiki/questions/Arch Linux 个性化配置复用计划]]。
 
-## 串口与连接工具增量（2026-10-22）
+## 串口与连接工具
 
 来源：[[sources/codex-sessions/制定软件安装方案-2026-10-22串口增量]]。在已收录17轮之后新增1轮，方案为 Tabby（AUR tabby-bin，终端/SSH/串口）、CuteCom（AUR cutecom，图形串口）与 Minicom（官方仓库 minicom）。来源描述 CuteCom 为候选版，不作为所有未来版本的固定性质；本轮包页抓取超时，渠道来自会话方案，安装前复查配方。
 

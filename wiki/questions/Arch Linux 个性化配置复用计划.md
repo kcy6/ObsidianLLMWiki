@@ -1,13 +1,28 @@
 ---
 type: question
 status: draft
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/host-inventory/2026-10-22-本机应用分类清单.md
   - wiki/guides/Arch Linux 已安装应用盘点与维护.md
 ---
 
 # Arch Linux 个性化配置复用计划
+
+## 复用时先填这张表
+
+先选模块，再准备文件和依赖；下表是交接检查表，不表示已采集当前主机全部配置。
+
+| 模块 | 带走的资料 | 新机必须调整 | 验收与恢复入口 |
+| --- | --- | --- | --- |
+| 终端 | Kitty、Zsh、Starship 配置及引用主题 | 字体、Shell 与插件路径 | [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作]] |
+| Waybar | JSONC、CSS、资源与辅助脚本 | 背光设备、输出与程序依赖 | [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]] |
+| 输入法 | 个人主题目录、经典界面配置；Rime 资料另盘点 | 字体、缩放、所用界面 | [[wiki/guides/Fcitx5 浅色主题定制与更新维护]] |
+| 代理 | 客户端版本与无凭据配置说明 | 网络管理器、端口和私人节点 | [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]] |
+| Rust | 项目源码、版本文件、锁文件和必要 Cargo 配置 | 工具链入口与链接依赖 | [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]] |
+| Git | 仓库与署名/remote 记录 | 新机密钥、agent及账户授权 | [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]] |
+
+每个模块记录目标环境、备份位置、合并差异、启动结果、功能检查与恢复结果。命令入口见 [[wiki/guides/Arch Linux 命令与快捷键速查]]；模板不是配置备份，复制文件也不代表功能通过。
 
 ## 用户目标与当前范围
 

@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-22
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/分析本机虚拟机安装方式-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
@@ -9,7 +9,21 @@ sources:
 
 # Arch Linux KVM 虚拟机与 Fedora 文件传输
 
-适用条件与来源日期在正文中分别列明；占位路径、设备名与版本须按目标环境调整。以下是知识收录，不代表已在新机器完成部署。
+## 快速使用
+
+宿主机管理 KVM，客体提供 SSH，文件通过 SFTP/scp 传输。
+
+```bash
+virsh -c qemu:///system net-list --all
+```
+
+执行范围：Arch 宿主机只读检查；需 libvirt 连接权限。
+
+复用要点：确认守护进程模式、授权和 NAT；迁移虚拟机时保留磁盘、XML、NVRAM，资源值另定。
+
+操作细节：[[wiki/guides/Arch Linux KVM 虚拟机与 Fedora 文件传输#文件传输]]。
+
+按需跳转：[适用环境和历史变化](#%E9%80%82%E7%94%A8%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8E%86%E5%8F%B2%E5%8F%98%E5%8C%96) · [手动配置宿主机](#%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%AE%BF%E4%B8%BB%E6%9C%BA) · [创建 Fedora 虚拟机](#%E5%88%9B%E5%BB%BA-fedora-%E8%99%9A%E6%8B%9F%E6%9C%BA) · [文件传输](#%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93) · [脚本、维护与恢复](#%E8%84%9A%E6%9C%AC%E3%80%81%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%81%A2%E5%A4%8D) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[分析本机虚拟机安装方式](../../sources/codex-sessions/%E5%88%86%E6%9E%90%E6%9C%AC%E6%9C%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 

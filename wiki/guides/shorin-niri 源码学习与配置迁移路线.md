@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-23
+updated: 2026-10-24
 sources:
   - sources/codex-sessions/shorin-niri 学习增量-2026-10-23摘录.md
   - sources/project-notes/shorin-niri-347ca890-学习笔记.md
@@ -10,7 +10,17 @@ sources:
 
 # shorin-niri 源码学习与配置迁移路线
 
-适用条件与来源日期在正文中分别列明；占位路径、设备名与版本须按目标环境调整。以下是知识收录，不代表已在新机器完成部署。
+## 快速使用
+
+按调用链阅读，区分源码、系统模板与 HOME 生效配置。
+
+执行范围：纯阅读；不以 init/update/remove 作为入门练习。
+
+复用要点：固定阅读提交，逐模块比较现有配置；更新保护不等于初始化或卸载保护。
+
+操作细节：[[wiki/guides/shorin-niri 源码学习与配置迁移路线#脚本流程与迁移边界]]。
+
+按需跳转：[固定阅读基线](#%E5%9B%BA%E5%AE%9A%E9%98%85%E8%AF%BB%E5%9F%BA%E7%BA%BF) · [手动阅读与练习](#%E6%89%8B%E5%8A%A8%E9%98%85%E8%AF%BB%E4%B8%8E%E7%BB%83%E4%B9%A0) · [脚本流程与迁移边界](#%E8%84%9A%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E8%BF%81%E7%A7%BB%E8%BE%B9%E7%95%8C) · [后续维护与待办](#%E5%90%8E%E7%BB%AD%E7%BB%B4%E6%8A%A4%E4%B8%8E%E5%BE%85%E5%8A%9E) · [Bash 语法学习入口](#bash-%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E5%85%A5%E5%8F%A3) · [源码学习进度](#%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[拉取并逐步学习 shorin-niri](../../sources/codex-sessions/%E6%8B%89%E5%8F%96%E5%B9%B6%E9%80%90%E6%AD%A5%E5%AD%A6%E4%B9%A0%20shorin-niri-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 
@@ -45,6 +55,16 @@ sources:
 
 关联 [[wiki/questions/Arch Linux 个性化配置复用计划]] 和 [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]]；来源笔记提及的历史 dotfiles 结构仅为上游结构，不撤销用户“不建立自用 dotfiles 仓库”的决定。
 
+## Bash 语法学习入口
+
+新增 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]（[阅读指南](Bash%20脚本语法速通与%20shorinniri%20阅读练习.md)），依据侧聊导出的阶段性整理稿，补变量、函数、条件、数组、重定向与读取文件；后续进阶部分仍待学习。这不表示原七课路线或源码迁移已完成。
+
+## 源码学习进度
+
+新增八轮已覆盖 layout 参数练习、普通 Kitty 与 quickterminal 的 app-id 区别、`niri msg pick-window` 查询与 --class 指定标识的不同用途，以及源码目录→系统模板→HOME 配置的路径关系。保护匹配判断已练习：相同路径或“规则加斜杠”的子路径匹配；仅 update 调用保护判断，init 不受此保护。
+
+当前停在 backup_and_copy 的路径构造练习，需推导 src_file、dest_file、dest_dir 后继续备份流程，不能把讲过调用链当作已执行部署。脚本语法学习另有持续更新笔记，见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]；新增配置语言路线见 [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]。
+
 ## 收录与验证范围
 
 2026-10-22：阅读所列会话用户消息与最终答复，工具输出按相关主题抽查，未逐行重新审计全部历史执行；来源摘录不包含全部工具输出、内部推理或 Side Chat。历史截图未逐张核验。指南保持 needs-verification，实际部署、图形交互和恢复应按正文验收后补记录。所有工作区会话的归档状态保持不变。
@@ -52,13 +72,3 @@ sources:
 相关：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/index]] · [[wiki/sources]]
 
 公开阅读入口：[知识库导航](../index.md) · [仓库说明](../../README.md)
-
-## Bash 语法学习补充（2026-10-23）
-
-新增 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]（[阅读指南](Bash%20脚本语法速通与%20shorinniri%20阅读练习.md)），依据侧聊导出的阶段性整理稿，补变量、函数、条件、数组、重定向与读取文件；后续进阶部分仍待学习。这不表示原七课路线或源码迁移已完成。
-
-## 互动学习进展（2026-10-23）
-
-新增八轮已覆盖 layout 参数练习、普通 Kitty 与 quickterminal 的 app-id 区别、`niri msg pick-window` 查询与 --class 指定标识的不同用途，以及源码目录→系统模板→HOME 配置的路径关系。保护匹配判断已练习：相同路径或“规则加斜杠”的子路径匹配；仅 update 调用保护判断，init 不受此保护。
-
-当前停在 backup_and_copy 的路径构造练习，需推导 src_file、dest_file、dest_dir 后继续备份流程，不能把讲过调用链当作已执行部署。脚本语法学习另有持续更新笔记，见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]；新增配置语言路线见 [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]。

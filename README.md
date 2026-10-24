@@ -18,6 +18,8 @@
 
 新个人笔记放 notes，网页剪藏放 Clippings，外部项目资料放 sources；既有专题目录继续作为来源。wiki 内按 topics（路线图）、concepts（概念）、guides（流程）、questions（比较与待验证问题）分类；不预建空目录或批量移动旧笔记。
 
+日常查操作可直接打开 [命令与快捷键速查](wiki/guides/Arch%20Linux%20命令与快捷键速查.md)；新机准备见 [个性化配置复用计划](wiki/questions/Arch%20Linux%20个性化配置复用计划.md)。
+
 ## 日常维护
 
 1. 收录：指定来源与需要解决的问题，读完全文或明确章节范围，更新关联页面、台账和日志。
