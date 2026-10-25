@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-25
 sources:
   - wiki/guides/Kitty 与 Zsh 终端配置和复制操作.md
   - wiki/guides/Arch Linux 常用软件安装与维护.md
@@ -51,6 +51,7 @@ sources:
 | 远程地址 | `git remote -v` | 不证明 SSH 认证账户或仓库权限 |
 | 客体 NAT 网络 | `virsh -c qemu:///system net-list --all` | 需连接授权；未启动与不存在分开处理 |
 | 系统暗色偏好 | `gsettings get org.gnome.desktop.interface color-scheme` | 在桌面用户会话中读取；不证明所有应用外观一致 |
+| 停止代理后仍无法解析 | `cat /etc/resolv.conf` | 先核对有无基础 nameserver；与 NetworkManager 活动连接配置一起判断 |
 | 代理目标 DNS | `getent ahostsv4 codex-cloud-backend.chatgpt.com` | 发起解析；成功不等于 HTTPS/代理已通 |
 | 代理日志 | `journalctl -u v2raya -b --no-pager -n 80` | 可能需日志权限；分享前脱敏 |
 | Portal 日志 | `journalctl --user -b -u xdg-desktop-portal --no-pager -n 80` | 服务 active 不等于弹窗成功 |

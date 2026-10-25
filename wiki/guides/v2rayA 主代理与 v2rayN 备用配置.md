@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-25
 sources:
+  - sources/codex-sessions/v2rayA DNS 复发与基础解析恢复-2026-10-25摘录.md
   - sources/codex-sessions/代理开机 DNS 排错增量-2026-10-23摘录.md
   - sources/codex-sessions/查找 v2rayN 本机支持版本-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
@@ -82,19 +83,49 @@ ss -lntp 'sport = :2017'
 
 ## 脚本、维护和回退
 
-`python3 scripts/archlinux/stage-session-config.py proxy --output /tmp/proxy-review --apply` 只生成 loopback drop-in 模板，按上文手动合并到 systemctl edit；不导入节点、不启动服务、不改变网络。脚本阶段的“生成成功”不等于透明代理部署成功。
+`python3 scripts/archlinux/stage-session-config.py proxy --output /tmp/proxy-review --apply` 只生成待审阅的 drop-in 和恢复 hook 模板，按上文手动合并到 systemctl edit；不导入节点、不启动服务、不改变网络。脚本阶段的“生成成功”不等于透明代理部署成功。
 
 升级前保存私人配置并记录核心/客户端版本，先显式代理、再分流、最后检查重登录/重启；分别测试 IPv4、IPv6、DNS、UDP与所需应用。备份/回退改动过的 drop-in，不使用会移除其他自定义配置的整套 revert；回退服务前先恢复网络可达性。新机不得复制他人凭据。当前指南缺完整路由/防火墙及备用切换验收。
 
 ## 开机 DNS 故障与恢复
 
-新增三轮记录：v2rayA 早于 Wi-Fi 就绪启动，Codex 先报 ECONNRESET，之后 EAI_AGAIN；用户明确 v2rayN TUN 是故障后的补救，不能作为最初故障原因。重启 v2rayA 后连接恢复。DNS/透明代理初始化异常是推断，未保存当时完整 DNS、防火墙状态，不能认定唯一根因。
+### 先区分证据与根因
 
-待实施建议是在已有 drop-in 中合并 Wants=network-online.target 和 After=network-online.target，并确认实际使用 NetworkManager 及其 wait-online 服务。仓库 proxy/override.conf 已补为待审阅模板，不代表系统已应用。Restart=on-failure 仅处理进程失败，不检测进程存活但网络不可达。
+2026-10-23记录先有ECONNRESET、后有EAI_AGAIN；v2rayN是故障后的补救，不能算最初原因。2026-10-24复发时，来源助手读取的日志报告上游 `1.0.0.1:53` 通信及 closed pipe 错误；仅凭它不能判定公共DNS服务自身故障。用户提供的终端记录则直接显示：停止v2rayA后，resolv.conf仅有生成注释，无nameserver，getent未成功；restart后第一次解析也仍失败，稍后才恢复。
 
-[systemd 文档](https://www.freedesktop.org/software/systemd/man/252/systemd.special.html)说明网络消费者应主动拉入并排序在 network-online.target 之后；[NetworkManager 文档](https://networkmanager.pages.freedesktop.org/NetworkManager/NetworkManager/NetworkManager-wait-online.service.html)说明 wait-online 等待启动阶段完成。该条件不保证公网、代理节点或应用 DNS 可达，不能声称加依赖就彻底修复。
+用户在故障后才执行systemctl edit，因此不能用事后读取的drop-in证明开机时已经使用相同配置。“启动过早”仍是线索，DNS转发和停止后缺基础DNS才是较明确的症状；内部初始化失败原因尚未确认。依据 [[sources/codex-sessions/v2rayA DNS 复发与基础解析恢复-2026-10-25摘录]]（[新增证据](../../sources/codex-sessions/v2rayA%20DNS%20复发与基础解析恢复-2026-10-25摘录.md)）。
 
-再次发生时，先保存 `journalctl -u v2raya -b`、resolv.conf、`getent ahostsv4` 结果，再恢复；日志仅留本地，分享前隐去节点和出口。切备用前先停止 v2rayA 并核对接管已释放；停止服务本身不保证所有 DNS 残留已清理。回退只恢复本次修改的 drop-in 和 wait-online 原启用状态，不整套 systemctl revert。待验收多次重启、联网延迟与主备用切换，当前未执行系统修改。
+### 故障现场的快捷检查
+
+```bash
+cat /etc/resolv.conf
+getent ahostsv4 codex-cloud-backend.chatgpt.com
+journalctl -u v2raya -b --no-pager -n 80
+nmcli connection show --active
+```
+
+前两项核对基础解析，后两项核对日志和活动连接；解析成功不等于代理或HTTPS成功。停止主代理后再次检查基础DNS，不能假定“服务停了即可直接切备用”。日志私下保留，公开前脱敏。
+
+### 持久恢复方案与适用条件
+
+1. 检查目标NetworkManager连接当前的ipv4.dns及ignore-auto-dns并保存原值；按网络要求选择可达DNS，再修改**实际连接profile**。来源给出公共DNS示例，但企业/VPN/分域解析场景不能照抄。基础DNS与v2rayA内部代理DNS是两层设置；IPv6策略另验收。
+2. 原有Wants/After=network-online.target仅处理启动依赖，不能保证网络健康。NetworkManager等待的是启动阶段完成，可能结束于断开状态，见 [wait-online说明](https://networkmanager.dev/docs/api/latest/NetworkManager-wait-online.service.html)。保留既有drop-in，勿重复覆盖其他服务设置。
+3. 对明确的物理Wi-Fi接口，可在up事件后重新初始化**仍在运行**的v2rayA；手动停止服务时不自动拉起。来源方案未由用户确认实施。仓库已提供待审阅脚本模板，生成方法见下一节。
+
+脚本仅响应指定接口的up事件，不响应dns-change，减少自触发；up表示接口激活，不证明公网、节点或DNS上游可达。dispatcher排队事件还可能过时，见 [官方dispatcher说明](https://networkmanager.dev/docs/api/latest/NetworkManager-dispatcher.html)。自动重启是恢复措施，不能冒充根因修复或保证不复发；重连频繁时应先评估中断影响。
+
+### 模板复用、验收与回退
+
+```bash
+# 仓库根目录执行；默认仅预览，--apply也只生成待审阅文件。
+python3 scripts/archlinux/stage-session-config.py proxy --output /tmp/proxy-review
+```
+
+新增 `90-v2raya-recover.sh` 需先把WIFI_INTERFACE改成目标接口；未替换时不动作。审阅后自行以root所有、0755安装到 `/etc/NetworkManager/dispatcher.d/90-v2raya-recover`，不要覆盖已有同名文件；脚本要求systemctl/logger位于/usr/bin。既有override.conf仅提供loopback和服务依赖模板，不修改连接DNS或安装hook。
+
+修改连接DNS和reapply/restart会影响网络，应逐项操作并检查：主代理运行时解析、停止主代理后的基础解析、主备用切换、重启/晚联网/重连，以及hook日志。`systemctl --no-block`成功只表示提交请求，需随后核对服务日志和功能。当前未取得上述完整验收。
+
+回退：先禁用本次新增hook，再恢复连接原DNS及ignore-auto-dns值，必要时重新应用连接；按原备份恢复本次改动的drop-in，保留其他自定义设置，不整套revert。回退也可能短暂断网。若复发，留证后再恢复，继续检查核心/上游DNS和路由。
 
 ## 收录与验证范围
 

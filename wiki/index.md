@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-24
+updated: 2026-10-25
 sources: []
 ---
 
@@ -35,7 +35,7 @@ sources: []
 - [[wiki/guides/Arch Linux 常用软件安装与维护]]：按用途选安装渠道，再安装或排查应用。
 - [[wiki/guides/Arch Linux 已安装应用盘点与维护]]：查应用清单、安装原因和入口故障；历史总数不代表实时状态。
 - [[wiki/guides/Arch Linux KVM 虚拟机与 Fedora 文件传输]]：宿主机管理 KVM，客体提供 SSH，文件通过 SFTP/scp 传输。
-- [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]]：先查 DNS 和服务状态，再切换代理；避免同时接管网络。
+- [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置]]：主备用切换、DNS复发诊断、基础解析与重连恢复。
 
 ## 安装与跨机器复用
 
