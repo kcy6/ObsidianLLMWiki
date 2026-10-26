@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-26
 sources:
+  - sources/codex-sessions/同步失败传播与计数练习-2026-10-26摘录.md
   - sources/codex-sessions/Kitty 浮动终端与窗口规则-2026-10-26摘录.md
   - sources/codex-sessions/shorin-niri 学习增量-2026-10-23摘录.md
   - sources/project-notes/shorin-niri-347ca890-学习笔记.md
@@ -69,6 +70,17 @@ sources:
 ## 终端窗口调用链
 
 2026-10-26新增七轮学习已转向常驻/浮动Kitty：路径推导完成，随后学习app-id、透明度层次、规则覆盖、尺寸位置与单实例。可复用配置统一维护于 [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置]]。后续七轮又覆盖单实例取舍、sticky与layer-shell区别、panel试验及回退；最终恢复普通浮动终端，并回到backup_and_copy备份失败的代码分析。项目课程与部署验收未完成，不以会话下一题安排自动启动本次学习任务。
+
+## 同步错误处理的三层检查
+
+备份cp失败不自动停止下一条rm；backup_and_copy必须检查并返回失败，外层同步函数必须处理它，最外层init/update入口也须检查。来源四轮练习已区分return只退出函数、continue进入下一项、exit结束脚本。
+
+| 策略 | 循环内 | 循环后/最外层 |
+| --- | --- | --- |
+| 首次失败即停 | 检查复制状态后return非零 | 最外层检查同步状态并exit，阻止后续系统设置 |
+| 失败后继续 | 记录失败数并continue，成功分支才计成功 | fail_count大于0返回1，否则0；最外层仍检查 |
+
+继续处理不代表全成功，停止也不会回滚此前成功文件。以上仅教学修改，未写回项目。完整语法和模板见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习#失败处理]]；避免再次在本页复制整套函数。依据 [[sources/codex-sessions/同步失败传播与计数练习-2026-10-26摘录]]。
 
 ## 收录与验证范围
 

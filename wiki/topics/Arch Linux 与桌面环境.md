@@ -91,3 +91,5 @@ Shorin 已由 `d8772456749981c0de3417a84c2783578603cfc6` 更新到 `534b285e108d
 [[wiki/guides/Arch Linux 命令与快捷键速查]]：快捷键、只读诊断、重载/传输/更新及模板预览；各操作附执行范围并返回详细指南。需要迁移时先从 [[wiki/questions/Arch Linux 个性化配置复用计划]] 确定模块与主机参数。
 
 - [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置]]：按用途管理终端窗口；主题查询与图形管理工具继续在 [[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置]] 维护。
+
+- [[wiki/guides/Niri 登录入口与 swaylock 锁屏配置]]：开机登录与锁屏区别、外观参数、模板与回退。

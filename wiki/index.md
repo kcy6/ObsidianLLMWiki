@@ -66,3 +66,5 @@ sources: []
 
 
 [GitHub 指南列表](../README.md#arch-linux-配置指南) · [[wiki/sources|来源与覆盖范围]] · [[wiki/log|维护记录]]
+
+- [[wiki/guides/Niri 登录入口与 swaylock 锁屏配置]]：开机登录与锁屏区别、外观参数、模板与回退。

@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-26
 sources:
+  - sources/codex-sessions/Vim Neovim 与 tmux 选择-2026-10-26摘录.md
   - sources/codex-sessions/终端开发环境分层方案-2026-10-26摘录.md
   - sources/codex-sessions/Vim 搜索与高亮增量-2026-10-23摘录.md
   - sources/codex-sessions/分析终端与 Shell 配置-2026-10-22会话摘录.md
@@ -109,6 +110,24 @@ Kitty提供终端容器，不直接提供IDE语言服务。来源仅讨论可行
 | 嵌入式目标 | 交叉编译器、烧录/调试服务器、串口工具 | 芯片/板卡、探针、权限和固件下载方式 |
 
 先用一个Rust和一个C项目验证编辑、跳转、构建、格式化，再接桌面调试，最后按板卡接硬件工具；图形芯片配置工具可能仍需保留。纯选型不生成安装器、不默认加入tmux或复杂插件。现有Rust入口见 [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]。
+
+## Vim、Neovim与tmux怎么选
+
+| 用途 | 候选 | 边界 |
+| --- | --- | --- |
+| 修改系统配置、偶尔写脚本 | 现有Vim | 无须为了改配置迁移稳定编辑习惯 |
+| 代码主编辑器、补全/跳转/调试 | Neovim | 内置LSP客户端不等于装好语言服务器；Lua配置和插件仍需维护 |
+| SSH断线后回到终端工作现场 | tmux | 管会话/窗口/分屏；不等于关机恢复，也不替代程序持久化 |
+
+来源建议Neovim作为开发候选，tmux按远程需求再引入；用户尚未确认采用或完成安装。Niri管桌面，Kitty管终端显示，tmux管终端会话，编辑器管代码，按需要选层而非全部叠加。
+
+```bash
+tmux ls
+```
+
+只读列会话，需已安装tmux；无服务器时可能非零返回。`tmux new -s dev` 创建会话，`tmux attach -t dev`连接已有会话；会话内Ctrl+B后松开再按D为detach。远端tmux通常在SSH断开后保留任务，但主机重启后原进程不保留。参见 [tmux入门](https://github.com/tmux/tmux/wiki/Getting-Started)。
+
+依据 [[sources/codex-sessions/Vim Neovim 与 tmux 选择-2026-10-26摘录]]，仅选型和操作说明，未部署开发环境。
 
 ## 收录与验证范围
 

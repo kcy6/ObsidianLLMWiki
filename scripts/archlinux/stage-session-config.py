@@ -7,7 +7,7 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('module', choices=['terminal', 'theme', 'proxy', 'portal', 'vm', 'nautilus'])
+    parser.add_argument('module', choices=['terminal', 'theme', 'proxy', 'portal', 'vm', 'nautilus', 'lockscreen'])
     parser.add_argument('--output', type=Path, required=True, help='必须是尚不存在的新目录')
     parser.add_argument('--apply', action='store_true', help='仅授权生成到 output，不部署到 HOME 或系统目录')
     args = parser.parse_args()

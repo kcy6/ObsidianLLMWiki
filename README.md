@@ -86,3 +86,5 @@ pwsh -NoProfile -File scripts/Test-Wiki.ps1 -Strict
 - [JSON TOML KDL 配置文件的学习与排错](wiki/guides/JSON%20TOML%20KDL%20配置文件的学习与排错.md)。
 
 - [Niri 中 Kitty 常驻与浮动终端配置](wiki/guides/Niri%20中%20Kitty%20常驻与浮动终端配置.md)：匹配、透明度、尺寸位置与进程复用。
+
+- [Niri 登录入口与 swaylock 锁屏配置](wiki/guides/Niri%20登录入口与%20swaylock%20锁屏配置.md)。

@@ -1,0 +1,25 @@
+# swaylock-effects 待审阅示例；先对照 swaylock --help，不部署、不自动锁屏。
+# 不包含免密码 grace；空闲/休眠联动另配。
+screenshots
+effect-blur=7x5
+effect-vignette=0.5:0.5
+fade-in=0.2
+clock
+timestr=%H:%M
+datestr=%Y-%m-%d
+font=Noto Sans CJK SC
+indicator
+indicator-radius=110
+indicator-thickness=8
+inside-color=1e1e2eaa
+ring-color=89b4fa
+line-color=00000000
+separator-color=00000000
+text-color=cdd6f4
+key-hl-color=a6e3a1
+bs-hl-color=f9e2af
+ring-ver-color=cba6f7
+text-ver-color=cba6f7
+ring-wrong-color=f38ba8
+text-wrong-color=f38ba8
+ignore-empty-password
