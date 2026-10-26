@@ -1,0 +1,18 @@
+// 待合并片段；按实际入口、版本和按键占用调整，不是完整 Niri 配置。
+// 将以下两条放入现有 binds 块：
+// Mod+T { spawn "kitty" "--single-instance"; }
+// Mod+Slash { spawn "kitty" "--single-instance" "--class" "quickterminal" "-o" "background_opacity=0.6"; }
+
+// 将以下规则放在全局窗口规则之后；先备份，合并后执行 niri validate。
+window-rule {
+    match app-id="^kitty$"
+    open-floating false
+}
+window-rule {
+    match app-id="^quickterminal$"
+    open-floating true
+    opacity 1.0
+    default-column-width { proportion 0.7; }
+    default-window-height { proportion 0.6; }
+    default-floating-position x=20 y=20 relative-to="bottom-right"
+}

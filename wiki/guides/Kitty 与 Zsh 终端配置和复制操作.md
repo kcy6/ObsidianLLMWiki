@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-26
 sources:
+  - sources/codex-sessions/终端开发环境分层方案-2026-10-26摘录.md
   - sources/codex-sessions/Vim 搜索与高亮增量-2026-10-23摘录.md
   - sources/codex-sessions/分析终端与 Shell 配置-2026-10-22会话摘录.md
   - sources/codex-sessions/查找 Kitty 中复制 Vim 内容的方法-2026-10-22会话摘录.md
@@ -90,6 +91,24 @@ Yazi 退出后让 Shell 跟随目录的包装函数仅在会话中提出、未�
 会话新增五轮：用户最终希望采用简洁定位方式，没有确认应用复杂闪光函数。搜索后按 `zz` 居中；可选 `nnoremap n nzz` 与 `nnoremap N Nzz`，初次 `/` 回车后仍需手动 zz。`hlsearch` 是搜索匹配，`syntax on` 是语法颜色，二者分开排查。
 
 历史检查发现 ~/.vimrc 为0字节；助手判断它使默认 defaults.vim 不再自动加载。用户尚未确认具体创建操作，也没有配置修改验收。建议先用 `:scriptnames`、`:set compatible?` 核对实际加载链，再决定是否在 vimrc 开头加入 `source $VIMRUNTIME/defaults.vim`；该文件可能设置多项默认值，应放个人覆盖项之前。仅临时开启颜色可用 `:syntax on`；KDL 是否识别与高亮支持另查 `:set filetype?`。完整建议及证据边界见新增来源。
+
+## 按用途复用终端窗口
+
+常驻平铺与临时浮动的快捷键、app-id、规则顺序、透明度和进程继承统一见 [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置]]（[配置指南](Niri%20中%20Kitty%20常驻与浮动终端配置.md)）。本页维护Shell与终端基础，避免在两处重复保存整套窗口规则。
+
+## Rust、C与嵌入式开发分层
+
+Kitty提供终端容器，不直接提供IDE语言服务。来源仅讨论可行方案，尚未选择Neovim为主编辑器、安装插件或完成硬件调试部署。[方案来源](../../sources/codex-sessions/终端开发环境分层方案-2026-10-26摘录.md)
+
+| 层次 | 候选组件 | 复用时记录 |
+| --- | --- | --- |
+| 终端/交互 | Kitty、Zsh、现有fzf/zoxide/Git | 快捷键、Shell入口；不因编辑器方案重建终端全部配置 |
+| 编辑器 | Neovim | 是否作为主编辑器、插件版本与配置 |
+| 语言服务 | Rust rust-analyzer；C clangd | 项目根目录、编译参数和工具链版本 |
+| 构建与调试 | Cargo、Make/CMake/Ninja；GDB/LLDB及调试适配器 | 构建命令、启动目标与调试配置 |
+| 嵌入式目标 | 交叉编译器、烧录/调试服务器、串口工具 | 芯片/板卡、探针、权限和固件下载方式 |
+
+先用一个Rust和一个C项目验证编辑、跳转、构建、格式化，再接桌面调试，最后按板卡接硬件工具；图形芯片配置工具可能仍需保留。纯选型不生成安装器、不默认加入tmux或复杂插件。现有Rust入口见 [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]。
 
 ## 收录与验证范围
 

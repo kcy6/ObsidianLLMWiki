@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-25
+updated: 2026-10-26
 sources: []
 ---
 
@@ -22,6 +22,8 @@ sources: []
 - [[wiki/guides/Fcitx5 浅色主题定制与更新维护]]：复制出独立主题再定制，避免上游同名更新覆盖。
 
 ## 终端、开发与配置语法
+
+- [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置]]：app-id、规则顺序、背景透明、窗口尺寸位置及进程复用。
 
 - [[wiki/guides/Arch Linux 使用官网 rustup 配置与维护 Rust]]：区分工具链、项目依赖与 Shell PATH。
 - [[wiki/guides/GitHub 账户对应与 SSH 私有仓库使用]]：分别检查提交署名、仓库地址和 SSH 认证。

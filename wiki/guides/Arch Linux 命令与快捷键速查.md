@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-25
+updated: 2026-10-26
 sources:
   - wiki/guides/Kitty 与 Zsh 终端配置和复制操作.md
   - wiki/guides/Arch Linux 常用软件安装与维护.md
@@ -94,3 +94,16 @@ Fcitx5 个人主题复制入口见 [主题维护](Fcitx5%20浅色主题定制与
 2026-10-24：从已有指南摘取并交叉核对命令及作用边界，未重新执行安装、网络操作或 GUI 验收。原指南的 needs-verification 状态和历史来源范围继续适用。本页只集中短命令，不复制整套配置，后续优先修订原指南，再同步此表。
 
 相关：[[wiki/index]] · [[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/guides/LLM Wiki 收录与维护流程]]
+
+## 找到实际生效配置
+
+| 目的 | 只读或交互查询 | 详细知识落点 |
+| --- | --- | --- |
+| 窗口标识/匹配不生效 | `niri msg pick-window` | [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置]] |
+| Niri配置是否可加载 | `niri validate` | 校验当前入口，不等于窗口视觉验收 |
+| GTK明暗与主题名 | `gsettings get org.gnome.desktop.interface gtk-theme`；color-scheme同查 | [[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置]] |
+| Qt为何不跟随GTK | 分别核对平台主题与应用自己的样式 | GTK主题名不能代表Qt实际调色板 |
+
+透明不明显先查规则顺序，主题不统一先查工具包层次，窗口启动慢区分Kitty与Zsh初始化。先确定生效入口，再修改配置，不把目录里存在的文件都当作当前使用。
+
+普通浮动与跨工作区固定不是同一功能；panel试验及其回退范围见 [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置#普通浮动、跟随与屏幕图层]]，不将已撤销脚本当作快捷命令。

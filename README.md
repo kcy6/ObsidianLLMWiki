@@ -84,3 +84,5 @@ pwsh -NoProfile -File scripts/Test-Wiki.ps1 -Strict
 - [Fcitx5 浅色主题定制与更新维护](wiki/guides/Fcitx5%20浅色主题定制与更新维护.md)。
 
 - [JSON TOML KDL 配置文件的学习与排错](wiki/guides/JSON%20TOML%20KDL%20配置文件的学习与排错.md)。
+
+- [Niri 中 Kitty 常驻与浮动终端配置](wiki/guides/Niri%20中%20Kitty%20常驻与浮动终端配置.md)：匹配、透明度、尺寸位置与进程复用。

@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-26
 sources:
+  - sources/codex-sessions/GTK Qt 主题查询与图形管理-2026-10-26摘录.md
   - sources/codex-sessions/为什么当前桌面主题默认是亮色，怎么配置为暗色-2026-10-22会话摘录.md
   - scripts/archlinux/stage-session-config.py
 ---
@@ -23,21 +24,41 @@ gsettings get org.gnome.desktop.interface color-scheme
 
 操作细节：[[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置#分层理解]]。
 
-按需跳转：[分层理解](#%E5%88%86%E5%B1%82%E7%90%86%E8%A7%A3) · [手动设置](#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE) · [脚本流程](#%E8%84%9A%E6%9C%AC%E6%B5%81%E7%A8%8B) · [验收、维护及回退](#%E9%AA%8C%E6%94%B6%E3%80%81%E7%BB%B4%E6%8A%A4%E5%8F%8A%E5%9B%9E%E9%80%80) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
+按需跳转：[查询主题与配置位置](#查询主题与配置位置) · [分层理解](#%E5%88%86%E5%B1%82%E7%90%86%E8%A7%A3) · [手动设置](#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE) · [脚本流程](#%E8%84%9A%E6%9C%AC%E6%B5%81%E7%A8%8B) · [验收、维护及回退](#%E9%AA%8C%E6%94%B6%E3%80%81%E7%BB%B4%E6%8A%A4%E5%8F%8A%E5%9B%9E%E9%80%80) · [收录与验证范围](#%E6%94%B6%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E8%8C%83%E5%9B%B4)。
 
 来源：[为什么当前桌面主题默认是亮色，怎么配置为暗色](../../sources/codex-sessions/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BD%93%E5%89%8D%E6%A1%8C%E9%9D%A2%E4%B8%BB%E9%A2%98%E9%BB%98%E8%AE%A4%E6%98%AF%E4%BA%AE%E8%89%B2%EF%BC%8C%E6%80%8E%E4%B9%88%E9%85%8D%E7%BD%AE%E4%B8%BA%E6%9A%97%E8%89%B2-2026-10-22%E4%BC%9A%E8%AF%9D%E6%91%98%E5%BD%95.md)。
 
 ## 分层理解
 
-来源环境是 Niri，而不是因使用 Nautilus 就存在完整 GNOME 会话。GTK3、GTK4/libadwaita、Qt、终端、Waybar和应用自身主题分别管理；设置一个 GTK 主题不能让所有应用同时变暗。来源只检查并给方案，未执行暗色设置。
+来源环境是 Niri，而不是因使用 Nautilus 就存在完整 GNOME 会话。GTK3、GTK4/libadwaita、Qt、终端、Waybar和应用自身主题分别管理；设置一个 GTK 主题不能让所有应用同时变暗。2026-10-22来源仅检查并给方案；2026-10-26的新来源观察到GTK偏好已改变，不能把旧时点状态写成永久当前状态。
+
+## 查询主题与配置位置
+
+```bash
+gsettings get org.gnome.desktop.interface gtk-theme
+gsettings get org.gnome.desktop.interface color-scheme
+cat ~/.config/gtk-3.0/settings.ini
+cat ~/.config/gtk-4.0/settings.ini
+```
+
+只读查询，文本文件不存在时先记录缺省，不创建以假装已配置。Adwaita是主题名，prefer-dark是明暗偏好，两者独立；Niri并不决定应用使用GTK还是Qt。
+
+| 查什么 | 位置/工具 | 读取边界 |
+| --- | --- | --- |
+| GTK主题、图标、字体和光标 | nwg-look；GTK settings.ini及GSettings | 图形管理器不能统一控制全部GTK4/libadwaita和应用自有主题 |
+| GSettings持久数据 | ~/.config/dconf/user | 二进制数据库，不直接文本编辑 |
+| Qt6平台主题入口 | QT_QPA_PLATFORMTHEME及qt6ct用户配置 | 输入法变量QT_IM_MODULE不等于主题变量；应用可能自行覆盖 |
+| 实际Qt样式/配色 | 应用或Qt运行探测结果 | 未设置环境变量不能证明所有Qt应用使用同一主题 |
+
+[nwg-look项目](https://github.com/nwg-piotr/nwg-look)提供GTK设置界面；需要时按Arch完整更新方式安装 `sudo pacman -Syu --needed nwg-look`，然后从启动器打开。设置会修改用户外观，先记录旧值；它不负责Niri窗口规则、Kitty或Waybar主题。Qt6工具仍按下节配置。
+
+新来源先查到默认亮色，随后重新检查为Adwaita + prefer-dark，GTK3/4文本偏好也为暗色；Qt6 Widgets临时探测报告Fusion、浅色调色板和Unknown明暗提示。这里只代表来源测试时的默认Widgets环境，不覆盖Qt Quick或所有应用；不是本轮重新编译探测，未取得所有应用GUI验收。来源：[主题查询摘录](../../sources/codex-sessions/GTK Qt 主题查询与图形管理-2026-10-26摘录.md)。
 
 ## 手动设置
 
-先记录旧值：
+先用上节只读命令记录旧值；以下才会修改当前桌面用户设置：
 
 ```bash
-gsettings get org.gnome.desktop.interface color-scheme
-gsettings get org.gnome.desktop.interface gtk-theme
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 ```

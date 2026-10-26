@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-26
 sources:
+  - sources/codex-sessions/Kitty 浮动终端与窗口规则-2026-10-26摘录.md
   - sources/codex-sessions/shorin-niri 学习增量-2026-10-23摘录.md
   - sources/project-notes/shorin-niri-347ca890-学习笔记.md
   - sources/codex-sessions/拉取并逐步学习 shorin-niri-2026-10-22会话摘录.md
@@ -64,6 +65,10 @@ sources:
 新增八轮已覆盖 layout 参数练习、普通 Kitty 与 quickterminal 的 app-id 区别、`niri msg pick-window` 查询与 --class 指定标识的不同用途，以及源码目录→系统模板→HOME 配置的路径关系。保护匹配判断已练习：相同路径或“规则加斜杠”的子路径匹配；仅 update 调用保护判断，init 不受此保护。
 
 2026-10-23的主会话曾停在 backup_and_copy 路径推导；2026-10-24的Shell完成稿已补复制、同步与失败传播读码，旧待答位置不再作为当前任务。其他项目课程与实际部署仍未完成。脚本语法学习另有持续更新笔记，见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]；新增配置语言路线见 [[wiki/guides/JSON TOML KDL 配置文件的学习与排错]]。
+
+## 终端窗口调用链
+
+2026-10-26新增七轮学习已转向常驻/浮动Kitty：路径推导完成，随后学习app-id、透明度层次、规则覆盖、尺寸位置与单实例。可复用配置统一维护于 [[wiki/guides/Niri 中 Kitty 常驻与浮动终端配置]]。后续七轮又覆盖单实例取舍、sticky与layer-shell区别、panel试验及回退；最终恢复普通浮动终端，并回到backup_and_copy备份失败的代码分析。项目课程与部署验收未完成，不以会话下一题安排自动启动本次学习任务。
 
 ## 收录与验证范围
 
