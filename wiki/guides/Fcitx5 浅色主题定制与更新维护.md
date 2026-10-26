@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-26
 sources:
+  - sources/project-notes/Arch模块范围盘点-2026-10-26.md
   - sources/codex-sessions/Fcitx5 浅色主题维护-2026-10-23摘录.md
 ---
 
@@ -21,6 +22,10 @@ sources:
 按需跳转：[手动配置](#%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE) · [脚本与回退](#%E8%84%9A%E6%9C%AC%E4%B8%8E%E5%9B%9E%E9%80%80)。
 
 适用 Fcitx5 经典用户界面；会话检查记录为 Niri/Wayland、Rime、macOS-light 和 Noto Sans CJK SC 13，属于历史设备观察，未重新盘点。用户最终偏好为**浅色主题**，不因 Waybar 深色而改成深色。
+
+## 当前配置与历史方案
+
+2026-10-26只读盘点发现classicui.conf中的Theme与DarkTheme均为catppuccin-mocha-green，字体为Noto Sans CJK SC 10；macOS-light目录仍保留。上文浅色偏好属于2026-10-23来源方案，不能代表此刻生效外观；当前文件也不能证明用户永久改变偏好。模块工程先登记当前文件与旧方案差异，不自动切换主题。依据 [[sources/project-notes/Arch模块范围盘点-2026-10-26]]；实施顺序见 [[wiki/questions/Arch Linux 个性化配置复用计划]]。
 
 ## 手动配置
 

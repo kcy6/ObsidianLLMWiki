@@ -10,7 +10,7 @@ sources: []
 按要完成的任务查指南，按具体操作查命令。历史会话与原文在来源台账中追溯。
 
 - **查命令与快捷键**：[[wiki/guides/Arch Linux 命令与快捷键速查]]（[公开阅读](guides/Arch%20Linux%20命令与快捷键速查.md)）。
-- **准备新机复用**：[[wiki/questions/Arch Linux 个性化配置复用计划]]。
+- **准备新机复用**：[[wiki/questions/Arch Linux 个性化配置复用计划]]（Shell＋Git首版六模块与实施批次）。
 - **查看主题路线**：[[wiki/topics/Arch Linux 与桌面环境]] · [[wiki/topics/姿态解算与 MPU6050]]。
 
 ## 桌面、输入与文件管理
@@ -42,7 +42,7 @@ sources: []
 ## 安装与跨机器复用
 
 - [[wiki/guides/Arch Linux 安装资料阅读路线]]：按安装阶段定位资料，先确定硬件、分区和引导方案。
-- [[wiki/questions/Arch Linux 个性化配置复用计划]]：新 Arch 主机的配置复用目标、材料缺口与实施路线。
+- [[wiki/questions/Arch Linux 个性化配置复用计划]]：Wiki与配置工程分工、工具比较、SHORiN仓库借鉴及新机复用路线。
 - [[wiki/questions/Fedora 日用系统检查与跨系统交接]]：本机审计与交接范围。
 - [[wiki/questions/Arch 与 Fedora 的 Niri 配置如何复用]]：配置分层和验证步骤。
 

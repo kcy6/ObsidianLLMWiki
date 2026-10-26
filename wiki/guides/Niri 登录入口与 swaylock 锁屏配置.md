@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-26
 sources:
+  - sources/project-notes/Arch模块范围盘点-2026-10-26.md
   - sources/codex-sessions/登录管理器与 swaylock 锁屏-2026-10-26摘录.md
   - scripts/archlinux/stage-session-config.py
 ---
@@ -30,6 +31,10 @@ swaylock --help
 | 切换到登录页面 | 依赖完整会话集成 | 单纯切换不证明旧会话被锁定 |
 
 来源比较：tuigreet偏键盘文本界面，ReGreet偏图形交互；SDDM适合另有图形主题需求，GDM随GNOME场景再评估。尚未选定或部署登录管理器，不生成默认启用服务脚本，避免把选型写成已安装。
+
+## 最新偏好与实施范围
+
+2026-10-26追加会话用户表示喜欢GDM的美化风格，助手据此提出GDM登录＋现有swaylock-effects锁屏的组合；这是偏好与建议，尚无GDM部署证据。本机只读包查询未找到gdm，display-manager.service为not-found；swaylock配置已存在模糊、时钟和圆环，但未进行解锁测试。此前tuigreet/ReGreet推荐不再视为默认选定方案。来源及读取限制见 [[sources/project-notes/Arch模块范围盘点-2026-10-26]]。首版工程先实现lockscreen，login-manager独立后续处理，见 [[wiki/questions/Arch Linux 个性化配置复用计划]]。
 
 ## swaylock与effects
 
