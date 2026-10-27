@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-26
+updated: 2026-10-27
 sources:
+  - sources/codex-sessions/GDM 依赖与启动器入口-2026-10-27摘录.md
   - sources/project-notes/Arch模块范围盘点-2026-10-26.md
   - sources/codex-sessions/登录管理器与 swaylock 锁屏-2026-10-26摘录.md
   - scripts/archlinux/stage-session-config.py
@@ -35,6 +36,14 @@ swaylock --help
 ## 最新偏好与实施范围
 
 2026-10-26追加会话用户表示喜欢GDM的美化风格，助手据此提出GDM登录＋现有swaylock-effects锁屏的组合；这是偏好与建议，尚无GDM部署证据。本机只读包查询未找到gdm，display-manager.service为not-found；swaylock配置已存在模糊、时钟和圆环，但未进行解锁测试。此前tuigreet/ReGreet推荐不再视为默认选定方案。来源及读取限制见 [[sources/project-notes/Arch模块范围盘点-2026-10-26]]。首版工程先实现lockscreen，login-manager独立后续处理，见 [[wiki/questions/Arch Linux 个性化配置复用计划]]。
+
+## GDM依赖与菜单入口
+
+后续来源助手报告已检查“一次GDM安装”的日志，提到gnome-shell、mutter、gnome-session、gnome-settings-daemon、IBus等依赖；这比前一时点“未安装”的记录更晚，但本轮未读取完整安装事务或复查系统，不能由该报告推断GDM服务已启用、默认会话正确或登录验收完成。旧未安装状态仅保留为历史。
+
+包安装与启动器可见入口不是同一清单。来源判断普通新增入口可能是IBus Preferences，其他部分组件入口NoDisplay=true；已有Nautilus等应用不能仅凭GNOME名称就归因本次GDM安装。具体依赖和desktop可见性按当前包、用户覆盖、NoDisplay及OnlyShowIn/NotShowIn复核，不做跨版本数量保证。
+
+如只想减少Fuzzel入口，先核对desktop文件归属，再采用用户级同名Hidden=true覆盖，回退仅移除自己创建的覆盖；不为隐藏入口强制卸载GDM所需组件。隐藏不会卸载包或停用服务。通用入口诊断见 [[wiki/guides/Arch Linux 已安装应用盘点与维护]]。来源 [[sources/codex-sessions/GDM 依赖与启动器入口-2026-10-27摘录]]，无新增部署脚本，不修改真实启动器。
 
 ## swaylock与effects
 

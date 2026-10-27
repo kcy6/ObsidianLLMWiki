@@ -1,0 +1,181 @@
+{
+  "updated": "2026-10-27",
+  "scope": "archlinux环境搭建",
+  "notice": "仅当前持久rollout检查点，不替代历史快照或证明完整历史覆盖",
+  "threads": {
+    "01a1596c-2611-7f63-bbf9-3cef95d90191": {
+      "archived": 0,
+      "message_count": 18,
+      "last_message_at": "2026-10-27T11:42:55.851Z",
+      "message_digest": "544ae2bd0663b98dc2cef74de0d9c1bab57542e98ddeb17b797143d4479b0cbc"
+    },
+    "01a1597d-e6fd-7882-8a1e-a70bedde4edf": {
+      "archived": 1,
+      "message_count": 2,
+      "last_message_at": "2026-10-20T13:28:33.873Z",
+      "message_digest": "c3a7c8ea3bf911c43023b094f452b41cbbc17f2c5e3af8b5402030fe1adf77e0"
+    },
+    "01a1598a-f5c7-7531-abc0-5e6ec73e749d": {
+      "archived": 1,
+      "message_count": 6,
+      "last_message_at": "2026-10-20T14:27:07.505Z",
+      "message_digest": "ca1b0894ce31013af858139cce4d81c2ffcae5140999eaa2e27ffaa2c2cee18f"
+    },
+    "01a15993-3da8-7c62-9919-826beb922a33": {
+      "archived": 1,
+      "message_count": 6,
+      "last_message_at": "2026-10-21T12:19:31.705Z",
+      "message_digest": "d3d541b77fb4963acaf9434d8a341f26da67ebdc647f635c7ddb07a24c74a6ba"
+    },
+    "01a159b5-727a-7d32-a62d-4d7b1716a193": {
+      "archived": 0,
+      "message_count": 35,
+      "last_message_at": "2026-10-26T07:45:05.823Z",
+      "message_digest": "4f2a8549bb5176e44f2e5aae718e7bad4b9b04076a7cbfb6b6287fd083fa9d9a"
+    },
+    "01a159d0-78c4-79b0-8b8e-6fda1df0d3a0": {
+      "archived": 0,
+      "message_count": 18,
+      "last_message_at": "2026-10-22T09:23:18.179Z",
+      "message_digest": "eb0c89ce7076824dfa8d41a6d977f2576e76c1811f4e43d4c49b9275211dd3e6"
+    },
+    "01a159f8-a21e-72c1-bd37-f0dcb7a8b025": {
+      "archived": 0,
+      "message_count": 8,
+      "last_message_at": "2026-10-21T05:54:00.262Z",
+      "message_digest": "a0e73629b7faf62476499cbf863559694e553a89203fc7ab91b720c4605ca9d0"
+    },
+    "01a159f9-4695-7d93-882f-732719197200": {
+      "archived": 1,
+      "message_count": 6,
+      "last_message_at": "2026-10-21T00:09:21.993Z",
+      "message_digest": "02d8ab99ac1e648733d46bd4a137265aa6007d5bfca247e2217b7022b671f599"
+    },
+    "01a15c19-dde1-79e0-aaab-714f45b2f674": {
+      "archived": 1,
+      "message_count": 16,
+      "last_message_at": "2026-10-21T12:16:18.577Z",
+      "message_digest": "5258036595c433a408eeb6142f1ba9ed900506f8553823cd3bf9c6a88973fb32"
+    },
+    "01a15c21-3697-75a3-890e-2e60a9f7b2c2": {
+      "archived": 1,
+      "message_count": 2,
+      "last_message_at": "2026-10-21T01:45:37.667Z",
+      "message_digest": "652d757008e6c1d0673d94a45b6d48bb00c198eaadfb41df8a93049eff01c980"
+    },
+    "01a15e5b-ee2e-75f1-aab9-ca3c425c496d": {
+      "archived": 1,
+      "message_count": 8,
+      "last_message_at": "2026-10-21T12:13:09.419Z",
+      "message_digest": "0b16e1bc9020eff7b47f13c9cee068b0f2e89f979309ac484daaa310ec8a59fb"
+    },
+    "01a15ea0-fa64-7c61-a5b3-a01087adca78": {
+      "archived": 1,
+      "message_count": 4,
+      "last_message_at": "2026-10-21T13:24:31.338Z",
+      "message_digest": "602f5e84f2b029b2ac08afb6f04a2158f804195af2341ee59b8040d475a26248"
+    },
+    "01a161fe-e475-7703-ad80-e73e7765c37b": {
+      "archived": 1,
+      "message_count": 4,
+      "last_message_at": "2026-10-22T05:07:21.671Z",
+      "message_digest": "90ff7b7e1ec04a2443e916207890a8b0db658cb5f45c82e323c110a98df4f9a6"
+    },
+    "01a16271-b2f4-7ac0-825d-ca639657b275": {
+      "archived": 0,
+      "message_count": 16,
+      "last_message_at": "2026-10-22T08:36:28.145Z",
+      "message_digest": "2099de5d0e2dab79d6d7ec1ba8212b717f83d76b3827e7c3179ab57eb6edc1d0"
+    },
+    "01a162f1-41b8-7c63-a018-3ba8b4eabbfc": {
+      "archived": 0,
+      "message_count": 64,
+      "last_message_at": "2026-10-26T10:02:16.198Z",
+      "message_digest": "30ceaa9a0a2680f56a0331fa176220f28f752ef455b43ed635dd0bab75aea7ef"
+    },
+    "01a162f2-20fd-70f0-95dc-62b9d6492ba9": {
+      "archived": 1,
+      "message_count": 4,
+      "last_message_at": "2026-10-22T12:33:36.096Z",
+      "message_digest": "0c9ee5fd4d88f23de494cb97035ba25a85858bb5718ef42f092f0ef97d2d3427"
+    },
+    "01a1635c-4ad1-7312-8ce8-dfc28a8ec890": {
+      "archived": 0,
+      "message_count": 32,
+      "last_message_at": "2026-10-24T01:02:20.613Z",
+      "message_digest": "90a2f160536759d9c6cce55501530182e4f4b5fec6b04ae6b73d5711338ccd62"
+    },
+    "01a163a7-2866-76e0-9501-7bc7cb09ca9e": {
+      "archived": 0,
+      "message_count": 4,
+      "last_message_at": "2026-10-22T12:53:51.321Z",
+      "message_digest": "ed8c51ae4622b834e7939ed55295fe57cfce34b0f5484e72baee9d7fe26e8145"
+    },
+    "01a1640e-aa2d-7f40-88c8-7bcf0a097666": {
+      "archived": 0,
+      "message_count": 12,
+      "last_message_at": "2026-10-22T15:33:30.637Z",
+      "message_digest": "5da1236772cb422b964d4bbd44032f7e5e5c55cf66bf2a2db8a1c3c5415af74d"
+    },
+    "01a16634-3130-7f13-adff-67f44700302e": {
+      "archived": 1,
+      "message_count": 8,
+      "last_message_at": "2026-10-23T01:11:51.005Z",
+      "message_digest": "e9a12eb0014339431806e73bda56a5c180ef4aad9c932c814a46d7afcb8a7301"
+    },
+    "01a168e5-e3b3-77b0-9141-3d98c32a2e54": {
+      "archived": 1,
+      "message_count": 2,
+      "last_message_at": "2026-10-23T13:15:00.400Z",
+      "message_digest": "085c09fe9560c88d2b4a9c6bf401db3ef4a67b6961f9c61f46d19f86e2debf63"
+    },
+    "01a17605-be35-7fd1-882f-fc613c4b7a17": {
+      "archived": 0,
+      "message_count": 6,
+      "last_message_at": "2026-10-26T02:33:49.833Z",
+      "message_digest": "4cdb035e1db44a4e78bcab1bc400191f9cabbbbce702e9c6bd71bd43990a2e35"
+    },
+    "01a17612-93d8-7d02-b4cb-c9906ce16360": {
+      "archived": 1,
+      "message_count": 0,
+      "last_message_at": null,
+      "message_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "01a17700-6de8-7e23-9bdc-22e03e0e1721": {
+      "archived": 1,
+      "message_count": 0,
+      "last_message_at": null,
+      "message_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "01a17733-0b76-7ee0-aff3-ae07b3949c50": {
+      "archived": 1,
+      "message_count": 0,
+      "last_message_at": null,
+      "message_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "01a17766-d933-7b30-a44e-8eb1420a97af": {
+      "archived": 0,
+      "message_count": 2,
+      "last_message_at": "2026-10-27T12:12:20.997Z",
+      "message_digest": "0b8c493a9cb1bb1c1a9e071d3b5d61d6c665e752655a1204cff176c339be0499"
+    },
+    "01a17bec-c8cd-7ea0-814f-fbef0d74226d": {
+      "archived": 1,
+      "message_count": 0,
+      "last_message_at": null,
+      "message_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "01a17c4e-0ed6-7890-a86e-f0c8089df0e7": {
+      "archived": 0,
+      "message_count": 2,
+      "last_message_at": "2026-10-27T07:41:59.783Z",
+      "message_digest": "357073c9f20c630d1145b1816800cc689172e79aed538693d624b9ad9d1486c9"
+    },
+    "01a17c8d-00ab-7d43-89fc-1c9ef8764eb4": {
+      "archived": 1,
+      "message_count": 0,
+      "last_message_at": null,
+      "message_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}

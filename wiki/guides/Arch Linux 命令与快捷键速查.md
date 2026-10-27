@@ -134,6 +134,8 @@ Fcitx5 个人主题复制入口见 [主题维护](Fcitx5%20浅色主题定制与
 | 时钟内容与外观混淆 | format/format-alt/tooltip-format管内容，#clock管栏上样式，tooltip另管弹窗 |
 | 聚焦按钮悬停变色 | focused与hover同时匹配，核对具体度与规则顺序 |
 | Hyprland预设在Niri无工作区 | 替换布局模块并审阅其参数、hyprctl点击命令与include |
-| 数字想改图标 | 查实际niri/workspaces的format、format-icons、覆盖与字体；当前来源未完成验收 |
+| 数字想改图标 | 查实际niri/workspaces的format、format-icons、覆盖与字体；已给方案，尚未完成验收 |
 
 详细知识：[[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#Mechabar适配Niri与悬浮圆角]]。音量点击命令会修改实际设备状态，执行前记录原状态，不能混入只读检查。
+
+个人预设更新先查 `git status`、`git diff`、`git remote -v`；fetch下载引用，merge整合配置，合并前外部备份并确认工作树干净。见 [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#上游预设更新与个人配置保存]]。鼠标随工作区跳动先查Niri warp-mouse-to-focus，不把它误判为Waybar位置样式问题。

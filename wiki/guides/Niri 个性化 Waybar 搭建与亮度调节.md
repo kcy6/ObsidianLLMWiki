@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-27
 sources:
+  - sources/codex-sessions/Waybar 图标鼠标与上游合并-2026-10-27摘录.md
   - sources/codex-sessions/Waybar 时钟状态与 Mechabar 适配-2026-10-27摘录.md
   - sources/codex-sessions/Waybar 圆角选择器与模块阅读-2026-10-27摘录.md
   - sources/codex-sessions/搭建个性化 Waybar.md
@@ -109,16 +110,39 @@ wireplumber的format-muted改变文字，`#wireplumber.muted`改变外观；on-c
 
 来源用户报告已启用Mechabar，助手检查到配置仍用hyprland/workspaces、hyprland/window和hyprctl；安装依赖不会把它们自动变成Niri模块。最小移植是布局数组替换为niri/workspaces与niri/window，并按对应模块定义参数；保留所需装饰模块，审阅include与点击/滚轮外部命令。不要照搬persistent-workspaces或hyprctl命令。
 
-工作区先用 `{index}` 检验实际动态工作区，再按目标模块支持的 `{icon}`、format-icons和字体配置图标。来源给出focused/active/default图标建议，但最后用户仍问“数字如何改图标”，当前日志没有后续答复或验收，**保留待验证**。模板字段不能仅靠预览截图推断已经生效；实际运行文件、后续覆盖和字体缺字都需检查。本轮在线Niri模块手册/预设核对未完成，不将来源示例升级为新版本保证。
+工作区先用 `{index}` 检验实际动态工作区，再按目标模块支持的 `{icon}`、format-icons和字体配置图标。来源给出focused/active/default图标建议，后续答复已给出将format由index改为icon及状态图标映射的方案，仍无用户确认生效，**保留待验收**。模板字段不能仅靠预览截图推断已经生效；实际运行文件、后续覆盖和字体缺字都需检查。本轮在线Niri模块手册/预设核对未完成，不将来源示例升级为新版本保证。
 
 来源预设的JSONC margin=0控制整条栏贴边；分项margin-top/left/right决定离屏边距离。CSS外层#waybar与内层#waybar > box可能各有背景，只给一层圆角仍可能露出另一层直角。可在副本采用外层透明、内层背景/边框/圆角的设计；角落子模块底色露出时再核对内部padding，不能假定父圆角自动裁切全部子元素。button、tooltip、menu的圆角不等于整条栏圆角。
 
 | 状态 | 下一步 | 结论落点 |
 | --- | --- | --- |
-| 待验证 | 检查实际niri/workspaces模块是否启用、format是否仍为index、format-icons是否被覆盖及字体能否显示 | 本节数字/图标问题 |
+| 待实践 | 已有icon/format-icons方案，重载后核对实际模块、配置覆盖和字体，再记录图标验收 | 本节数字/图标问题 |
 | 待实践 | 逐项验收时钟点击/悬停、静音反馈、Mechabar模块与背景圆角，并记录回退 | 本页模块与样式 |
 
 本节为来源文本综合，未读取粘贴附件全文、未重新操作主机Waybar。预设改变不等于本库基础模板已同步为当前主机完整配置，避免把模板反向覆盖用户已启用的栏。
+
+## 工作区图标与鼠标跳动
+
+来源后续建议在已有niri/workspaces中将format改为icon，并以focused/active/default映射图标；普通●/○可先排除Nerd Font缺字，不直接把预览图字形当成已安装字体。修改后重载并切换工作区验收，当前无用户结果确认。
+
+点击工作区后鼠标跳动，来源定位到Niri input中的warp-mouse-to-focus：焦点变化可移动指针；focus-follows-mouse则是移动指针触发焦点。要保持指针位置，可在副本中注释warp选项并校验后合并；同时影响键盘切换窗口的指针行为，不需靠重启Waybar修复。见 [Niri输入配置](https://niri-wm.github.io/niri/Configuration:-Input.html#warp-mouse-to-focus)。本轮未修改实际input设置或验证鼠标行为。
+
+## 上游预设更新与个人配置保存
+
+如果生效的Waybar目录本身是Git仓库，先查status、diff、remote和跟踪分支；如果只是复制目录，就不能直接把git命令套进去。来源报告config.jsonc/style.css未提交，并提出个人分支保存方案，尚无创建分支/提交验收。
+
+| 操作 | 行为与限制 |
+| --- | --- |
+| git fetch origin | 更新远程引用，不直接替换工作树配置 |
+| git merge origin/main | 当前分支合并上游；分支名按实际remote确认，可能冲突 |
+| git pull | 按设置fetch后merge/rebase；未提交改动可能阻止整合，不是“任意本地改动永久安全”保证 |
+| git merge --abort | 仅中止正在进行的merge；合并前仍需干净工作树和外部备份 |
+
+手动步骤：仓库外备份当前可用配置→新建未存在的个人分支→仅暂存实际修改文件并commit→确认干净→fetch→审阅上游差异→merge→解决冲突→验收。commit只保存在本机，不等于远端备份；reset --hard会丢弃已跟踪本地修改，不能当作常规冲突处理。自动重载可能读到冲突标记，优先在副本审阅，不在合并中反复重载正在运行的栏。[Git合并文档](https://git-scm.com/docs/git-merge)
+
+个人样式可集中在独立overrides.css并显式import，但具体度仍影响覆盖；Waybar JSONC include重复项按先定义者优先，不照搬CSS“后覆盖”直觉。模块数组、include顺序和外部脚本依赖须一起维护。[Waybar配置说明](https://github.com/Alexays/Waybar/wiki/Configuration)
+
+这只是预设仓库的局部版本管理建议，不推翻既有模块化配置工程方案，也不重新创建曾被撤销的私人dotfiles仓库。依据 [[sources/codex-sessions/Waybar 图标鼠标与上游合并-2026-10-27摘录]]。
 
 ## 手动搭建流程
 
