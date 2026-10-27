@@ -126,3 +126,14 @@ Fcitx5 个人主题复制入口见 [主题维护](Fcitx5%20浅色主题定制与
 | Kitty配置是否重载/被覆盖 | Ctrl+Shift+F5重载；F6调试配置 | 同上，部分选项仍需新窗口 |
 | Waybar圆角没变化 | 查生效CSS与具体选择器，不只改全局星号 | [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#CSS选择器与圆角不生效]] |
 | 源码里有模块但没显示 | 查布局是否引用，再查模块定义/样式 | [[wiki/guides/shorin-niri 源码学习与配置迁移路线#按完整功能链学习]] |
+
+## Waybar模块内容与预设排错
+
+| 现象 | 先查哪里 |
+| --- | --- |
+| 时钟内容与外观混淆 | format/format-alt/tooltip-format管内容，#clock管栏上样式，tooltip另管弹窗 |
+| 聚焦按钮悬停变色 | focused与hover同时匹配，核对具体度与规则顺序 |
+| Hyprland预设在Niri无工作区 | 替换布局模块并审阅其参数、hyprctl点击命令与include |
+| 数字想改图标 | 查实际niri/workspaces的format、format-icons、覆盖与字体；当前来源未完成验收 |
+
+详细知识：[[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#Mechabar适配Niri与悬浮圆角]]。音量点击命令会修改实际设备状态，执行前记录原状态，不能混入只读检查。

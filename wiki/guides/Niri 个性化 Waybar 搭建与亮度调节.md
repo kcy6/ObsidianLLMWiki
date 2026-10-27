@@ -3,6 +3,7 @@ type: guide
 status: needs-verification
 updated: 2026-10-27
 sources:
+  - sources/codex-sessions/Waybar 时钟状态与 Mechabar 适配-2026-10-27摘录.md
   - sources/codex-sessions/Waybar 圆角选择器与模块阅读-2026-10-27摘录.md
   - sources/codex-sessions/搭建个性化 Waybar.md
   - sources/codex-sessions/推荐本机亮度调节组件.md
@@ -84,6 +85,40 @@ python3 scripts/archlinux/deploy-waybar.py --target /tmp/waybar-review
 
 阅读按模块配对：JSONC的modules-left/center/right决定引用与顺序；模块定义决定format、tooltip和点击命令；CSS决定外观。定义存在但布局未引用，就不能据此推断模块显示。先改一个模块，记录前后差异与回退，再移植整套样式。
 
+
+## 时钟内容、留白与弹窗
+
+| 要改变什么 | 入口 | 判断效果 |
+| --- | --- | --- |
+| 栏上常态时间 | JSONC clock.format，例如 `{:%H:%M}` | 年月日/时分是占位格式，不是CSS |
+| 点击后的另一种内容 | format-alt | 同一模块切换内容，不新建第二个时钟；按目标版本与点击配置确认 |
+| 悬停提示 | tooltip-format，日历占位符calendar | 提示支持的Pango标记与CSS不同 |
+| 时钟文字/背景/留白 | CSS #clock | 不控制tooltip或tooltip label |
+| 左右/上下内部留白 | padding: 0 16px / 6px 16px | 内部背景变宽/高，不改变文字字号 |
+| 模块外部间距 | margin: 4px 0 | 与自身背景内部留白分开 |
+
+时钟背景透明时padding不易看出；先给背景对照，逐项比较，不重复添加多个#clock块。增大上下padding可能撑高整条栏。%Y/%m/%d为年/月/日，%H/%M/%S为时/分/秒，%A受区域设置影响。来源用户只确认顶栏0→16px圆角对照已完成；后续时钟、悬停和操作练习不能一并算验收。依据 [[sources/codex-sessions/Waybar 时钟状态与 Mechabar 适配-2026-10-27摘录]]。
+
+## 状态样式与鼠标动作
+
+状态→CSS类→外观，和点击→命令→实际状态，是两条链。focused与hover可以同时匹配，同优先级规则还要看顺序；需要保留聚焦按钮悬停色时，用更具体的 `#workspaces button.focused:hover`。
+
+wireplumber的format-muted改变文字，`#wireplumber.muted`改变外观；on-click执行的wpctl才改变音频状态。`wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle`会真实切换静音，set-volume会改变音量，不当作只读诊断；设置音量不等于解除静音。来源scroll-step=2是模块滚轮步长示例，不是所有模块通用字段。复用前核对模块类型和目标设备，测试后恢复原状态。
+
+## Mechabar适配Niri与悬浮圆角
+
+来源用户报告已启用Mechabar，助手检查到配置仍用hyprland/workspaces、hyprland/window和hyprctl；安装依赖不会把它们自动变成Niri模块。最小移植是布局数组替换为niri/workspaces与niri/window，并按对应模块定义参数；保留所需装饰模块，审阅include与点击/滚轮外部命令。不要照搬persistent-workspaces或hyprctl命令。
+
+工作区先用 `{index}` 检验实际动态工作区，再按目标模块支持的 `{icon}`、format-icons和字体配置图标。来源给出focused/active/default图标建议，但最后用户仍问“数字如何改图标”，当前日志没有后续答复或验收，**保留待验证**。模板字段不能仅靠预览截图推断已经生效；实际运行文件、后续覆盖和字体缺字都需检查。本轮在线Niri模块手册/预设核对未完成，不将来源示例升级为新版本保证。
+
+来源预设的JSONC margin=0控制整条栏贴边；分项margin-top/left/right决定离屏边距离。CSS外层#waybar与内层#waybar > box可能各有背景，只给一层圆角仍可能露出另一层直角。可在副本采用外层透明、内层背景/边框/圆角的设计；角落子模块底色露出时再核对内部padding，不能假定父圆角自动裁切全部子元素。button、tooltip、menu的圆角不等于整条栏圆角。
+
+| 状态 | 下一步 | 结论落点 |
+| --- | --- | --- |
+| 待验证 | 检查实际niri/workspaces模块是否启用、format是否仍为index、format-icons是否被覆盖及字体能否显示 | 本节数字/图标问题 |
+| 待实践 | 逐项验收时钟点击/悬停、静音反馈、Mechabar模块与背景圆角，并记录回退 | 本页模块与样式 |
+
+本节为来源文本综合，未读取粘贴附件全文、未重新操作主机Waybar。预设改变不等于本库基础模板已同步为当前主机完整配置，避免把模板反向覆盖用户已启用的栏。
 
 ## 手动搭建流程
 
