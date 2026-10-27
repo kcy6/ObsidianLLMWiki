@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-26
+updated: 2026-10-27
 sources:
   - wiki/guides/Kitty 与 Zsh 终端配置和复制操作.md
   - wiki/guides/Arch Linux 常用软件安装与维护.md
@@ -117,3 +117,12 @@ Fcitx5 个人主题复制入口见 [主题维护](Fcitx5%20浅色主题定制与
 | 离开tmux保留任务 | Ctrl+B后松开再按D | detach，不等于关机保存；[[wiki/guides/Kitty 与 Zsh 终端配置和复制操作]] |
 
 锁屏模板模块名为lockscreen；生成器--apply只输出配置，真实swaylock调用会锁当前桌面，不混入只读诊断代码块。
+
+## Kitty与Waybar定位入口
+
+| 问题 | 快捷入口 | 详细指南 |
+| --- | --- | --- |
+| 终端输出太长 | Ctrl+Shift+H | [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作#Kitty标签、分屏与配置入口速查]] |
+| Kitty配置是否重载/被覆盖 | Ctrl+Shift+F5重载；F6调试配置 | 同上，部分选项仍需新窗口 |
+| Waybar圆角没变化 | 查生效CSS与具体选择器，不只改全局星号 | [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#CSS选择器与圆角不生效]] |
+| 源码里有模块但没显示 | 查布局是否引用，再查模块定义/样式 | [[wiki/guides/shorin-niri 源码学习与配置迁移路线#按完整功能链学习]] |

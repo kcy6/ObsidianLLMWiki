@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-26
+updated: 2026-10-27
 sources:
+  - sources/codex-sessions/Kitty 操作与配置学习指南-2026-10-27摘录.md
   - sources/codex-sessions/Vim Neovim 与 tmux 选择-2026-10-26摘录.md
   - sources/codex-sessions/终端开发环境分层方案-2026-10-26摘录.md
   - sources/codex-sessions/Vim 搜索与高亮增量-2026-10-23摘录.md
@@ -80,6 +81,25 @@ Starship 通常下个提示符生效；Kitty 用默认 `Ctrl+Shift+F5` 或重开
 | `yy` / `p` | Vim 内部寄存器，不保证进入桌面剪贴板 |
 
 Vim 的 `+clipboard` 不等于原生 Wayland 连接已就绪；功能不可用时可选择 Kitty 复制，或用 `wl-copy < 文件` 复制完整文本（会替换剪贴板）。含私密内容时先判断是否应复制，不能把终端历史作为可公开配置。
+
+## Kitty标签、分屏与配置入口速查
+
+系统窗口→tab→内部window（分屏）是Kitty层级，文档window不一定指Niri桌面窗口。以下为Linux默认映射，个人配置可能覆盖；见 [Kitty概览](https://sw.kovidgoyal.net/kitty/overview/)。
+
+| 需求 | 默认快捷键 |
+| --- | --- |
+| 新建tab / 下一tab / 上一tab | Ctrl+Shift+T / Ctrl+Shift+Right / Ctrl+Shift+Left |
+| 新建内部window / 下一个 / 关闭当前 | Ctrl+Shift+Enter / Ctrl+Shift+] / Ctrl+Shift+W |
+| 循环布局 | Ctrl+Shift+L |
+| 分页查看历史输出 | Ctrl+Shift+H；分页器中搜索/词、n/N、q退出 |
+| 重载配置 / 调试配置 | Ctrl+Shift+F5 / Ctrl+Shift+F6 |
+
+kitty.conf通常为“选项名 空格 值”，不是INI；map定义按键，部分改动需新窗口或重启。最小可复用项是字号、padding、scrollback、响铃、布局，优先合并现有文件；不能把入门示例覆盖成当前完整配置。[配置参考](https://sw.kovidgoyal.net/kitty/conf/)
+
+需要固定方向分屏时先采用splits布局，再审阅launch的location与cwd参数；Kitty内部映射可能与编辑器/桌面按键冲突。主题、字体交互工具会改变外观，icat需实际图片，kitten ssh会联网，都不混入只读诊断脚本。进阶按需学习sessions、hints和remote control，后者的授权单独核对。
+
+来源 [[sources/codex-sessions/Kitty 操作与配置学习指南-2026-10-27摘录]] 为学习建议，不代表新快捷键或完整最小配置已应用；真实使用仍验收新开窗口、布局、当前目录与重载结果。
+
 
 ## 后续维护与待办
 

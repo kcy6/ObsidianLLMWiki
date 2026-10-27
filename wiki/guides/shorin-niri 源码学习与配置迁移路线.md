@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-26
+updated: 2026-10-27
 sources:
+  - sources/codex-sessions/项目功能链学习路线调整-2026-10-27摘录.md
   - sources/codex-sessions/同步失败传播与计数练习-2026-10-26摘录.md
   - sources/codex-sessions/Kitty 浮动终端与窗口规则-2026-10-26摘录.md
   - sources/codex-sessions/shorin-niri 学习增量-2026-10-23摘录.md
@@ -81,6 +82,22 @@ sources:
 | 失败后继续 | 记录失败数并continue，成功分支才计成功 | fail_count大于0返回1，否则0；最外层仍检查 |
 
 继续处理不代表全成功，停止也不会回滚此前成功文件。以上仅教学修改，未写回项目。完整语法和模板见 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习#失败处理]]；避免再次在本页复制整套函数。依据 [[sources/codex-sessions/同步失败传播与计数练习-2026-10-26摘录]]。
+
+## 按完整功能链学习
+
+2026-10-26后续三轮收束exit/return区别和NUL枚举，用户认为碎片语法题过慢，路线改为四个功能模块：Waybar按钮→壁纸配色→窗口/录屏IPC→部署定制。25%–30%仅是来源教学覆盖估计，不作为能力或验收百分比。
+
+| 模块 | 要找的调用链 | 交付或检查 |
+| --- | --- | --- |
+| Waybar截图 | 布局引用→modules定义→截图脚本→CSS | 指出模块移动、事件交换与字号分别改何处 |
+| 壁纸配色 | Waypaper→Matugen模板/输出→应用刷新 | 区分生成物与模板 |
+| 动态工具 | Niri IPC/JSON→进程状态→信号更新 | 解释状态与刷新接口 |
+| 部署定制 | 依赖→保护→备份复制→失败传播 | 模块选择、验收及回退 |
+
+截图例子的关键知识：slurp选区，grim输出图像到stdout，wl-copy接收，通知另发；这条链没有写截图文件。右键wl-longshot-menu是外部依赖，不能只由本仓库解释其完整行为；没有pipefail的管道也不能只由末端成功证明全部阶段成功。模块名custom/screenshot对应CSS ID #custom-screenshot；实际点击路径指向HOME部署副本，直接启动仓库JSONC不自动改为仓库脚本路径。
+
+依据 [[sources/codex-sessions/项目功能链学习路线调整-2026-10-27摘录]]；本轮只整理读码与任务，不运行截图、不覆盖桌面配置。语法知识继续回链 [[wiki/guides/Bash 脚本语法速通与 shorinniri 阅读练习]]，避免重复逐题教学。
+
 
 ## 收录与验证范围
 

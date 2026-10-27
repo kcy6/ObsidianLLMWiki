@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-24
+updated: 2026-10-27
 sources:
+  - sources/codex-sessions/Waybar 圆角选择器与模块阅读-2026-10-27摘录.md
   - sources/codex-sessions/搭建个性化 Waybar.md
   - sources/codex-sessions/推荐本机亮度调节组件.md
   - wiki/assets/waybar/config.jsonc
@@ -65,6 +66,24 @@ python3 scripts/archlinux/deploy-waybar.py --target /tmp/waybar-review
 基础布局为 `工作区 · 窗口标题 | 日期时间 | CPU · RAM · 网络 · 音量 · 电池 · 托盘`；本页在网络和音量之间加入亮度。工作区与窗口使用 `niri/workspaces`、`niri/window`；Hyprland 主题移植时必须核对模块及参数，不能只换配色就假定完全兼容。依据：[[sources/codex-sessions/搭建个性化 Waybar]]；通用配置与样式核对 [Waybar 配置文档](https://github.com/Alexays/Waybar/wiki/Configuration) 和 [Styling](https://github.com/Alexays/Waybar/wiki/Styling)。
 
 2026-10-21 额外只读观察：来源工作区 `waybar/` 副本尚未包含亮度模块；该日期读取的用户配置已包含 backlight，样式的 accent、字号和部分圆角也与初始副本不同。初始配置是重建起点，不能当成当前配置的完整备份。不要重新运行基础部署覆盖正在调整的栏。
+
+## CSS选择器与圆角不生效
+
+先确认修改的是实际加载的style.css，而非源码初始副本。来源用户修改圆角无明显变化，助手判断更具体规则覆盖了全局值；这是对当时文件的分析，未取得修改后视觉验收。依据 [[sources/codex-sessions/Waybar 圆角选择器与模块阅读-2026-10-27摘录]]。
+
+| 选择器/属性 | 查找对象或用途 |
+| --- | --- |
+| `*` | 全局基础样式，更具体的同名属性可能覆盖它 |
+| `window#waybar` | 顶栏窗口背景/边框，不是单个按钮 |
+| `#clock` | 时钟模块，文字、背景、内部留白 |
+| `#workspaces button.focused` | 工作区内有focused类的按钮；不要与所有按钮规则混淆 |
+| `button:hover` | 悬停伪类，区别于点号连接的状态类 |
+| padding / margin | 内部留白 / 外部间距，不是圆角 |
+
+排错顺序：确认生效文件 → 找目标节点 → 查更具体规则及后续覆盖 → 比较0px与16px等明显值 → 确认背景可见 → 按重载流程验证。透明背景上圆角可能看不见；接近胶囊形后增大数值变化也可能很小。圆角改变背景和边框轮廓，不改变文字字形。选择器与主题机制见 [Waybar样式说明](https://github.com/Alexays/Waybar/wiki/Styling)。
+
+阅读按模块配对：JSONC的modules-left/center/right决定引用与顺序；模块定义决定format、tooltip和点击命令；CSS决定外观。定义存在但布局未引用，就不能据此推断模块显示。先改一个模块，记录前后差异与回退，再移植整套样式。
+
 
 ## 手动搭建流程
 

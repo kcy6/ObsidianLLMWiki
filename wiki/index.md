@@ -1,7 +1,7 @@
 ---
 type: index
 status: draft
-updated: 2026-10-26
+updated: 2026-10-27
 sources: []
 ---
 
@@ -15,7 +15,7 @@ sources: []
 
 ## 桌面、输入与文件管理
 
-- [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]]：修改模块看 JSONC，修改样式看 CSS，亮度先确认设备。
+- [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节]]：模块/点击行为、CSS选择器与圆角排错、亮度设备。
 - [[wiki/guides/Niri 桌面的暗色外观与 GTK Qt 配置]]：按 GTK、Qt、终端、状态栏和应用分别设置主题。
 - [[wiki/guides/Niri 文件选择器与桌面应用入口排错]]：按启动器、应用、Portal、面板顺序缩小问题范围。
 - [[wiki/guides/Nautilus 书签与文件缓存维护]]：书签用 UI 管理；缓存先看候选再决定是否清理。
