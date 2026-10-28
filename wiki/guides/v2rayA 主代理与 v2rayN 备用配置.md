@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-25
+updated: 2026-10-28
 sources:
+  - sources/codex-sessions/v2rayA 系统服务与启动方式-2026-10-28摘录.md
   - sources/codex-sessions/v2rayA DNS 复发与基础解析恢复-2026-10-25摘录.md
   - sources/codex-sessions/代理开机 DNS 排错增量-2026-10-23摘录.md
   - sources/codex-sessions/查找 v2rayN 本机支持版本-2026-10-22会话摘录.md
@@ -126,6 +127,22 @@ python3 scripts/archlinux/stage-session-config.py proxy --output /tmp/proxy-revi
 修改连接DNS和reapply/restart会影响网络，应逐项操作并检查：主代理运行时解析、停止主代理后的基础解析、主备用切换、重启/晚联网/重连，以及hook日志。`systemctl --no-block`成功只表示提交请求，需随后核对服务日志和功能。当前未取得上述完整验收。
 
 回退：先禁用本次新增hook，再恢复连接原DNS及ignore-auto-dns值，必要时重新应用连接；按原备份恢复本次改动的drop-in，保留其他自定义设置，不整套revert。回退也可能短暂断网。若复发，留证后再恢复，继续检查核心/上游DNS和路由。
+
+## 服务启动与管理页的边界
+
+| 目的 | 系统服务命令 | 影响 |
+| --- | --- | --- |
+| 查状态 | `systemctl status v2raya` | 只读；inactive等状态可能返回非零 |
+| 按需启动 | `sudo systemctl start v2raya` | 启动系统服务，不自动表示网页内核心已连接 |
+| 开机启动且现在启动 | `sudo systemctl enable --now v2raya` | 两种变化一起发生；已启用无需反复设置 |
+| 重新初始化 | `sudo systemctl restart v2raya` | 可能中断代理连接；恢复命令不等于根因修复 |
+
+上述命令各自选择执行，不整体复制。来源机器使用系统v2raya.service；systemctl --user操作当前用户自己的服务管理器，不能只添加该选项就把系统服务改成用户服务。透明代理涉及系统路由/防火墙/DNS，现有方案保持系统服务；普通SOCKS/HTTP用途若另建用户服务，须重新设计权限与配置，不照抄。也不把sudo systemctl --user当作控制系统单元的方式。
+
+浏览器打开127.0.0.1:2017是访问管理页；网页内部开启核心与systemd启动服务分开。Fuzzel入口可以只是打开网页，服务恢复入口则需要明确终端交互授权；来源只提出菜单入口建议，尚未创建或验收。不另外运行裸sudo v2raya和既有服务竞争，也不在桌面自启动重复拉起系统服务。
+
+依据 [[sources/codex-sessions/v2rayA 系统服务与启动方式-2026-10-28摘录]]，仅收录机制与操作范围，未启动/重启/enable服务、创建desktop入口或更改网络。
+
 
 ## 收录与验证范围
 

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "scope": "archlinux环境搭建",
   "notice": "仅当前持久rollout检查点，不替代历史快照或证明完整历史覆盖",
   "threads": {
@@ -29,9 +29,9 @@
     },
     "01a159b5-727a-7d32-a62d-4d7b1716a193": {
       "archived": 0,
-      "message_count": 35,
-      "last_message_at": "2026-10-26T07:45:05.823Z",
-      "message_digest": "4f2a8549bb5176e44f2e5aae718e7bad4b9b04076a7cbfb6b6287fd083fa9d9a"
+      "message_count": 42,
+      "last_message_at": "2026-10-28T13:11:31.178Z",
+      "message_digest": "6992d7b8aff8e631f62c3f35ad77e92cdbbf7df2b67b05b57ab6901fca242aec"
     },
     "01a159d0-78c4-79b0-8b8e-6fda1df0d3a0": {
       "archived": 0,
@@ -101,9 +101,9 @@
     },
     "01a1635c-4ad1-7312-8ce8-dfc28a8ec890": {
       "archived": 0,
-      "message_count": 32,
-      "last_message_at": "2026-10-24T01:02:20.613Z",
-      "message_digest": "90a2f160536759d9c6cce55501530182e4f4b5fec6b04ae6b73d5711338ccd62"
+      "message_count": 36,
+      "last_message_at": "2026-10-28T03:07:16.284Z",
+      "message_digest": "3fa594ad0b00f00d6406f3139ae27000479194acef1c85eab4bdd1486cd08a5a"
     },
     "01a163a7-2866-76e0-9501-7bc7cb09ca9e": {
       "archived": 0,

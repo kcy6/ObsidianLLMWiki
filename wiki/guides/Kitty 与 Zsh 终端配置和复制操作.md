@@ -1,8 +1,9 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-27
+updated: 2026-10-28
 sources:
+  - sources/codex-sessions/终端配色与 Kitty 配置学习-2026-10-28摘录.md
   - sources/codex-sessions/Kitty 操作与配置学习指南-2026-10-27摘录.md
   - sources/codex-sessions/Vim Neovim 与 tmux 选择-2026-10-26摘录.md
   - sources/codex-sessions/终端开发环境分层方案-2026-10-26摘录.md
@@ -148,6 +149,35 @@ tmux ls
 只读列会话，需已安装tmux；无服务器时可能非零返回。`tmux new -s dev` 创建会话，`tmux attach -t dev`连接已有会话；会话内Ctrl+B后松开再按D为detach。远端tmux通常在SSH断开后保留任务，但主机重启后原进程不保留。参见 [tmux入门](https://github.com/tmux/tmux/wiki/Getting-Started)。
 
 依据 [[sources/codex-sessions/Vim Neovim 与 tmux 选择-2026-10-26摘录]]，仅选型和操作说明，未部署开发环境。
+
+## 同一终端里Vim与Neovim配色不同
+
+先按层排查：Kitty终端调色板/背景 → 编辑器自身高亮与背景 → Niri整窗透明。Vim的~/.vimrc和Neovim的~/.config/nvim/init.lua不是同一配置入口，不能因终端相同就假定编辑器外观相同。来源检查称当时Neovim无用户配置，Kitty背景不透明度为0.95；这是来源时点观察，图片本轮未核验。
+
+来源建议在Neovim中临时试用 `:set notermguicolors` 和 `:colorscheme vim`，效果确认后再考虑写入init.lua：
+
+```lua
+vim.opt.termguicolors = false
+vim.cmd.colorscheme("vim")
+```
+
+这是候选方案，不自动覆盖init.lua，也不保证不同版本都有同名配色或相同显示效果；先在当前版本试验并保留旧设置。编辑器使用的背景颜色可能改变终端透明的观感，不能只调终端opacity解释全部高亮差异。来源 [[sources/codex-sessions/终端配色与 Kitty 配置学习-2026-10-28摘录]]，未执行配置修改。
+
+## kitty.conf按配置职责学习
+
+| 功能组 | 查什么 | 一个可验收结果 |
+| --- | --- | --- |
+| 结构 | 配置项、include、默认值与重载 | 画出当前入口和引用关系，不复制全部默认项 |
+| 字体/间距 | 字体、字号、粗斜体、padding、行高 | 一次改一组，选出代码/中文可读组合 |
+| 颜色/透明 | 前景背景、ANSI色、选区和应用自有主题 | 区分Kitty、Starship、编辑器、Niri影响 |
+| 光标/交互 | 形状、闪烁、滚动历史、响铃、Shell integration | 实测日常命令、长输出及复制 |
+| 窗口/映射 | OS窗口、tab、内部分屏和map | 检查与桌面/编辑器按键冲突 |
+| 整理/恢复 | 重复项、覆盖、调试配置和备份 | 为保留设置注明理由，并能恢复 |
+
+这是来源六阶段建议，不是已完成六阶段。优先阅读实际kitty.conf及include，每次只改一个功能组；注释说明为何设置，重载后仍需确认是否要求新窗口。
+
+来源报告已创建网页版任务清单，进度只存当前浏览器，不跨设备同步；本轮未打开或导出网页、未核验30项任务或预览图，因此网页不作为独立知识证据和必需迁移依赖。持久知识仍在本页维护。最后 `kitten hints` 示例请求尚无最终答复，保留待补充，不自行记作已教或已掌握。
+
 
 ## 收录与验证范围
 

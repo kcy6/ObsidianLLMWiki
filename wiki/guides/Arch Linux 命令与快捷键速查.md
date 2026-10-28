@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-27
+updated: 2026-10-28
 sources:
   - wiki/guides/Kitty 与 Zsh 终端配置和复制操作.md
   - wiki/guides/Arch Linux 常用软件安装与维护.md
@@ -139,3 +139,9 @@ Fcitx5 个人主题复制入口见 [主题维护](Fcitx5%20浅色主题定制与
 详细知识：[[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#Mechabar适配Niri与悬浮圆角]]。音量点击命令会修改实际设备状态，执行前记录原状态，不能混入只读检查。
 
 个人预设更新先查 `git status`、`git diff`、`git remote -v`；fetch下载引用，merge整合配置，合并前外部备份并确认工作树干净。见 [[wiki/guides/Niri 个性化 Waybar 搭建与亮度调节#上游预设更新与个人配置保存]]。鼠标随工作区跳动先查Niri warp-mouse-to-focus，不把它误判为Waybar位置样式问题。
+
+## 代理服务与编辑器配色定位
+
+- 查系统代理服务：`systemctl status v2raya`，只读；start/restart/enable会改变服务或开机行为，回 [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置#服务启动与管理页的边界]] 查看。
+- 同一Kitty里的Vim/Neovim外观不同，先查各自配置及颜色模式，见 [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作#同一终端里Vim与Neovim配色不同]]。
+- kitty.conf职责与复用顺序见该页学习表；kitten hints当前来源尚无答复，未列为已完成教程。
