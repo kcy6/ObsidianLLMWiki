@@ -1,7 +1,7 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-28
+updated: 2026-10-29
 sources:
   - wiki/guides/Kitty 与 Zsh 终端配置和复制操作.md
   - wiki/guides/Arch Linux 常用软件安装与维护.md
@@ -144,4 +144,10 @@ Fcitx5 个人主题复制入口见 [主题维护](Fcitx5%20浅色主题定制与
 
 - 查系统代理服务：`systemctl status v2raya`，只读；start/restart/enable会改变服务或开机行为，回 [[wiki/guides/v2rayA 主代理与 v2rayN 备用配置#服务启动与管理页的边界]] 查看。
 - 同一Kitty里的Vim/Neovim外观不同，先查各自配置及颜色模式，见 [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作#同一终端里Vim与Neovim配色不同]]。
-- kitty.conf职责与复用顺序见该页学习表；kitten hints当前来源尚无答复，未列为已完成教程。
+- kitty.conf职责与复用顺序见该页学习表；hints最终绑定见该页，统一Ctrl+Shift+P前缀。
+
+## hints屏幕文本操作
+
+本机自定义：Ctrl+Shift+P后松开，再按u复制URL、f回填路径、h回填哈希、l复制整行、n新tab编辑文件行号。不是默认快捷键；复制会改剪贴板、回填会发送文本、n会启动编辑器。配置与冲突处理见 [[wiki/guides/Kitty 与 Zsh 终端配置和复制操作#hints最终快捷键与冲突排查]]。
+
+kitty.conf为入口，字体/appearance/tabs/keybindings/current-theme分文件；enabled_layouts当前在appearance.conf。复制迁移先核对include和字体，不直接用最小模板覆盖。

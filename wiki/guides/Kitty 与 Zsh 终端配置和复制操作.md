@@ -1,8 +1,10 @@
 ---
 type: guide
 status: needs-verification
-updated: 2026-10-28
+updated: 2026-10-29
 sources:
+  - sources/codex-sessions/终端 hints SSH 与配置拆分-2026-10-29摘录.md
+  - sources/project-notes/Kitty配置布局-2026-10-29.md
   - sources/codex-sessions/终端配色与 Kitty 配置学习-2026-10-28摘录.md
   - sources/codex-sessions/Kitty 操作与配置学习指南-2026-10-27摘录.md
   - sources/codex-sessions/Vim Neovim 与 tmux 选择-2026-10-26摘录.md
@@ -176,8 +178,47 @@ vim.cmd.colorscheme("vim")
 
 这是来源六阶段建议，不是已完成六阶段。优先阅读实际kitty.conf及include，每次只改一个功能组；注释说明为何设置，重载后仍需确认是否要求新窗口。
 
-来源报告已创建网页版任务清单，进度只存当前浏览器，不跨设备同步；本轮未打开或导出网页、未核验30项任务或预览图，因此网页不作为独立知识证据和必需迁移依赖。持久知识仍在本页维护。最后 `kitten hints` 示例请求尚无最终答复，保留待补充，不自行记作已教或已掌握。
+来源报告已创建网页版任务清单，进度只存当前浏览器，不跨设备同步；本轮未打开或导出网页、未核验30项任务或预览图，因此网页不作为独立知识证据和必需迁移依赖。持久知识仍在本页维护。后续hints答复、冲突处理及最终结构已收录到下节；旧待补充描述由2026-10-29记录替代，功能仍按验收范围判断。
 
+
+## hints最终快捷键与冲突排查
+
+hints识别已经显示在终端中的文字，fzf查文件/历史，两者不同。先按Ctrl+Shift+P，松开全部键，再按小写第二键；选标签完成动作，Esc取消。这是本机自定义绑定，不是通用Linux默认键。
+
+| 第二键 | 对象 | 最终动作 |
+| --- | --- | --- |
+| u | URL | 复制到剪贴板 |
+| f | 文件路径 | 回填当前终端；例如先输入nvim加空格，再选路径，确认后回车 |
+| h | 提交哈希 | 回填当前终端；先运行git log，再输入git show加空格并选择 |
+| l | 整行输出 | 复制，避免整行日志直接回填Shell |
+| n | path:line | 新tab用Neovim跳行；相对路径依赖当前目录 |
+
+具体可合并配置见 [hints绑定模板](../assets/session-templates/terminal/kitty-keybindings.conf.example)，由既有terminal模板生成器只复制到新目录，不自动部署。`--program @`为复制，`--program -`为回填；回填会向当前终端发送内容，选中后仍须确认，不把任意输出当可信命令。行号跳转会启动编辑器，复制动作会替换剪贴板。[Kitty hints说明](https://sw.kovidgoyal.net/kitty/kittens/hints/)
+
+最早Ctrl+Alt+P与Fcitx5预编辑冲突，Ctrl+Alt+H冲突来源未确认；最终统一前缀替换旧自定义键，未修改输入法设置。先核对Kitty是否收到按键、匹配对象是否可见/存在，再排查桌面、输入法和应用冲突。来源只报告配置解析通过，未将所有图形动作和真实SSH连接记为已验收。依据 [[sources/codex-sessions/终端 hints SSH 与配置拆分-2026-10-29摘录]]。
+
+## 当前六文件结构与复用
+
+2026-10-29只读观察见 [[sources/project-notes/Kitty配置布局-2026-10-29]]；此前“三文件足够”的建议是历史中间阶段，不再代表当前布局。
+
+| 文件 | 当前职责 | 迁移边界 |
+| --- | --- | --- |
+| kitty.conf | Shell、Shell integration及include入口 | 保留主题工具区块和加载顺序 |
+| fonts.conf | 字体/字号 | 新机确认字体可用，不能仅复制字体名称 |
+| appearance.conf | 留白、透明、装饰及enabled_layouts | 布局属内部分屏，不是tabs栏结构 |
+| tabs.conf | 标签栏条件、结构、文字样式 | 标签颜色仍由主题管理 |
+| keybindings.conf | 自定义按键 | 检查Niri/Fcitx5/应用冲突，避免重复定义 |
+| current-theme.conf | 主题颜色 | 保留主题工具约定，不为文件名整齐擅改成colors.conf |
+
+文件名无特殊语义，真正决定的是include与选项。拆分迁移须带齐被引用文件，先备份现有配置，在副本比较有效值，再合并、重载并新开窗口验收；不重复保留旧绑定。来源报告拆分前后481项解析相同，本轮只核对文件和布局位置，未重跑该解析比较。最后将enabled_layouts放入appearance.conf的建议已由本机只读文件确认落实。
+
+本库最小terminal模板不是该六文件结构的完整备份，只提供学习与生成起点；不要用它覆盖当前已拆分配置。用户个人配置仍是普通文件，不重建被撤销的dotfiles仓库。
+
+## kitten ssh与普通SSH
+
+认证仍沿用SSH机制，Kitty工具主要补远端terminfo、Shell集成和连接复用准备，不等于免认证或更换服务器权限。`kitten ssh 用户@主机`会真实联网并可能准备远端环境；主机信任、账户、跳板/策略按实际配置核对，不把它当只读命令。普通ssh已满足需求时不强制替换。
+
+来源仅生成本地交互演示，本轮未导出该HTML、未连接服务器或验收远端依赖；机制入口见 [Kitty SSH官方说明](https://sw.kovidgoyal.net/kitty/kittens/ssh/)。复用重点是按目标环境验证终端识别与Shell行为，而不是复制演示路径作为部署依赖。
 
 ## 收录与验证范围
 

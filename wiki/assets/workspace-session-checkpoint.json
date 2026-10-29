@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "scope": "archlinux环境搭建",
   "notice": "仅当前持久rollout检查点，不替代历史快照或证明完整历史覆盖",
   "threads": {
@@ -28,10 +28,10 @@
       "message_digest": "d3d541b77fb4963acaf9434d8a341f26da67ebdc647f635c7ddb07a24c74a6ba"
     },
     "01a159b5-727a-7d32-a62d-4d7b1716a193": {
-      "archived": 0,
-      "message_count": 42,
-      "last_message_at": "2026-10-28T13:11:31.178Z",
-      "message_digest": "6992d7b8aff8e631f62c3f35ad77e92cdbbf7df2b67b05b57ab6901fca242aec"
+      "archived": 1,
+      "message_count": 64,
+      "last_message_at": "2026-10-29T08:04:53.589Z",
+      "message_digest": "889e83ec0dd07a8c8f4ab33d7958ae76244a0f2521faedb9531420d59c6fd8f7"
     },
     "01a159d0-78c4-79b0-8b8e-6fda1df0d3a0": {
       "archived": 0,
